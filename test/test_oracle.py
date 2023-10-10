@@ -4,7 +4,9 @@ import os
 import sys
 import json
 import logging
+from typing import List
 
+import pytest
 from tqdm import tqdm
 
 from tooltalk.evaluation.tool_executor import ToolExecutor, BaseAPIPredictor
@@ -80,13 +82,13 @@ def get_arg_parser():
     return parser
 
 
-def main():
+def main(flags: List[str] = None):
     """
     go through every conversation in dataset and simulate each turn
     then execute ground truth verifying that it matches 100%
     """
     parser = get_arg_parser()
-    args = parser.parse_args()
+    args = parser.parse_args(flags)
     this_dir = os.path.dirname(os.path.abspath(__file__))
     data_dir = os.path.abspath(os.path.join(this_dir, "..", "data"))
     test_dataset_path = os.path.join(data_dir, args.dataset_name)
@@ -109,6 +111,14 @@ def main():
         assert metrics["recall"] == 1.0
         assert metrics["success"]
         logger.info(f"Conversation: {file_name} passed!")
+
+
+@pytest.mark.parametrize("dataset_name", ["easy", "tooltalk"])
+def test_oracle(dataset_name):
+    main([
+        "--dataset_name", dataset_name,
+        "--disable_session_token"
+    ])
 
 
 if __name__ == '__main__':

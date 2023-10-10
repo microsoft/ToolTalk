@@ -8,7 +8,7 @@ from abc import ABC, abstractmethod
 
 from tooltalk.apis import ALL_APIS
 from tooltalk.apis.account import ACCOUNT_DB_NAME, UserLogin, LogoutUser, RegisterUser
-from tooltalk.utils import get_names_and_paths
+from tooltalk.utils.file_utils import get_names_and_paths
 
 logger = logging.getLogger(__name__)
 
