@@ -4,9 +4,9 @@ This is the repo for ToolTalk: Evaluating Tool Usage in a Conversation Setting.
 
 ## Setup
 
-```commandline
+```bash
 pip install -r requirements.txt
-pip install -e ".[dev]"
+pip install ".[dev]"
 ```
 
 

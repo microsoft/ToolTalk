@@ -12,11 +12,11 @@ from collections import Counter
 import openai
 from tqdm import tqdm
 
-from paper.apis import APIS_BY_NAME, ALL_APIS
-from paper.evaluation.tool_executor import ToolExecutor, BaseAPIPredictor
-from paper.evaluation import DATABASE_PATH
-from paper.utils.file_utils import get_names_and_paths
-from paper.utils.openai_utils import openai_chat_completion
+from tooltalk.apis import APIS_BY_NAME, ALL_APIS
+from tooltalk.evaluation.tool_executor import ToolExecutor, BaseAPIPredictor
+from tooltalk.evaluation import DATABASE_PATH
+from tooltalk.utils.file_utils import get_names_and_paths
+from tooltalk.utils.openai_utils import openai_chat_completion
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

@@ -1,0 +1,7 @@
+tqdm
+numpy
+matplotlib
+openai
+sent2vec
+jupyterlab
+pytest

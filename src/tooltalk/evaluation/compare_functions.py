@@ -1,7 +1,7 @@
 import logging
 
-from paper.evaluation import DATABASE_PATH
-from paper.evaluation.tool_executor import ToolExecutor
+from tooltalk.evaluation import DATABASE_PATH
+from tooltalk.evaluation.tool_executor import ToolExecutor
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)

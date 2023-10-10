@@ -7,8 +7,8 @@ import logging
 
 from tqdm import tqdm
 
-from paper.evaluation.tool_executor import ToolExecutor, BaseAPIPredictor
-from paper.utils.file_utils import get_names_and_paths
+from tooltalk.evaluation.tool_executor import ToolExecutor, BaseAPIPredictor
+from tooltalk.utils.file_utils import get_names_and_paths
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)

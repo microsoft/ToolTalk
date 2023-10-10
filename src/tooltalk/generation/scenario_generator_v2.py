@@ -12,9 +12,9 @@ from typing import Optional, List
 
 from tqdm import tqdm
 
-from paper.utils.openai_utils import openai_completion
-from paper.apis import ALL_SUITES
-from plugineval.utils import chunkify
+from tooltalk.utils.openai_utils import openai_completion
+from tooltalk.apis import ALL_SUITES
+from tooltalk.file_utils import chunkify
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

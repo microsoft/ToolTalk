@@ -3,7 +3,7 @@ import logging
 import argparse
 from collections import Counter
 
-from paper.utils.file_utils import get_names_and_paths
+from tooltalk.utils.file_utils import get_names_and_paths
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
