@@ -1,0 +1,196 @@
+{
+    "name": "Messages-Reminder-Weather-GetReminder-0",
+    "conversation_id": "606698d5-ea90-42a3-beed-50f23f629800",
+    "suites_used": [
+        "Messages",
+        "Reminder",
+        "Weather"
+    ],
+    "apis_used": [
+        "SearchMessages",
+        "SendMessage",
+        "GetReminders",
+        "CurrentWeather",
+        "ForecastWeather"
+    ],
+    "scenario": "The user wants to check their reminders for the day (GetReminders). They see that they have a reminder to call their friend Bob, who lives in New York, at 3 pm. They want to know what the weather is like in New York, so they can make some small talk (CurrentWeather). They also want to know if the weather will change in the next few days, so they can suggest some activities for Bob to do (ForecastWeather). They decide to send a message to Bob to confirm the call and mention the weather (SendMessage). They also want to search for any previous messages from Bob that mentioned the weather, to see if he likes it or not (SearchMessages).",
+    "user": {
+        "username": "olivedo",
+        "email": "olivieisme@somail.com",
+        "phone": "440-328-5425",
+        "name": "Olivie Doiron",
+        "password": "SaeH9Ligh",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "Paris",
+        "timestamp": "2023-09-20 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "olivedo"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hi can you check my reminders for the day?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Sure, you have two reminders for the day. The first reminder is to call Bob at 3pm. The second reminder is to buy groceries at 6 pm.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "GetReminders",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404"
+                        }
+                    },
+                    "response": {
+                        "reminders": [
+                            {
+                                "reminder_id": "14-579a",
+                                "task": "Call Bob",
+                                "due_date": "2023-09-20 15:00:00",
+                                "status": "pending"
+                            },
+                            {
+                                "reminder_id": "0b-5119",
+                                "task": "Buy groceries",
+                                "due_date": "2023-09-20 18:00:00",
+                                "status": "pending"
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Thanks, my friend mentioned that there's a storm where Bob is- can you check the weather?"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "Sure, where is Bob located?"
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "Bob's in New York. Can you also check the weather for the next few days over there?"
+        },
+        {
+            "index": 5,
+            "role": "assistant",
+            "text": "Sure, the weather in New York right now is stormy, with a high of 68 and a low of 50. Tomorrow it will be rainy with a high of 68 and a low of 50. The day after that it will be cloudy with a high of 69 and a low of 55. The day after that it will be sunny with a high of 70 and a low of 62.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "CurrentWeather",
+                        "parameters": {
+                            "location": "New York"
+                        }
+                    },
+                    "response": {
+                        "weather": {
+                            "date": "2023-09-20",
+                            "high": 68,
+                            "low": 50,
+                            "conditions": "Stormy"
+                        }
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "ForecastWeather",
+                        "parameters": {
+                            "location": "New York"
+                        }
+                    },
+                    "response": {
+                        "forecast": [
+                            {
+                                "date": "2023-09-21",
+                                "high": 68,
+                                "low": 50,
+                                "conditions": "60% Rainy"
+                            },
+                            {
+                                "date": "2023-09-22",
+                                "high": 69,
+                                "low": 55,
+                                "conditions": "Cloudy"
+                            },
+                            {
+                                "date": "2023-09-23",
+                                "high": 70,
+                                "low": 62,
+                                "conditions": "Sunny"
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 6,
+            "role": "user",
+            "text": "Thanks, can you send a message to confirm he's still up to call at 3? Also can you add an alarm for my groceries?"
+        },
+        {
+            "index": 7,
+            "role": "assistant",
+            "text": "Sure, I've added an alarm for 6 pm to buy groceries. Can you tell me what Bob's username is so I can send him a message?",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "AddAlarm",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "time": "18:00:00"
+                        }
+                    },
+                    "response": {
+                        "alarm_id": "5bff-dd80"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 8,
+            "role": "user",
+            "text": "It's bobbyboi"
+        },
+        {
+            "index": 9,
+            "role": "assistant",
+            "text": "Got it, I've sent Bob a message asking if he is still available to call at 3.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SendMessage",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "receiver": "bobbyboi",
+                            "message": "Are you still available to call at 3?"
+                        }
+                    },
+                    "response": {
+                        "message_id": "e149636f-ecc3f121"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 10,
+            "role": "user",
+            "text": "Thanks"
+        }
+    ]
+}

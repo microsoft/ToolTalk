@@ -1,0 +1,146 @@
+{
+    "name": "Calendar-Email-Reminder-SendEmail-2",
+    "conversation_id": "c32379dc-2bb9-4eab-8b07-5471932ba605",
+    "suites_used": [
+        "Calendar",
+        "Email",
+        "Reminder"
+    ],
+    "apis_used": [
+        "ModifyEvent",
+        "QueryCalendar",
+        "SendEmail",
+        "AddReminder",
+        "CompleteReminder"
+    ],
+    "scenario": "The user wants to modify an existing event with the name \"Birthday party\", the type \"event\", the description \"Celebrate my birthday with friends and family\", the start time \"2021-01-16 18:00:00\", the end time \"2021-01-16 22:00:00\", and the location \"My house\" (QueryCalendar). They decide to change the start time to \"2021-01-16 19:00:00\", the end time to \"2021-01-16 23:00:00\", and the location to \"The restaurant\" (ModifyEvent). They then send an email to the attendees with the subject \"Event update\", the body \"Hi, I have made some changes to the event details for my birthday party. Please see the new information below and let me know if you can still make it.\", and the to addresses \"user@domain.com\", \"friend1@domain.com\", \"friend2@domain.com\", and \"family@domain.com\" (SendEmail). They then add a reminder with the task \"Make reservation at the restaurant\" and the due date \"2021-01-15 12:00:00\" (AddReminder). They then complete the reminder with the reminder_id returned from the previous call (CompleteReminder).",
+    "user": {
+        "username": "decture",
+        "email": "VirginiaJGraham@gahoo.com",
+        "phone": "703-607-3363",
+        "name": "Virginia J. Graham",
+        "password": "chaew5Oeth",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "London",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "decture"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Can you change the location for my birthday party event on sunday to \"Steak and Shake\" and send an email to all my friends on the invite saying \"Hi, I have made some changes to the event details for my birthday party. I've decided to go to a restaurant instead- let me know if you can still make it.\""
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Okay I changed the location of your event titled \"Birthday Party\" and sent your friends an email.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "QueryCalendar",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "start_time": "2023-09-17 00:00:00",
+                            "end_time": "2023-09-17 23:59:59"
+                        }
+                    },
+                    "response": {
+                        "events": [
+                            {
+                                "event_id": "c3463779-7861",
+                                "name": "Birthday Party",
+                                "event_type": "event",
+                                "start_time": "2023-09-17 11:30:00",
+                                "end_time": "2023-09-17 15:30:00",
+                                "location": "Chuck e cheeses",
+                                "description": "Happy 40th!",
+                                "attendees": [
+                                    "decture",
+                                    "SuryaRani90",
+                                    "geoff"
+                                ]
+                            }
+                        ]
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "ModifyEvent",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "event_id": "c3463779-7861",
+                            "new_location": "Steak and Shake"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "QueryUser",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "username": "SuryaRani90"
+                        }
+                    },
+                    "response": {
+                        "users": [
+                            {
+                                "username": "SuryaRani90",
+                                "email": "suryarani.kumar@myfictionalemail.com",
+                                "phone": "415-555-6789",
+                                "name": "Surya Rani Kumar"
+                            }
+                        ]
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "QueryUser",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "username": "geoff"
+                        }
+                    },
+                    "response": {
+                        "users": [
+                            {
+                                "username": "geoff",
+                                "email": "geoff.smith@example.com",
+                                "phone": "555-123-4567",
+                                "name": "Jeff Smith"
+                            }
+                        ]
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "SendEmail",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "to": [
+                                "suryarani.kumar@myfictionalemail.com",
+                                "geoff.smith@example.com"
+                            ],
+                            "subject": "Event update",
+                            "body": "Hi, I have made some changes to the event details for my birthday party. I've decided to go to a restaurant instead- let me know if you can still make it."
+                        }
+                    },
+                    "response": {
+                        "email_id": "5b-dd80-9f8a27ab"
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}

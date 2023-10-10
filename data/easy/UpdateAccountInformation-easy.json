@@ -1,0 +1,89 @@
+{
+    "name": "UpdateAccountInformation-easy",
+    "conversation_id": "467a1c1f-ab6d-4b32-8e64-dfca1fb08525",
+    "suites_used": [
+        "AccountTools"
+    ],
+    "apis_used": [
+        "UpdateAccountInformation"
+    ],
+    "scenario": "UpdateAccountInformation easy scenario",
+    "user": {
+        "username": "decture",
+        "email": "VirginiaJGraham@gahoo.com",
+        "phone": "703-607-3363",
+        "name": "Virginia J. Graham",
+        "password": "chaew5Oeth",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "New York",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "decture"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "I think my account information is out of date. Can you help me update it?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Sure, I can help you with that. What would you like to update?"
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Just my phone number and email."
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "Okay, let me update that for you. What is your new information?"
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "virginia.j.graham@fmail.com, (276) 216-0133"
+        },
+        {
+            "index": 5,
+            "role": "assistant",
+            "text": "Okay, I also need your password to confirm these changes."
+        },
+        {
+            "index": 6,
+            "role": "user",
+            "text": "Sure it's chaew5Oeth"
+        },
+        {
+            "index": 7,
+            "role": "assistant",
+            "text": "Okay, I've updated your information. Is there anything else I can help you with?",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "UpdateAccountInformation",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "password": "chaew5Oeth",
+                            "new_email": "virginia.j.graham@fmail.com",
+                            "new_phone_number": "276-216-0133"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 8,
+            "role": "user",
+            "text": "No that's it. Thanks!"
+        }
+    ]
+}

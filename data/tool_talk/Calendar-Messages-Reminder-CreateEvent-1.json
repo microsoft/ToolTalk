@@ -1,0 +1,222 @@
+{
+    "name": "Calendar-Messages-Reminder-CreateEvent-1",
+    "conversation_id": "3775d081-8ca6-4f8d-9961-e52be068478d",
+    "suites_used": [
+        "Calendar",
+        "Messages",
+        "Reminder"
+    ],
+    "apis_used": [
+        "CreateEvent",
+        "ModifyEvent",
+        "SearchMessages",
+        "SendMessage",
+        "AddReminder"
+    ],
+    "scenario": "The user wants to plan a birthday party for their friend. They first create a reminder with the task 'Buy cake' and the due date as the day before the party (AddReminder). They then create an event with the name 'Birthday Party', the type 'event', the description 'Celebrate friend's birthday', the start time and end time as the party duration, and the location as the friend's address (CreateEvent). They then send a message to the friend asking for their guest list (SendMessage). They receive a message from the friend with the names of the guests (SearchMessages). They then modify the event to add the guests as attendees (ModifyEvent). They then send a message to each guest inviting them to the party and asking for their RSVP (SendMessage).",
+    "user": {
+        "username": "justinkool",
+        "email": "justintime@fmail.com",
+        "phone": "123-456-7890",
+        "name": "Justin Kool",
+        "password": "justforkicks123",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "San Francisco",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "justinkool"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hey my friend's birthday is coming up, can you set a reminder for me to buy cake a day before?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Sure, when's your friend's birthday?"
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Should be September 28th"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "Okay, I've set a reminder for you to buy cake on September 27th",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "AddReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "task": "Buy cake",
+                            "due_date": "2023-09-27 00:00:00"
+                        }
+                    },
+                    "response": {
+                        "reminder_id": "5b-dd80"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "Can you also create an event for my friend's birthday party? We're holding it at her house on 551 Washington Street. It should be from 12 to 6 her birthday."
+        },
+        {
+            "index": 5,
+            "role": "assistant",
+            "text": "I've created the event",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "CreateEvent",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "name": "Birthday Party",
+                            "event_type": "event",
+                            "description": "Celebrate friend's birthday",
+                            "start_time": "2023-09-28 12:00:00",
+                            "end_time": "2023-09-28 18:00:00",
+                            "location": "551 Washington Street"
+                        }
+                    },
+                    "response": {
+                        "event_id": "e149636f-d9ca"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 6,
+            "role": "user",
+            "text": "Oh shoot, I forgot to invite people. Can you add the guests to the event and send them a message asking for their RSVP?"
+        },
+        {
+            "index": 7,
+            "role": "assistant",
+            "text": "Sure, who are the guests?"
+        },
+        {
+            "index": 8,
+            "role": "user",
+            "text": "I don't know, I think my friend sent me a message with the guest list. Can you search for it?"
+        },
+        {
+            "index": 9,
+            "role": "assistant",
+            "text": "Sure, I found the message. Looks like the guests are Olivie, Hugo, Kong, and Michael. I have updated your events and sent them a message asking for their RSVP.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SearchMessages",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "query": "birthday guests"
+                        }
+                    },
+                    "response": {
+                        "messages": [
+                            {
+                                "message_id": "00747977-006f526d",
+                                "sender": "lifeng",
+                                "message": "Hey Justin here's the guest list for my birthday: Olivie (olivedo), Hugo (salcano), Kong (ahhchiu), and Michael (mstein).",
+                                "timestamp": "2023-09-08 20:00:00"
+                            }
+                        ]
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "ModifyEvent",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "event_id": "e149636f-d9ca",
+                            "new_attendees": [
+                                "lifeng",
+                                "olivedo",
+                                "salcano",
+                                "ahhchiu",
+                                "mstein"
+                            ]
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "SendMessage",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "receiver": "salcano",
+                            "message": "Hey Hugo, I'm holding a birthday party for Lifeng on September 28th. Can you make it?"
+                        }
+                    },
+                    "response": {
+                        "message_id": "e149636f-ecc3f121"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "SendMessage",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "receiver": "ahhchiu",
+                            "message": "Hey Kong, I'm holding a birthday party for Lifeng on September 28th. Can you make it?"
+                        }
+                    },
+                    "response": {
+                        "message_id": "5c5373e0-ecf4712d"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "SendMessage",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "receiver": "mstein",
+                            "message": "Hey Michael, I'm holding a birthday party for Lifeng on September 28th. Can you make it?"
+                        }
+                    },
+                    "response": {
+                        "message_id": "c1cc4dc9-36298341"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "SendMessage",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "receiver": "olivedo",
+                            "message": "Hey Olivie, I'm holding a birthday party for Lifeng on September 28th. Can you make it?"
+                        }
+                    },
+                    "response": {
+                        "message_id": "27559f6b-1400d29d"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 10,
+            "role": "user",
+            "text": "Thanks!"
+        }
+    ]
+}

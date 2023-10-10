@@ -1,0 +1,72 @@
+{
+    "name": "QueryCalendar-easy",
+    "conversation_id": "f577317f-598c-486c-9aa8-39ae0c367e58",
+    "suites_used": [
+        "Calendar"
+    ],
+    "apis_used": [
+        "QueryCalendar"
+    ],
+    "scenario": "QueryCalendar easy scenario",
+    "user": {
+        "username": "salcano",
+        "email": "hugosalcano@somail.com",
+        "phone": "402-581-7997",
+        "name": "Hugo Saldana Cano",
+        "password": "aeghah9Ei",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "New York",
+        "timestamp": "2023-09-10 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "salcano"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hey can you check what events I have tomorrow?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "You have 1 meeting tomorrow. A 1 on 1 from 2:00 PM to 3:00 PM.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "QueryCalendar",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "start_time": "2023-09-11 00:00:00",
+                            "end_time": "2023-09-11 23:59:59"
+                        }
+                    },
+                    "response": {
+                        "events": [
+                            {
+                                "event_id": "2949b409-6535",
+                                "name": "1 on 1",
+                                "event_type": "meeting",
+                                "start_time": "2023-09-11 14:00:00",
+                                "end_time": "2023-09-11 15:00:00",
+                                "location": "online",
+                                "description": "bi-weekly sync",
+                                "attendees": [
+                                    "justinkool",
+                                    "salcano"
+                                ]
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Is that all? I thought I had more meetings tomorrow."
+        }
+    ]
+}

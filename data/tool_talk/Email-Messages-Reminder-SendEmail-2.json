@@ -1,0 +1,144 @@
+{
+    "name": "Email-Messages-Reminder-SendEmail-2",
+    "conversation_id": "bd463e6e-8fc7-43ac-95ce-e620ec3e013d",
+    "suites_used": [
+        "Email",
+        "Messages",
+        "Reminder"
+    ],
+    "apis_used": [
+        "SearchInbox",
+        "SendEmail",
+        "CompleteReminder",
+        "DeleteReminder",
+        "GetReminders"
+    ],
+    "scenario": "The user wants to delete some old emails and reminders that are no longer relevant. They search their inbox (SearchInbox) for emails older than a year using the query \"*\" and the end_date \"2019-10-01 00:00:00\". They select all the emails and delete them. They then search their reminders (GetReminders) for reminders that are past due. They find several reminders that they have already completed or cancelled. They delete each reminder (DeleteReminder) using the reminder_id. They then send an email (SendEmail) to their personal account with the subject \"Backup\" and the body \"Hi user, this is a backup of your important emails and reminders. Please keep it safe. Regards, user\". They attach a file containing the emails and reminders that they want to keep. They then complete the reminder (CompleteReminder) with the task \"Backup emails and reminders\" using the reminder_id. They then log out of their account.",
+    "user": {
+        "username": "salcano",
+        "email": "hugosalcano@somail.com",
+        "phone": "402-581-7997",
+        "name": "Hugo Saldana Cano",
+        "password": "aeghah9Ei",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "Tokyo",
+        "timestamp": "2023-09-12 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "salcano"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "ugh need to do a digital cleanup. Can you delete all the reminders that were due in the past month?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Okay I queried your reminders between August 12 and September 12 2023 and found 3. I have deleted them all.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "GetReminders",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404"
+                        }
+                    },
+                    "response": {
+                        "reminders": [
+                            {
+                                "reminder_id": "0b-5119",
+                                "task": "Finish report",
+                                "due_date": "2023-09-11 08:00:00",
+                                "status": "pending"
+                            },
+                            {
+                                "reminder_id": "14-579a",
+                                "task": "submit blog post",
+                                "due_date": "2023-09-11 10:00:00",
+                                "status": "pending"
+                            },
+                            {
+                                "reminder_id": "1f-8a4c",
+                                "task": "Buy Brody a birthday present",
+                                "due_date": "2023-08-27 00:00:00",
+                                "status": "pending"
+                            }
+                        ]
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "DeleteReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "reminder_id": "0b-5119"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "DeleteReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "reminder_id": "14-579a"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "DeleteReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "reminder_id": "1f-8a4c"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Thanks, can you also send a summary of the reminders you deleted to my personal email (hugoes@fmail.com)?"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "Okay I have sent an email to your personal email with a list of all the reminders I deleted.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SendEmail",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "to": [
+                                "hugoes@fmail.com"
+                            ],
+                            "subject": "Deleted reminders",
+                            "body": "Hi Hugo, I have deleted the following reminders:\n\n- Finish report\n- submit blog post\n- Buy Brody a birthday present\n\nRegards, your assistant"
+                        }
+                    },
+                    "response": {
+                        "email_id": "5b-dd80-9f8a27ab"
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}

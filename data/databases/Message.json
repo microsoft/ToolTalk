@@ -1,0 +1,88 @@
+{
+    "justinkool": {
+        "b6bd49bf-949f71a5": {
+            "message_id": "b6bd49bf-949f71a5",
+            "timestamp": "2023-09-05 13:00:00",
+            "sender": "mrbossman",
+            "message": "Hey Justin, have you started work on project aiden yet? The deadline is by the end of this month. Thanks!"
+        },
+        "006f526d-00747977": {
+            "message_id": "006f526d-00747977",
+            "timestamp": "2023-09-11 14:05:00",
+            "sender": "salcano",
+            "message": "Hey I'm running a bit late. I'll be there in 5 minutes."
+        },
+        "00747977-006f526d": {
+            "message_id": "00747977-006f526d",
+            "timestamp": "2023-09-08 20:00:00",
+            "sender": "lifeng",
+            "message": "Hey Justin here's the guest list for my birthday: Olivie (olivedo), Hugo (salcano), Kong (ahhchiu), and Michael (mstein)."
+        }
+    },
+    "decture": {
+        "b6bd49bf-949f71a5": {
+            "message_id": "b6bd49bf-949f71a5",
+            "timestamp": "2023-09-05 13:00:00",
+            "sender": "nickie",
+            "message": "I like the Matrix too!"
+        },
+        "006f526d-00747977": {
+            "message_id": "006f526d-00747977",
+            "timestamp": "2023-09-10 14:05:00",
+            "sender": "nickie",
+            "message": "I'd like to go outdoor climbing some time. I've never gone before."
+        },
+        "00747977-006f526d": {
+            "message_id": "00747977-006f526d",
+            "timestamp": "2023-09-08 20:00:00",
+            "sender": "nickie",
+            "message": "Do you mean like a real dog?"
+        }
+    },
+    "salcano": {
+        "006f526d-00747977": {
+            "message_id": "006f526d-00747977",
+            "timestamp": "2023-09-10 14:05:00",
+            "sender": "decture",
+            "message": "Why are people so obsessed with oat milk?"
+        },
+        "00747977-006f526d": {
+            "message_id": "00747977-006f526d",
+            "timestamp": "2023-09-10 14:07:13",
+            "sender": "decture",
+            "message": "I could never drink oat milk"
+        }
+    },
+    "mstein": {
+        "b6bd49bf-949f71a5": {
+            "message_id": "b6bd49bf-949f71a5",
+            "timestamp": "2023-09-10 14:01:37",
+            "sender": "nickie",
+            "message": "Check out this video: utube.com/slkd"
+        },
+        "006f526d-00747977": {
+            "message_id": "006f526d-00747977",
+            "timestamp": "2023-09-10 14:05:00",
+            "sender": "nickie",
+            "message": "Check out this video: utube.com/2351f"
+        },
+        "00747977-006f526d": {
+            "message_id": "00747977-006f526d",
+            "timestamp": "2023-09-10 14:13:14",
+            "sender": "nickie",
+            "message": "Check out this video: utube.com/aw2hg"
+        },
+        "42090fe9-dd1bb6ac": {
+            "message_id": "42090fe9-dd1bb6ac",
+            "timestamp": "2023-09-10 14:14:20",
+            "sender": "nickie",
+            "message": "Check out this video: utube.com/53ehbs"
+        },
+        "c9171891-949e647d": {
+            "message_id": "c9171891-949e647d",
+            "timestamp": "2023-09-10 14:15:00",
+            "sender": "nickie",
+            "message": "Check out this video: utube.com/a2q3eg"
+        }
+    }
+}

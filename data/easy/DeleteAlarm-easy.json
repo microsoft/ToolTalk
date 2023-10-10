@@ -1,0 +1,57 @@
+{
+    "name": "DeleteAlarm-easy",
+    "conversation_id": "14d400f0-fa64-4ab9-b4cc-adbd339f74e5",
+    "suites_used": [
+        "Alarm"
+    ],
+    "apis_used": [
+        "DeleteAlarm"
+    ],
+    "scenario": "DeleteAlarm easy scenario",
+    "user": {
+        "username": "olivedo",
+        "email": "olivieisme@somail.com",
+        "phone": "440-328-5425",
+        "name": "Olivie Doiron",
+        "password": "SaeH9Ligh",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "Tokyo",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "olivedo"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hey I have an alarm that I'd like to delete, it's id is 593d-49e9"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "I have deleted the alarm for you. Is there anything else I can help you with?",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "DeleteAlarm",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "alarm_id": "593d-49e9"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "No that's it, thanks!"
+        }
+    ]
+}

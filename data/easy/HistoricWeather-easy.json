@@ -1,0 +1,61 @@
+{
+    "name": "HistoricWeather-easy",
+    "conversation_id": "2eda051f-b04b-43db-9ee7-bd121218d9b4",
+    "suites_used": [
+        "Weather"
+    ],
+    "apis_used": [
+        "HistoricWeather"
+    ],
+    "scenario": "HistoricWeather easy scenario",
+    "user": {
+        "username": "mstein",
+        "email": "steinki89@fexter.com",
+        "phone": "937-272-9068",
+        "name": "Michael Steinke",
+        "password": "weiChe0oo"
+    },
+    "metadata": {
+        "location": "London",
+        "timestamp": "2023-09-11 09:00:00"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "It's really hot today, like over 100. Is it normally this hot here?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "From historic weather data, the record high for London in September if 89 F. 100 is a new record.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "HistoricWeather",
+                        "parameters": {
+                            "location": "London",
+                            "month": "September"
+                        }
+                    },
+                    "response": {
+                        "weather": {
+                            "min_temp": 55,
+                            "max_temp": 66,
+                            "record_min_temp": 40,
+                            "record_max_temp": 89,
+                            "avg_rainfall": 2.13,
+                            "snow_days": 0
+                        }
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Great, thanks global warming."
+        }
+    ]
+}

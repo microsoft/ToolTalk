@@ -1,0 +1,244 @@
+{
+    "name": "Messages-Reminder-Weather-ForecastWeather-1",
+    "conversation_id": "45ede01b-e809-4144-8762-29672c53dcc6",
+    "suites_used": [
+        "Messages",
+        "Reminder",
+        "Weather"
+    ],
+    "apis_used": [
+        "SendMessage",
+        "AddReminder",
+        "DeleteReminder",
+        "CurrentWeather",
+        "ForecastWeather"
+    ],
+    "scenario": "The user is a weather enthusiast and wants to compare the current weather of different cities around the world. They want to get the current weather of New York, London, Tokyo, and Sydney (CurrentWeather x 4). They want to save the results in a message to themselves (SendMessage). They want to set a reminder to check the weather again in 24 hours (AddReminder). They want to get the 3-day forecast weather of the same cities (ForecastWeather x 4). They want to delete the reminder they set earlier (DeleteReminder).",
+    "user": {
+        "username": "decture",
+        "email": "VirginiaJGraham@gahoo.com",
+        "phone": "703-607-3363",
+        "name": "Virginia J. Graham",
+        "password": "chaew5Oeth",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "Paris",
+        "timestamp": "2023-09-08 13:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "decture"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hi, I'm back to ask about weather again for my temperature blankets. What's the high in New York, London, Tokyo, and Sydney today?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "The high in New York is 90. The high in London is 73. The high in Tokyo is 80. The high in Sydney is 70.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "CurrentWeather",
+                        "parameters": {
+                            "location": "New York"
+                        }
+                    },
+                    "response": {
+                        "weather": {
+                            "date": "2023-09-08",
+                            "high": 90,
+                            "low": 72,
+                            "conditions": "50% Rainy"
+                        }
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "CurrentWeather",
+                        "parameters": {
+                            "location": "London"
+                        }
+                    },
+                    "response": {
+                        "weather": {
+                            "date": "2023-09-08",
+                            "high": 73,
+                            "low": 61,
+                            "conditions": "Mostly Cloudy"
+                        }
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "CurrentWeather",
+                        "parameters": {
+                            "location": "Tokyo"
+                        }
+                    },
+                    "response": {
+                        "weather": {
+                            "date": "2023-09-08",
+                            "high": 80,
+                            "low": 69,
+                            "conditions": "Sunny"
+                        }
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "CurrentWeather",
+                        "parameters": {
+                            "location": "Sydney"
+                        }
+                    },
+                    "response": {
+                        "weather": {
+                            "date": "2023-09-08",
+                            "high": 70,
+                            "low": 54,
+                            "conditions": "40% Rainy"
+                        }
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Cool, I've been using the same colors for the New York and Tokyo blankets a lot recently. Do you know if it'll change soon?"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "The high in New York for the next three days is 82, 75, and 78. The high in Tokyo for the next three days is 92, 91, and 85.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "ForecastWeather",
+                        "parameters": {
+                            "location": "New York"
+                        }
+                    },
+                    "response": {
+                        "forecast": [
+                            {
+                                "date": "2023-09-09",
+                                "high": 82,
+                                "low": 73,
+                                "conditions": "Cloudy"
+                            },
+                            {
+                                "date": "2023-09-10",
+                                "high": 75,
+                                "low": 70,
+                                "conditions": "80% Rainy"
+                            },
+                            {
+                                "date": "2023-09-11",
+                                "high": 78,
+                                "low": 60,
+                                "conditions": "Sunny"
+                            }
+                        ]
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "ForecastWeather",
+                        "parameters": {
+                            "location": "Tokyo"
+                        }
+                    },
+                    "response": {
+                        "forecast": [
+                            {
+                                "date": "2023-09-09",
+                                "high": 92,
+                                "low": 78,
+                                "conditions": "Sunny"
+                            },
+                            {
+                                "date": "2023-09-10",
+                                "high": 91,
+                                "low": 77,
+                                "conditions": "30% Rainy"
+                            },
+                            {
+                                "date": "2023-09-11",
+                                "high": 85,
+                                "low": 76,
+                                "conditions": "50% Rainy"
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "Ok, can you set a reminder for me to buy more yarn tomorrow? And if I've set any reminders for the rest of the month to buy more yarn can you delete those?"
+        },
+        {
+            "index": 5,
+            "role": "assistant",
+            "text": "Reminder has been set for tomorrow to buy more yarn. Deleted reminder to buy more yarn on September 30th.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "AddReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "task": "Buy more yarn"
+                        }
+                    },
+                    "response": {
+                        "reminder_id": "5b-dd80"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "GetReminders",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404"
+                        }
+                    },
+                    "response": {
+                        "reminders": [
+                            {
+                                "reminder_id": "0b-5119",
+                                "task": "buy more yarn",
+                                "due_date": "2023-09-30 00:00:00",
+                                "status": "pending"
+                            }
+                        ]
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "DeleteReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "reminder_id": "0b-5119"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}

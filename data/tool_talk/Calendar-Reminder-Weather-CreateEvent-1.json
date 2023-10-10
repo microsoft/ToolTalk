@@ -1,0 +1,175 @@
+{
+    "name": "Calendar-Reminder-Weather-CreateEvent-1",
+    "conversation_id": "a23c46c4-9e85-426e-8649-64c440067fd1",
+    "suites_used": [
+        "Calendar",
+        "Reminder",
+        "Weather"
+    ],
+    "apis_used": [
+        "CreateEvent",
+        "AddReminder",
+        "CurrentWeather"
+    ],
+    "scenario": "The user wants to create a reminder event for their anniversary with their partner. They first use the CurrentWeather API with their partner's location to get the current weather of their partner's city (CurrentWeather). They see that it is raining and cold there, so they decide to send them a warm and cozy gift. They then create a reminder event with the name \"Anniversary\", the event type as \"reminder\", the description as \"Send gift to partner\", and the start time and end time as the same date and time, which is one week before their anniversary (CreateEvent). They also want to book a flight and a hotel for their anniversary trip, which they plan to take two weeks after their anniversary. They use a third-party API to search for flights and hotels based on their destination, budget, and preferences (SearchFlightsAndHotels). They find a suitable flight and hotel and book them using another third-party API (BookFlightAndHotel). They then create two more events on their calendar, one for the flight departure and arrival, and one for the hotel check-in and check-out, with the corresponding names, event types, descriptions, start times, end times, and locations (CreateEvent x 2). They also want to set a reminder for themselves to pack their bags and print their tickets. They add a reminder with the task \"Pack and print\" and the due date as one day before their flight (AddReminder).",
+    "user": {
+        "username": "salcano",
+        "email": "hugosalcano@somail.com",
+        "phone": "402-581-7997",
+        "name": "Hugo Saldana Cano",
+        "password": "aeghah9Ei",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "Tokyo",
+        "timestamp": "2023-09-14 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "salcano"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Need help getting set up for my 5th anniversary with Ana. I want to surprise her with a nice vacation to Italy. Can you add an event to our calendar for Saturday titled \"Anniversary Dinner\" from 8 pm to 10 pm? That's actually when we need to go to the airport though, so can you also add a reminder for me to pack our bags Friday at 9pm?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Sure, I've added a reminder to pack your bags on 9/15 at 9pm. What is Ana's username?",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "AddReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "task": "Pack our bags",
+                            "due_date": "2023-09-15 21:00:00"
+                        }
+                    },
+                    "response": {
+                        "reminder_id": "5b-dd80"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "anabanana"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "I've added a calendar event to both of your calendars from 8 to 10pm on 9/16 titled \"Anniversary Dinner\".",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "CreateEvent",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "name": "Anniversary Dinner",
+                            "event_type": "event",
+                            "start_time": "2023-09-16 20:00:00",
+                            "end_time": "2023-09-16 22:00:00",
+                            "attendees": [
+                                "anabanana"
+                            ]
+                        }
+                    },
+                    "response": {
+                        "event_id": "e149636f-d9ca"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "Great, I also just bought her present so you can mark that reminder as complete."
+        },
+        {
+            "index": 5,
+            "role": "assistant",
+            "text": "Okay I marked the reminder to buy Ana a present as complete.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "GetReminders",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404"
+                        }
+                    },
+                    "response": {
+                        "reminders": [
+                            {
+                                "reminder_id": "98-d687",
+                                "task": "buy Ana a present",
+                                "due_date": null,
+                                "status": "pending"
+                            }
+                        ]
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "CompleteReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "reminder_id": "98-d687"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 6,
+            "role": "user",
+            "text": "What's the weather going to be when we land in Rome?"
+        },
+        {
+            "index": 7,
+            "role": "assistant",
+            "text": "The three day weather forcast for Rome is sunny with a low of 68 and a high of 75, sunny with a low of 65 and a high of 72, and sunny with a low of 69 and a high of 75.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "ForecastWeather",
+                        "parameters": {
+                            "location": "Rome"
+                        }
+                    },
+                    "response": {
+                        "forecast": [
+                            {
+                                "date": "2023-09-15",
+                                "high": 75,
+                                "low": 68,
+                                "conditions": "Sunny"
+                            },
+                            {
+                                "date": "2023-09-16",
+                                "high": 72,
+                                "low": 65,
+                                "conditions": "Sunny"
+                            },
+                            {
+                                "date": "2023-09-17",
+                                "high": 75,
+                                "low": 69,
+                                "conditions": "Sunny"
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}

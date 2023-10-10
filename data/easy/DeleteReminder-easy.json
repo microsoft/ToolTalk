@@ -1,0 +1,57 @@
+{
+    "name": "DeleteReminder-easy",
+    "conversation_id": "d0f9d405-c454-4c7a-8ea6-594ecf3ffec2",
+    "suites_used": [
+        "Reminder"
+    ],
+    "apis_used": [
+        "DeleteReminder"
+    ],
+    "scenario": "DeleteReminder easy scenario",
+    "user": {
+        "username": "lifeng",
+        "email": "lifeng@gahoo.com",
+        "phone": "512-322-9516",
+        "name": "Li Feng",
+        "password": "ooZ0ahKae",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "New York",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "lifeng"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hey I have a reminder I'd like to delete, it's id is 59-80bc"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Done, I have deleted the reminder.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "DeleteReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "reminder_id": "59-80bc"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Thanks!"
+        }
+    ]
+}

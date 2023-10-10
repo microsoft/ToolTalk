@@ -1,0 +1,169 @@
+{
+    "name": "Alarm-Calendar-Messages-AddAlarm-1",
+    "conversation_id": "32c24562-a4f2-4188-8070-97d863ca835a",
+    "suites_used": [
+        "Alarm",
+        "Calendar",
+        "Messages"
+    ],
+    "apis_used": [
+        "AddAlarm"
+    ],
+    "scenario": "The user wants to set an alarm for a flight they have to catch at 6:00 PM. They use AddAlarm to create an alarm for 4:00 PM. They also use CreateEvent to add the flight details to their calendar, with the name, description, start_time, end_time, and location. They then use SearchMessages to look for the confirmation email from the airline, with the query \"flight\", sender \"airline@example.com\", and start_date and end_date as today's date. They find the email and check the flight number, boarding time, and gate number. They also use SendMessage to send a message to their friend who is picking them up at the destination, with the message containing their flight information and arrival time.",
+    "user": {
+        "username": "lifeng",
+        "email": "lifeng@gahoo.com",
+        "phone": "512-322-9516",
+        "name": "Li Feng",
+        "password": "ooZ0ahKae",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "San Francisco",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "lifeng"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hey I have a flight today at 6 PM. Can you set an alarm for me?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Sure, when would you like me to set the alarm for?"
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "4 PM"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "Okay, I've set an alarm for 4 PM.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "AddAlarm",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "time": "16:00:00"
+                        }
+                    },
+                    "response": {
+                        "alarm_id": "5bff-dd80"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "Can you also add my flight to my calendar?"
+        },
+        {
+            "index": 5,
+            "role": "assistant",
+            "text": "Sure, when is the flight?"
+        },
+        {
+            "index": 6,
+            "role": "user",
+            "text": "Yeah, the flight details should be in my inbox. Can you add the flight number, boarding time, and gate number information as well?"
+        },
+        {
+            "index": 7,
+            "role": "assistant",
+            "text": "Okay, I've added the flight details to your calendar.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SearchInbox",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "query": "flight"
+                        }
+                    },
+                    "response": {
+                        "emails": [
+                            {
+                                "email_id": "7c-c867-6a524766",
+                                "date": "2023-09-01 00:00:00",
+                                "sender": "bigair-noreply@auto-bigair.com",
+                                "receivers": [
+                                    "lifeng@gahoo.com"
+                                ],
+                                "subject": "Your flight details",
+                                "body": "Here are your flights details for your flight from San Francisco to New York on September 11, 2023. Flight number: BA168. Boarding time: 5:30 PM. Gate number: 12A. Duration 6:30 PM to 12:30 AM."
+                            }
+                        ]
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "CreateEvent",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "event_type": "event",
+                            "name": "Flight to New York",
+                            "description": "Flight number: BA168. Boarding time: 5:30 PM. Gate number: 12A.",
+                            "start_time": "2023-09-11 17:30:00",
+                            "end_time": "2023-09-12 00:30:00",
+                            "location": "San Francisco"
+                        }
+                    },
+                    "response": {
+                        "event_id": "e149636f-d9ca"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 8,
+            "role": "user",
+            "text": "Assume! Can you also message my friend what time to pick me up at the airport?"
+        },
+        {
+            "index": 9,
+            "role": "assistant",
+            "text": "Sure, what's your friend's name?"
+        },
+        {
+            "index": 10,
+            "role": "user",
+            "text": "Her name is Olivie (olivedo)."
+        },
+        {
+            "index": 11,
+            "role": "assistant",
+            "text": "Okay, I've sent a message to Olivie (olivedo) with your flight information and arrival time.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SendMessage",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "receiver": "olivedo",
+                            "message": "Hey Olivie, I'm arriving at 12:30 AM. Can you pick me up at the airport?"
+                        }
+                    },
+                    "response": {
+                        "message_id": "e149636f-ecc3f121"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 12,
+            "role": "user",
+            "text": "Thanks!"
+        }
+    ]
+}

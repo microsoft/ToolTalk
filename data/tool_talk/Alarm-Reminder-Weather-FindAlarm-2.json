@@ -1,0 +1,118 @@
+{
+    "name": "Alarm-Reminder-Weather-FindAlarm-2",
+    "conversation_id": "1941f3b6-2ce7-431a-ba30-b1e5b5d0019d",
+    "suites_used": [
+        "Alarm",
+        "Reminder",
+        "Weather"
+    ],
+    "apis_used": [
+        "AddAlarm",
+        "DeleteAlarm",
+        "FindAlarms",
+        "AddReminder",
+        "CompleteReminder",
+        "GetReminders",
+        "ForecastWeather"
+    ],
+    "scenario": "The user wants to do some gardening on a sunny day. They want to get the weather forecast for the next three days (ForecastWeather) and choose the best day to do it. They want to set a reminder to buy some seeds and fertilizer (AddReminder). They also want to set an alarm for the morning of the chosen day (AddAlarm). They want to check their existing reminders (GetReminders) and complete any that are related to gardening (CompleteReminder). They want to delete any alarms that are not needed for the chosen day (FindAlarms + DeleteAlarm).",
+    "user": {
+        "username": "lifeng",
+        "email": "lifeng@gahoo.com",
+        "phone": "512-322-9516",
+        "name": "Li Feng",
+        "password": "ooZ0ahKae",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "Paris",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "lifeng"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Is it going to be sunny in the next three days?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "The weather forecast in Paris for the next three days are rainy, cloudy, and sunny.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "ForecastWeather",
+                        "parameters": {
+                            "location": "Paris"
+                        }
+                    },
+                    "response": {
+                        "forecast": [
+                            {
+                                "date": "2023-09-12",
+                                "high": 78,
+                                "low": 58,
+                                "conditions": "60% Rainy"
+                            },
+                            {
+                                "date": "2023-09-13",
+                                "high": 72,
+                                "low": 64,
+                                "conditions": "Cloudy"
+                            },
+                            {
+                                "date": "2023-09-14",
+                                "high": 76,
+                                "low": 60,
+                                "conditions": "Sunny"
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Set a reminder to buy seeds and fertilizer on the rainy day and to go to sleep early on the cloudy day."
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "Ok I've set a reminder on 9/12 to buy seeds and fertilizer and on 9/13 to go to sleep early.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "AddReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "task": "buy seeds and fertilizer",
+                            "due_date": "2023-09-12 08:00:00"
+                        }
+                    },
+                    "response": {
+                        "reminder_id": "5b-dd80"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "AddReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "task": "go to sleep early",
+                            "due_date": "2023-09-13 08:00:00"
+                        }
+                    },
+                    "response": {
+                        "reminder_id": "5b-dd80"
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}

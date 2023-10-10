@@ -1,0 +1,162 @@
+{
+    "name": "Calendar-Reminder-Weather-DeleteEvent-0",
+    "conversation_id": "3594e114-eb95-4d4c-a368-98a18a7db1a9",
+    "suites_used": [
+        "Calendar",
+        "Reminder",
+        "Weather"
+    ],
+    "apis_used": [
+        "CreateEvent",
+        "DeleteEvent",
+        "QueryCalendar",
+        "AddReminder",
+        "DeleteReminder",
+        "ForecastWeather"
+    ],
+    "scenario": "The user is planning a trip to Paris and wants to check the weather before booking their flights and hotels. They use ForecastWeather to get the 3-day forecast of Paris and see that it is sunny and mild. They then use CreateEvent to add a flight reservation event to their calendar, with the name, start_time, end_time, and location of the flight. They also use CreateEvent to add a hotel reservation event to their calendar, with the name, start_time, end_time, and location of the hotel. They then use AddReminder to create a reminder to pack their suitcase, with the task and due_date. They also use AddReminder to create a reminder to check in online, with the task and due_date. However, they later receive an email that their flight has been cancelled due to a strike. They use DeleteEvent to delete the flight reservation event from their calendar. They also use DeleteEvent to delete the hotel reservation event from their calendar. They then use DeleteReminder to delete the reminder to pack their suitcase. They also use DeleteReminder to delete the reminder to check in online. They then use QueryCalendar to see if they have any other events planned for the next week.",
+    "user": {
+        "username": "mstein",
+        "email": "steinki89@fexter.com",
+        "phone": "937-272-9068",
+        "name": "Michael Steinke",
+        "password": "weiChe0oo",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "Seattle",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "mstein"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "I need to cancel my Paris trip because of the strikes. Can you delete all the events on my calendar and all my reminders that have Paris in the title or description"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Ok I deleted your events \"Fly to Paris\", \"Shopping\", \"Fly back from Paris\", and your reminder \"Pack for Paris\"",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "QueryCalendar",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "start_time": "2023-09-11 00:00:00",
+                            "end_time": "2023-09-30 23:59:59"
+                        }
+                    },
+                    "response": {
+                        "events": [
+                            {
+                                "event_id": "5480d946-2381",
+                                "name": "Fly to Paris",
+                                "event_type": "event",
+                                "start_time": "2023-09-12 10:00:00",
+                                "end_time": "2023-09-13 04:00:00",
+                                "location": null,
+                                "description": null,
+                                "attendees": null
+                            },
+                            {
+                                "event_id": "7ea2fc9f-f7b4",
+                                "name": "Shopping",
+                                "event_type": "event",
+                                "start_time": "2023-09-13 14:00:00",
+                                "end_time": "2023-09-13 15:00:00",
+                                "location": "Paris",
+                                "description": "Get those paris goods!",
+                                "attendees": null
+                            },
+                            {
+                                "event_id": "7cdd6d20-040e",
+                                "name": "Fly back from Paris",
+                                "event_type": "event",
+                                "start_time": "2023-09-17 11:00:00",
+                                "end_time": "2023-09-18 05:30:00",
+                                "location": null,
+                                "description": null,
+                                "attendees": null
+                            }
+                        ]
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "DeleteEvent",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "event_id": "5480d946-2381"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "DeleteEvent",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "event_id": "7ea2fc9f-f7b4"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "DeleteEvent",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "event_id": "7cdd6d20-040e"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "GetReminders",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404"
+                        }
+                    },
+                    "response": {
+                        "reminders": [
+                            {
+                                "reminder_id": "4f-9a41",
+                                "task": "Pack for Paris",
+                                "due_date": "2023-09-11 20:00:00",
+                                "status": "pending"
+                            }
+                        ]
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "DeleteReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "reminder_id": "4f-9a41"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}

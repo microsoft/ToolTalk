@@ -1,0 +1,247 @@
+{
+    "name": "AccountTools-Calendar-Weather-RegisterUser-0",
+    "conversation_id": "12b94bad-5896-4282-922b-c51604cd05ef",
+    "suites_used": [
+        "AccountTools",
+        "Calendar",
+        "Weather"
+    ],
+    "apis_used": [
+        "QueryUser",
+        "RegisterUser",
+        "CreateEvent",
+        "QueryCalendar",
+        "CurrentWeather"
+    ],
+    "scenario": "The user wants to register a new account and create a meeting event with another user. They use RegisterUser to sign up with their username, password, email, name, and phone. They receive a session_token and their account information. They then use QueryUser to search for the username of the other user they want to invite to the meeting. They find the user and use CreateEvent to create a meeting event with the name, description, start_time, end_time, and attendees. They receive an event_id on success. They then use QueryCalendar to check their calendar for any conflicts or overlaps with the new event. They see that there are no conflicts and use CurrentWeather to check the weather of the location where the meeting is to be held. They see that it is sunny and warm.",
+    "user": {
+        "username": "hestler",
+        "email": "j.hester@gahoo.com",
+        "phone": "708-340-0190",
+        "name": "Julian Hester",
+        "password": "Meizuch4uu"
+    },
+    "metadata": {
+        "location": "San Francisco",
+        "timestamp": "2023-09-11 09:00:00"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "New employee registers a new account. Then sets up one on one with manager and other members of their team."
+        },
+        {
+            "index": 1,
+            "role": "user",
+            "text": "Hey. this is my first day on the job. Can I set up a meeting with my manager? Her name is Olivie (olivedo)."
+        },
+        {
+            "index": 2,
+            "role": "assistant",
+            "text": "Sure thing. When would you like to meet with Olivie?"
+        },
+        {
+            "index": 3,
+            "role": "user",
+            "text": "How about tomorrow for half an hour starting at 9?"
+        },
+        {
+            "index": 4,
+            "role": "assistant",
+            "text": "Sounds good. I noticed you're not logged in. What is your username?"
+        },
+        {
+            "index": 5,
+            "role": "user",
+            "text": "Oh I don't have a username yet. I just started."
+        },
+        {
+            "index": 6,
+            "role": "assistant",
+            "text": "No problem. I can help you register a new account. What would you like your username to be?"
+        },
+        {
+            "index": 7,
+            "role": "user",
+            "text": "How about hestler, cause I'm a hustler haha"
+        },
+        {
+            "index": 8,
+            "role": "assistant",
+            "text": "That's a great username. What would you like your password to be?"
+        },
+        {
+            "index": 9,
+            "role": "user",
+            "text": "Meizuch4uu that should be secure enough."
+        },
+        {
+            "index": 10,
+            "role": "assistant",
+            "text": "Great. What is your email address? You can use this to reset your password if you forget it."
+        },
+        {
+            "index": 11,
+            "role": "user",
+            "text": "j.hester@gahoo.com, can you also add my name and phone number?"
+        },
+        {
+            "index": 12,
+            "role": "assistant",
+            "text": "Sure thing. What is your name and phone number?"
+        },
+        {
+            "index": 13,
+            "role": "user",
+            "text": "Julian Hester and 708-340-0190"
+        },
+        {
+            "index": 14,
+            "role": "assistant",
+            "text": "I've registered your account and set up a meeting with your manager. Is there anything else I can help you with?",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "RegisterUser",
+                        "parameters": {
+                            "username": "hestler",
+                            "password": "Meizuch4uu",
+                            "email": "j.hester@gahoo.com",
+                            "phone": "708-340-0190",
+                            "name": "Julian Hester"
+                        }
+                    },
+                    "response": {
+                        "session_token": "e149636f-d9ca-0792",
+                        "user": {
+                            "username": "hestler",
+                            "email": "j.hester@gahoo.com",
+                            "phone": "708-340-0190",
+                            "name": "Julian Hester"
+                        }
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "CreateEvent",
+                        "parameters": {
+                            "session_token": "e149636f-d9ca-0792",
+                            "name": "1 on 1 with Olivie",
+                            "event_type": "meeting",
+                            "start_time": "2023-09-12 09:00:00",
+                            "end_time": "2023-09-12 09:30:00",
+                            "attendees": [
+                                "olivedo"
+                            ]
+                        }
+                    },
+                    "response": {
+                        "event_id": "e149636f-d9ca"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 15,
+            "role": "user",
+            "text": "Yeah, can you set up a 1 on 1's with the rest of my team? I think there are 3 of us total."
+        },
+        {
+            "index": 16,
+            "role": "assistant",
+            "text": "Sure thing, what are their names?"
+        },
+        {
+            "index": 17,
+            "role": "user",
+            "text": "Justin (justinkool), Virginia (decture), and Michael (mstein)"
+        },
+        {
+            "index": 18,
+            "role": "assistant",
+            "text": "And when would you like to meet with them?"
+        },
+        {
+            "index": 19,
+            "role": "user",
+            "text": "I think they're all free tomorrow. How about 10, 11, and 12?"
+        },
+        {
+            "index": 20,
+            "role": "assistant",
+            "text": "Sure thing. I've scheduled your meetings with Justin, Virginia, and Michael. Is there anything else I can help you with?",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "CreateEvent",
+                        "parameters": {
+                            "session_token": "e149636f-d9ca-0792",
+                            "name": "1 on 1 with Justin",
+                            "event_type": "meeting",
+                            "start_time": "2023-09-12 10:00:00",
+                            "end_time": "2023-09-12 10:30:00",
+                            "attendees": [
+                                "justinkool"
+                            ]
+                        }
+                    },
+                    "response": {
+                        "event_id": "03c93f31-b8a6"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "CreateEvent",
+                        "parameters": {
+                            "session_token": "e149636f-d9ca-0792",
+                            "name": "1 on 1 with Virginia",
+                            "event_type": "meeting",
+                            "start_time": "2023-09-12 11:00:00",
+                            "end_time": "2023-09-12 11:30:00",
+                            "attendees": [
+                                "decture"
+                            ]
+                        }
+                    },
+                    "response": {
+                        "event_id": "4261c3e1-71e7"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "CreateEvent",
+                        "parameters": {
+                            "session_token": "e149636f-d9ca-0792",
+                            "name": "1 on 1 with Michael",
+                            "event_type": "meeting",
+                            "start_time": "2023-09-12 12:00:00",
+                            "end_time": "2023-09-12 12:30:00",
+                            "attendees": [
+                                "mstein"
+                            ]
+                        }
+                    },
+                    "response": {
+                        "event_id": "27559f6b-2801"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 21,
+            "role": "user",
+            "text": "No I think that's it for now. Thanks!"
+        },
+        {
+            "index": 22,
+            "role": "assistant",
+            "text": "No problem. Have a great day!"
+        }
+    ]
+}

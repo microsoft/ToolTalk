@@ -1,0 +1,74 @@
+{
+    "name": "SendVerificationCode-easy",
+    "conversation_id": "163ea4f3-57e8-4f95-a6f1-d01bf4fe2b3b",
+    "suites_used": [
+        "AccountTools"
+    ],
+    "apis_used": [
+        "SendVerificationCode"
+    ],
+    "scenario": "SendVerificationCode easy scenario",
+    "user": {
+        "username": "justinkool",
+        "email": "justintime@fmail.com",
+        "phone": "123-456-7890",
+        "name": "Justin Kool",
+        "password": "justforkicks123"
+    },
+    "metadata": {
+        "location": "London",
+        "timestamp": "2023-09-11 09:00:00"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hey I think I forgot my password, can you help me reset it?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Sure, what's your username?"
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "It's justinkool"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "Ok, what's your email address associated with the account?"
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "Should be justintime@fmail.com"
+        },
+        {
+            "index": 5,
+            "role": "assistant",
+            "text": "Ok, I've sent you a verification code to your email address. You can use this to reset your password.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SendVerificationCode",
+                        "parameters": {
+                            "username": "justinkool",
+                            "email": "justintime@fmail.com"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 6,
+            "role": "user",
+            "text": "Thanks I got it!"
+        }
+    ]
+}

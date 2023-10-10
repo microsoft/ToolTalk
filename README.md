@@ -1,3 +1,15 @@
+# ToolTalk
+
+This is the repo for ToolTalk: Evaluating Tool Usage in a Conversation Setting.
+
+## Setup
+
+```commandline
+pip install -r requirements.txt
+pip install -e ".[dev]"
+```
+
+
 # Project
 
 > This repo has been populated by an initial template to help get you started. Please

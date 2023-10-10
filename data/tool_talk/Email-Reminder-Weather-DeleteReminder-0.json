@@ -1,0 +1,141 @@
+{
+    "name": "Email-Reminder-Weather-DeleteReminder-0",
+    "conversation_id": "dff87b01-d181-4323-9955-655bc991ac4e",
+    "suites_used": [
+        "Email",
+        "Reminder",
+        "Weather"
+    ],
+    "apis_used": [
+        "SearchInbox",
+        "SendEmail",
+        "AddReminder",
+        "DeleteReminder",
+        "GetReminders",
+        "CurrentWeather"
+    ],
+    "scenario": "The user wants to delete a reminder for a meeting that has been cancelled. They first want to check their inbox for any emails related to the meeting (SearchInbox). They find one email from the organizer confirming the cancellation and another email from a colleague asking for some feedback on a report (SearchInbox). They reply to the organizer with a polite message (SendEmail) and open the report attachment from the colleague. They decide to add a new reminder to review the report later (AddReminder). They then go to their list of reminders (GetReminders) and find the reminder for the cancelled meeting. They delete the reminder (DeleteReminder) and check the current weather (CurrentWeather) to see if they can go for a walk.",
+    "user": {
+        "username": "mstein",
+        "email": "steinki89@fexter.com",
+        "phone": "937-272-9068",
+        "name": "Michael Steinke",
+        "password": "weiChe0oo",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "New York",
+        "timestamp": "2023-09-12 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "mstein"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Can you check my email for information about the meeting today at 3 about going over our team's goals?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Ok I found two emails about your meeting todaay at 3 about going over your team's goals. The first email was sent a week ago to schedule the meeting. The second email was sent last night canceling the meeting.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SearchInbox",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "query": "meeting 3"
+                        }
+                    },
+                    "response": {
+                        "emails": [
+                            {
+                                "email_id": "8c-7e2a-df490b13",
+                                "date": "2023-09-05 17:40:00",
+                                "sender": "misha.diae@somail.com",
+                                "receivers": [
+                                    "steinki89@fexter.com",
+                                    "lifeng@gahoo.com",
+                                    "john.carbugle@fmail.com"
+                                ],
+                                "subject": "Meeting for team goals",
+                                "body": "Hey can we set up a meeting sometime to go over our team goals for the next quarter? Would next Tuesday at 3 work?"
+                            },
+                            {
+                                "email_id": "2f-9c6d-5e7a81c4",
+                                "date": "2023-09-11 18:00:00",
+                                "sender": "misha.diae@somail.com",
+                                "receivers": [
+                                    "steinki89@fexter.com",
+                                    "lifeng@gahoo.com",
+                                    "john.carbugle@fmail.com"
+                                ],
+                                "subject": "Canceled: Meeting for team goals",
+                                "body": "Seems like multiple people can't make the meeting tomorrow. Let's reschedule for next week."
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Ok can you delete my reminder to write up some goals and add a new reminder to follow up with my manager at 3?"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "Ok I deleted your reminder to write up team goals and added a new reminder to follow up with your manager at 3 today.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "GetReminders",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404"
+                        }
+                    },
+                    "response": {
+                        "reminders": [
+                            {
+                                "reminder_id": "4f-7a1d",
+                                "task": "Write up some goals before meeting",
+                                "due_date": "2023-09-12 15:00:00",
+                                "status": "pending"
+                            }
+                        ]
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "DeleteReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "reminder_id": "4f-7a1d"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "AddReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "task": "follow up with my manager at 3"
+                        }
+                    },
+                    "response": {
+                        "reminder_id": "5b-dd80"
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}

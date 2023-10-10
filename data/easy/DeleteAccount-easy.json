@@ -1,0 +1,67 @@
+{
+    "name": "DeleteAccount-easy",
+    "conversation_id": "c40b9b9e-e8f6-4a9b-8832-a119ed3e75b6",
+    "suites_used": [
+        "AccountTools"
+    ],
+    "apis_used": [
+        "DeleteAccount"
+    ],
+    "scenario": "DeleteAccount easy scenario",
+    "user": {
+        "username": "ahhchiu",
+        "email": "k.chiu@taoxi.edu",
+        "phone": "806-361-3049",
+        "name": "Kong Chiu",
+        "password": "eehahTe2t",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "London",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "ahhchiu"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hey this service sucks, I'd like to delete my account"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Sorry to hear that, I need your password to delete your account."
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Agh everything is annoying on this platform. It's eehahTe2t"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "I have deleted your account. Please let us know if you have any feedback",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "DeleteAccount",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "password": "eehahTe2t"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "Just that you suck, bye bye!"
+        }
+    ]
+}

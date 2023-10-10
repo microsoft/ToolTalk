@@ -1,0 +1,50 @@
+{
+    "new york": {
+        "september": {
+            "min_temp": 55,
+            "max_temp": 66,
+            "record_min_temp": 40,
+            "record_max_temp": 89,
+            "avg_rainfall": 2.13,
+            "snow_days": 0
+        }
+    },
+    "london": {
+        "january": {
+            "min_temp": 38,
+            "max_temp": 48,
+            "record_min_temp": 23,
+            "record_max_temp": 60,
+            "avg_rainfall": 2.44,
+            "snow_days": 0
+        },
+        "september": {
+            "min_temp": 55,
+            "max_temp": 66,
+            "record_min_temp": 40,
+            "record_max_temp": 89,
+            "avg_rainfall": 2.13,
+            "snow_days": 0
+        }
+    },
+    "san francisco": {
+        "september": {
+            "min_temp": 50,
+            "max_temp": 90,
+            "record_min_temp": 48,
+            "record_max_temp": 102,
+            "avg_rainfall": 3.0,
+            "snow_days": 0
+        }
+    },
+    "paris": {
+        "september": {
+            "min_temp": 50,
+            "max_temp": 74,
+            "record_min_temp": 40,
+            "record_max_temp": 94,
+            "avg_rainfall": 2.01,
+            "snow_days": 0
+        }
+    }
+}

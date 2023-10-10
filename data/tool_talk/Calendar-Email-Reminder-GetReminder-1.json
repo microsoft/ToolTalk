@@ -1,0 +1,159 @@
+{
+    "name": "Calendar-Email-Reminder-GetReminder-1",
+    "conversation_id": "03297463-d21b-406d-a053-b486ab962099",
+    "suites_used": [
+        "Calendar",
+        "Email",
+        "Reminder"
+    ],
+    "apis_used": [
+        "CreateEvent",
+        "ModifyEvent",
+        "SearchInbox",
+        "SendEmail",
+        "AddReminder",
+        "GetReminders"
+    ],
+    "scenario": "The user wants to plan a trip to Hawaii with their family. They have a reminder to book the flights by the end of the week (GetReminders). They search their inbox for any emails from travel agencies or airlines that offer discounts or deals (SearchInbox). They find one email from a travel agency that has a package deal for flights and hotels. They reply to the email to inquire about the availability and price (SendEmail). They also create a new event on their calendar for the tentative dates of the trip (CreateEvent). They then add a new reminder to pack their bags two days before the trip (AddReminder). They also modify the reminder to book the flights to include the travel agency's contact information (ModifyEvent).",
+    "user": {
+        "username": "salcano",
+        "email": "hugosalcano@somail.com",
+        "phone": "402-581-7997",
+        "name": "Hugo Saldana Cano",
+        "password": "aeghah9Ei",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "New York",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "salcano"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Can you search for \"Hawaii discount deals\" in my inbox?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "I found one email from Hotel Dealz titled \"Da best package deals in Hawaii! Flight and hotel in one?!\" and one email titled \"Discounts on Hawaiian shaved ice!\" from Rainbow Ice and one email titled \"Discount Deals at Dominos\" from DasherService",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SearchInbox",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "query": "Hawaii discount deals"
+                        }
+                    },
+                    "response": {
+                        "emails": [
+                            {
+                                "email_id": "75-ff99-d8d1383b",
+                                "date": "2023-09-05 11:00:00",
+                                "sender": "hotel-dealz@resorts.com",
+                                "receivers": [
+                                    "hugosalcano@somail.com"
+                                ],
+                                "subject": "Da best package deals in Hawaii! Flight and hotel in one?!",
+                                "body": "Limited time sale on a hotel and flight combo! Getaway to Hawaii for $199 a night for 5 nights! Click here now!"
+                            },
+                            {
+                                "email_id": "b5-cf2d-5231552e",
+                                "date": "2023-08-29 18:00:00",
+                                "sender": "rainbow-ice@brokedamouth.co",
+                                "receivers": [
+                                    "hugosalcano@somail.com"
+                                ],
+                                "subject": "Discounts on Hawaiian shaved ice!",
+                                "body": "We at broke da mouth shaved ice are offering a 50% discount on all shaved ice orders over $20! Come on down to our store in Honolulu and get your fix today!"
+                            },
+                            {
+                                "email_id": "0b-5119-b5f0a5b5",
+                                "date": "2023-09-07 18:00:00",
+                                "sender": "dasherservice@dashmart.com",
+                                "receivers": [
+                                    "hugosalcano@somail.com"
+                                ],
+                                "subject": "Discount Deals at Dominos",
+                                "body": "Hawaiian pizza is on sale this week! Get a 50% discount off your next order of $20 or more."
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "What does the email from Hotel Dealz say?"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "It says \"Limited time sale on a hotel and flight combo! Getaway to Hawaii for $199 a night for 5 nights! Click here now!\""
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "Okay reply to that one asking if they still have the deal available. And then block off six days starting 10/2 as tentative vacation days and set a reminder to call Cindy at 6."
+        },
+        {
+            "index": 5,
+            "role": "assistant",
+            "text": "Okay, I replied to Hotel Dealz asking if they still have the deal available, set the calendar event for six days starting 10/2 and set the reminder to call Cindy at 6pm.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SendEmail",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "to": [
+                                "hotel-dealz@resorts.com"
+                            ],
+                            "subject": "hotel deal availability",
+                            "body": "Hi, I saw your email about the Hawaii deal and I was wondering if you still have it available. I would like to book a trip for my family. Thanks!"
+                        }
+                    },
+                    "response": {
+                        "email_id": "5b-dd80-9f8a27ab"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "CreateEvent",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "name": "Hawaii Trip",
+                            "event_type": "event",
+                            "start_time": "2023-10-02 00:00:00",
+                            "end_time": "2023-10-08 23:59:59"
+                        }
+                    },
+                    "response": {
+                        "event_id": "e149636f-d9ca"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "AddReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "task": "Call Cindy",
+                            "due_date": "2023-10-11 18:00:00"
+                        }
+                    },
+                    "response": {
+                        "reminder_id": "5b-dd80"
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}

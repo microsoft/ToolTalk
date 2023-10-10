@@ -1,0 +1,336 @@
+{
+    "new york": {
+        "2023-09-06": {
+            "date": "2023-09-06",
+            "high": 93,
+            "low": 77,
+            "conditions": "Sunny"
+        },
+        "2023-09-07": {
+            "date": "2023-09-07",
+            "high": 93,
+            "low": 77,
+            "conditions": "Sunny"
+        },
+        "2023-09-08": {
+            "date": "2023-09-08",
+            "high": 90,
+            "low": 72,
+            "conditions": "50% Rainy"
+        },
+        "2023-09-09": {
+            "date": "2023-09-09",
+            "high": 82,
+            "low": 73,
+            "conditions": "Cloudy"
+        },
+        "2023-09-10": {
+            "date": "2023-09-10",
+            "high": 75,
+            "low": 70,
+            "conditions": "80% Rainy"
+        },
+        "2023-09-11": {
+            "date": "2023-09-11",
+            "high": 78,
+            "low": 60,
+            "conditions": "Sunny"
+        },
+        "2023-09-12": {
+            "date": "2023-09-12",
+            "high": 78,
+            "low": 58,
+            "conditions": "Partly Cloudy"
+        },
+        "2023-09-13": {
+            "date": "2023-09-13",
+            "high": 72,
+            "low": 64,
+            "conditions": "80% Rainy"
+        },
+        "2023-09-14": {
+            "date": "2023-09-14",
+            "high": 76,
+            "low": 60,
+            "conditions": "Sunny"
+        },
+        "2023-09-15": {
+            "date": "2023-09-15",
+            "high": 77,
+            "low": 58,
+            "conditions": "Sunny"
+        },
+        "2023-09-16": {
+            "date": "2023-09-16",
+            "high": 77,
+            "low": 60,
+            "conditions": "Sunny"
+        },
+        "2023-09-20": {
+            "date": "2023-09-20",
+            "high": 68,
+            "low": 50,
+            "conditions": "Stormy"
+        },
+        "2023-09-21": {
+            "date": "2023-09-21",
+            "high": 68,
+            "low": 50,
+            "conditions": "60% Rainy"
+        },
+        "2023-09-22": {
+            "date": "2023-09-22",
+            "high": 69,
+            "low": 55,
+            "conditions": "Cloudy"
+        },
+        "2023-09-23": {
+            "date": "2023-09-23",
+            "high": 70,
+            "low": 62,
+            "conditions": "Sunny"
+        }
+    },
+    "london": {
+        "2023-09-08": {
+            "date": "2023-09-08",
+            "high": 73,
+            "low": 61,
+            "conditions": "Mostly Cloudy"
+        },
+        "2023-09-09": {
+            "date": "2023-09-09",
+            "high": 73,
+            "low": 62,
+            "conditions": "60% Rainy"
+        },
+        "2023-09-10": {
+            "date": "2023-09-10",
+            "high": 67,
+            "low": 55,
+            "conditions": "60% Rainy"
+        },
+        "2023-09-11": {
+            "date": "2023-09-11",
+            "high": 80,
+            "low": 56,
+            "conditions": "Mostly Cloudy"
+        },
+        "2023-09-12": {
+            "date": "2023-09-12",
+            "high": 72,
+            "low": 61,
+            "conditions": "60% Rainy"
+        },
+        "2023-09-13": {
+            "date": "2023-09-13",
+            "high": 67,
+            "low": 55,
+            "conditions": "60% Rainy"
+        },
+        "2023-09-14": {
+            "date": "2023-09-14",
+            "high": 67,
+            "low": 53,
+            "conditions": "30% Rainy"
+        },
+        "2023-09-15": {
+            "date": "2023-09-15",
+            "high": 70,
+            "low": 62,
+            "conditions": "40% Rainy"
+        },
+        "2023-09-16": {
+            "date": "2023-09-16",
+            "high": 65,
+            "low": 56,
+            "conditions": "30% Rainy"
+        }
+    },
+    "tokyo": {
+        "2023-09-08": {
+            "date": "2023-09-08",
+            "high": 80,
+            "low": 69,
+            "conditions": "Sunny"
+        },
+        "2023-09-09": {
+            "date": "2023-09-09",
+            "high": 92,
+            "low": 78,
+            "conditions": "Sunny"
+        },
+        "2023-09-10": {
+            "date": "2023-09-10",
+            "high": 91,
+            "low": 77,
+            "conditions": "30% Rainy"
+        },
+        "2023-09-11": {
+            "date": "2023-09-11",
+            "high": 85,
+            "low": 76,
+            "conditions": "50% Rainy"
+        },
+        "2023-09-12": {
+            "date": "2023-09-12",
+            "high": 84,
+            "low": 74,
+            "conditions": "60% Rainy"
+        },
+        "2023-09-13": {
+            "date": "2023-09-13",
+            "high": 81,
+            "low": 70,
+            "conditions": "Cloudy"
+        }
+    },
+    "sydney": {
+        "2023-09-08": {
+            "date": "2023-09-08",
+            "high": 70,
+            "low": 54,
+            "conditions": "40% Rainy"
+        },
+        "2023-09-09": {
+            "date": "2023-09-09",
+            "high": 64,
+            "low": 51,
+            "conditions": "Partly Cloudy"
+        },
+        "2023-09-10": {
+            "date": "2023-09-10",
+            "high": 66,
+            "low": 51,
+            "conditions": "Cloudy"
+        },
+        "2023-09-11": {
+            "date": "2023-09-11",
+            "high": 70,
+            "low": 52,
+            "conditions": "Sunny"
+        },
+        "2023-09-12": {
+            "date": "2023-09-12",
+            "high": 76,
+            "low": 50,
+            "conditions": "Sunny"
+        },
+        "2023-09-13": {
+            "date": "2023-09-13",
+            "high": 78,
+            "low": 53,
+            "conditions": "Sunny"
+        }
+    },
+    "san francisco": {
+        "2023-09-11": {
+            "date": "2023-09-11",
+            "high": 85,
+            "low": 72,
+            "conditions": "Sunny"
+        }
+    },
+    "boston": {
+        "2023-11-11": {
+            "date": "2023-11-11",
+            "high": 40,
+            "low": 23,
+            "conditions": "90% Rainy"
+        }
+    },
+    "edinburgh": {
+        "2023-09-15": {
+            "date": "2023-09-15",
+            "high": 61,
+            "low": 48,
+            "conditions": "60% Rainy"
+        },
+        "2023-09-16": {
+            "date": "2023-09-16",
+            "high": 60,
+            "low": 56,
+            "conditions": "Cloudy"
+        },
+        "2023-09-17": {
+            "date": "2023-09-17",
+            "high": 64,
+            "low": 44,
+            "conditions": "Light Rain"
+        }
+    },
+    "mont blanc": {
+        "2023-12-12": {
+            "date": "2023-12-12",
+            "high": 24,
+            "low": 19,
+            "conditions": "60% Snow"
+        },
+        "2023-12-13": {
+            "date": "2023-12-13",
+            "high": 47,
+            "low": 38,
+            "conditions": "30% Snow"
+        },
+        "2023-12-14": {
+            "date": "2023-12-14",
+            "high": 35,
+            "low": 18,
+            "conditions": "40% Snow"
+        }
+    },
+    "juneau": {
+        "2023-09-11": {
+            "date": "2023-09-11",
+            "high": 59,
+            "low": 50,
+            "conditions": "30% Rainy"
+        }
+    },
+    "rome": {
+        "2023-09-15": {
+            "date": "2023-09-15",
+            "high": 75,
+            "low": 68,
+            "conditions": "Sunny"
+        },
+        "2023-09-16": {
+            "date": "2023-09-16",
+            "high": 72,
+            "low": 65,
+            "conditions": "Sunny"
+        },
+        "2023-09-17": {
+            "date": "2023-09-17",
+            "high": 75,
+            "low": 69,
+            "conditions": "Sunny"
+        }
+    },
+    "paris": {
+        "2023-09-11": {
+            "date": "2023-09-11",
+            "high": 60,
+            "low": 52,
+            "conditions": "Sunny"
+        },
+        "2023-09-12": {
+            "date": "2023-09-12",
+            "high": 78,
+            "low": 58,
+            "conditions": "60% Rainy"
+        },
+        "2023-09-13": {
+            "date": "2023-09-13",
+            "high": 72,
+            "low": 64,
+            "conditions": "Cloudy"
+        },
+        "2023-09-14": {
+            "date": "2023-09-14",
+            "high": 76,
+            "low": 60,
+            "conditions": "Sunny"
+        }
+    }
+}

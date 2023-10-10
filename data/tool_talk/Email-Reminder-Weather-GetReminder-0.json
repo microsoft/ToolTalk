@@ -1,0 +1,182 @@
+{
+    "name": "Email-Reminder-Weather-GetReminder-0",
+    "conversation_id": "c135a231-484f-4e82-937e-d4853cb13eef",
+    "suites_used": [
+        "Email",
+        "Reminder",
+        "Weather"
+    ],
+    "apis_used": [
+        "SearchInbox",
+        "SendEmail",
+        "CompleteReminder",
+        "GetReminders"
+    ],
+    "scenario": "The user wants to check their reminders for the day (GetReminders). They see that they have a reminder to send an email to their boss with a report attached (SendEmail). They search their inbox for the report that was sent to them by a colleague (SearchInbox). They find the email and download the attachment. They compose the email to their boss and send it (SendEmail). They then mark the reminder as complete (CompleteReminder).",
+    "user": {
+        "username": "SuryaRani90",
+        "email": "suryarani.kumar@myfictionalemail.com",
+        "phone": "415-555-6789",
+        "name": "Surya Rani Kumar",
+        "password": "Tiger@Lily22",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "Paris",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "SuryaRani90"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Can you check my reminders for today?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "You have a reminder to send an email to Jeff (geoff) with your invoices.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "GetReminders",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404"
+                        }
+                    },
+                    "response": {
+                        "reminders": [
+                            {
+                                "reminder_id": "1f-8a4c",
+                                "task": "send invoices to Jeff (geoff)",
+                                "due_date": "2023-09-12 00:00:00",
+                                "status": "pending"
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Ok I got the intern (larajean) to do that for me, can you find the email they sent?"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "Ok, I found some emails from (larajean) with the title 'Your invoices'.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "QueryUser",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "username": "larajean"
+                        }
+                    },
+                    "response": {
+                        "users": [
+                            {
+                                "username": "larajean",
+                                "email": "lara.jean@fmail.com",
+                                "phone": "941-773-9153",
+                                "name": "Lara C Jean"
+                            }
+                        ]
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "SearchInbox",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "sender": "lara.jean@fmail.com",
+                            "query": "Your invoices"
+                        }
+                    },
+                    "response": {
+                        "emails": [
+                            {
+                                "email_id": "75-ff99-d8d1383b",
+                                "date": "2023-09-09 11:00:00",
+                                "sender": "lara.jean@fmail.com",
+                                "receivers": [
+                                    "suryarani.kumar@myfictionalemail.com"
+                                ],
+                                "subject": "Your invoices",
+                                "body": "I completed your invoices for last month. Here they are: MyCloudDocs.com/invoice-12345"
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "Copy the body of the newest one and send it to Jeff with the title 'My invoices'. And mark my reminer as complete."
+        },
+        {
+            "index": 5,
+            "role": "assistant",
+            "text": "I have sent Jeff an email with the title 'My invoices' and marked your reminder as complete.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "QueryUser",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "username": "geoff"
+                        }
+                    },
+                    "response": {
+                        "users": [
+                            {
+                                "username": "geoff",
+                                "email": "geoff.smith@example.com",
+                                "phone": "555-123-4567",
+                                "name": "Jeff Smith"
+                            }
+                        ]
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "SendEmail",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "to": [
+                                "geoff.smith@example.com"
+                            ],
+                            "subject": "My invoices",
+                            "body": "I completed your invoices for last month. Here they are: MyCloudDocs.com/invoice-12345"
+                        }
+                    },
+                    "response": {
+                        "email_id": "5b-dd80-9f8a27ab"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "CompleteReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "reminder_id": "1f-8a4c"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}

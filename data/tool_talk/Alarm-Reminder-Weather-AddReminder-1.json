@@ -1,0 +1,122 @@
+{
+    "name": "Alarm-Reminder-Weather-AddReminder-1",
+    "conversation_id": "1e1ad400-b86b-4e7c-9809-0351c22d4b6d",
+    "suites_used": [
+        "Alarm",
+        "Reminder",
+        "Weather"
+    ],
+    "apis_used": [
+        "AddReminder",
+        "CompleteReminder",
+        "GetReminders",
+        "CurrentWeather",
+        "HistoricWeather"
+    ],
+    "scenario": "The user wants to set a reminder to pay their electricity bill before the due date. They also want to compare the current weather and the historic weather of their location to see if they are using more or less electricity than usual. They use the AddReminder API to create a reminder with the task \"Pay electricity bill\" and the due date \"2021-12-15 23:59:59\". They then use the CurrentWeather API to get the current weather of their location. They see that the temperature is 15 degrees Celsius and the humidity is 60%. They then use the HistoricWeather API to get the weather data of their location for the same date last year. They see that the temperature was 10 degrees Celsius and the humidity was 40%. They conclude that they are using more electricity this year because of the higher temperature and humidity. They then use the GetReminders API to get a list of all their reminders. They see that they have another reminder to pay their rent on the same day. They use the CompleteReminder API to mark that reminder as done, since they have already paid their rent online.",
+    "user": {
+        "username": "lifeng",
+        "email": "lifeng@gahoo.com",
+        "phone": "512-322-9516",
+        "name": "Li Feng",
+        "password": "ooZ0ahKae",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "Paris",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "lifeng"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Set a reminder to pay my electricity bill and a reminder to pay my rent this Friday."
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Okay I've set a reminder to pay your electricity bill and a reminder to pay your rend for 9/15.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "AddReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "task": "Pay electricity bill",
+                            "due_date": "2023-09-15 23:59:59"
+                        }
+                    },
+                    "response": {
+                        "alarm_id": "5bff-dd80"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "AddReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "task": "Pay rent",
+                            "due_date": "2023-09-15 23:59:59"
+                        }
+                    },
+                    "response": {
+                        "alarm_id": "5bff-dd80"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "What's the historical temperature for this month vs the current temperature? I feel like I've been using the heating more."
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "The historical temperature for September in Paris has a minimum of 50 and a maximum of 74. The current temperature high is 60 with a low of 52.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "CurrentWeather",
+                        "parameters": {
+                            "location": "Paris"
+                        }
+                    },
+                    "response": {
+                        "weather": {
+                            "date": "2023-09-11",
+                            "high": 60,
+                            "low": 52,
+                            "conditions": "Sunny"
+                        }
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "HistoricWeather",
+                        "parameters": {
+                            "location": "Paris",
+                            "month": "September"
+                        }
+                    },
+                    "response": {
+                        "weather": {
+                            "min_temp": 50,
+                            "max_temp": 74,
+                            "record_min_temp": 40,
+                            "record_max_temp": 94,
+                            "avg_rainfall": 2.01,
+                            "snow_days": 0
+                        }
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}

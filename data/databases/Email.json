@@ -1,0 +1,202 @@
+{
+    "justinkool": {},
+    "decture": {
+        "7c-c867-6a524766": {
+            "email_id": "7c-c867-6a524766",
+            "date": "2023-09-07 16:00:00",
+            "sender": "Sara.Fritz@gahoo.com",
+            "receivers": [
+                "VirginiaJGraham@gahoo.com",
+                "lifeng@gahoo.com",
+                "steinki89@fexter.com",
+                "hugosalcano@somail.com"
+            ],
+            "subject": "How to research weather patterns",
+            "body": "Hello class!\n\nI had some questions about how to research weather patterns. I've included a list of websites that should help you get started on your project.\n- https://www.dailyweather.com/\n- https://www.theweatherdb.net\n- https://www.weathergate.com/research\n\nThanks, Mrs. Fritz"
+        }
+    },
+    "lifeng": {
+        "7c-c867-6a524766": {
+            "email_id": "7c-c867-6a524766",
+            "date": "2023-09-01 00:00:00",
+            "sender": "bigair-noreply@auto-bigair.com",
+            "receivers": [
+                "lifeng@gahoo.com"
+            ],
+            "subject": "Your flight details",
+            "body": "Here are your flights details for your flight from San Francisco to New York on September 11, 2023. Flight number: BA168. Boarding time: 5:30 PM. Gate number: 12A. Duration 6:30 PM to 12:30 AM."
+        },
+        "b5-cf2d-5231552e": {
+            "email_id": "b5-cf2d-5231552e",
+            "date": "2023-09-07 13:00:00",
+            "sender": "sarah.wolfe@myfictionalemail.com",
+            "receivers": [
+                "lifeng@gahoo.com"
+            ],
+            "subject": "Your invoices",
+            "body": "Hey Li, I recorded a practice run of my presentation, can you take a look?\n\nMyCloudDocs.com/presentation-67890.mp4"
+        }
+    },
+    "mstein": {
+        "0a-1b2c-3d4e5f6": {
+            "email_id": "0a-1b2c-3d4e5f6",
+            "date": "2023-09-10 11:00:00",
+            "sender": "hotel-dealz-noreply@deals.com",
+            "receivers": [
+                "steinki89@fexter.com"
+            ],
+            "subject": "FLASH SALE: Edinburgh hotel coupons",
+            "body": "Check out these sick hotel dealzzzzz in Edinburgh. 50% off for the next 24 hours only! https://www.deals.com/edinburgh"
+        },
+        "ff-7890-abcdef12": {
+            "email_id": "ff-7890-abcdef12",
+            "date": "2023-09-10 11:06:00",
+            "sender": "sallee@fakemail.com",
+            "receivers": [
+                "steinki89@fexter.com"
+            ],
+            "subject": "Come visit me in Edinburgh",
+            "body": "Hey you should come visit me in Edinburgh. I'm here for the next few weeks. Let me know if you want to meet up!"
+        },
+        "75-ff99-d8d1383b": {
+            "email_id": "75-ff99-d8d1383b",
+            "date": "2023-09-09 11:00:00",
+            "sender": "john.carbugle@fmail.com",
+            "receivers": [
+                "steinki89@fexter.com"
+            ],
+            "subject": "London Recommendations",
+            "body": "Hey I'm coming to London in a few days. Do you have any recommendations for restaurants?"
+        },
+        "b5-cf2d-5231552e": {
+            "email_id": "b5-cf2d-5231552e",
+            "date": "2023-09-05 00:00:00",
+            "sender": "john.carbugle@fmail.com",
+            "receivers": [
+                "steinki89@fexter.com",
+                "lifeng@gahoo.com"
+            ],
+            "subject": "RE: Project Update",
+            "body": "Oh I see, that's a good point Li, I can add a new section in the doc about this."
+        },
+        "0b-5119-b5f0a5b5": {
+            "email_id": "0b-5119-b5f0a5b5",
+            "date": "2023-09-02 00:00:00",
+            "sender": "john.carbugle@fmail.com",
+            "receivers": [
+                "steinki89@fexter.com",
+                "lifeng@gahoo.com"
+            ],
+            "subject": "RE: Project Update",
+            "body": "Hey I was able to look at the updates you sent over. I think we should go with the second option. I left some comments in the document. Let me know if you have any questions."
+        },
+        "8c-7e2a-df490b13": {
+            "email_id": "8c-7e2a-df490b13",
+            "date": "2023-09-05 17:40:00",
+            "sender": "misha.diae@somail.com",
+            "receivers": [
+                "steinki89@fexter.com",
+                "lifeng@gahoo.com",
+                "john.carbugle@fmail.com"
+            ],
+            "subject": "Meeting for team goals",
+            "body": "Hey can we set up a meeting sometime to go over our team goals for the next quarter? Would next Tuesday at 3 work?"
+        },
+        "2f-9c6d-5e7a81c4": {
+            "email_id": "2f-9c6d-5e7a81c4",
+            "date": "2023-09-11 18:00:00",
+            "sender": "misha.diae@somail.com",
+            "receivers": [
+                "steinki89@fexter.com",
+                "lifeng@gahoo.com",
+                "john.carbugle@fmail.com"
+            ],
+            "subject": "Canceled: Meeting for team goals",
+            "body": "Seems like multiple people can't make the meeting tomorrow. Let's reschedule for next week."
+        }
+    },
+    "SuryaRani90": {
+        "75-ff99-d8d1383b": {
+            "email_id": "75-ff99-d8d1383b",
+            "date": "2023-09-05 11:00:00",
+            "sender": "lara.jean@fmail.com",
+            "receivers": [
+                "suryarani.kumar@myfictionalemail.com"
+            ],
+            "subject": "Your invoices",
+            "body": "I completed your invoices for last month. Here they are: MyCloudDocs.com/invoice-12345"
+        },
+        "b5-cf2d-5231552e": {
+            "email_id": "b5-cf2d-5231552e",
+            "date": "2023-08-07 00:00:00",
+            "sender": "lara.jean@fmail.com",
+            "receivers": [
+                "suryarani.kumar@myfictionalemail.com"
+            ],
+            "subject": "Your invoices",
+            "body": "I completed your invoices for last month. Here they are: MyCloudDocs.com/invoice-67890"
+        },
+        "0b-5119-b5f0a5b5": {
+            "email_id": "0b-5119-b5f0a5b5",
+            "date": "2023-07-05 00:00:00",
+            "sender": "lara.jean@fmail.com",
+            "receivers": [
+                "suryarani.kumar@myfictionalemail.com"
+            ],
+            "subject": "Your invoices",
+            "body": "I completed your invoices for last month. Here they are: MyCloudDocs.com/invoice-54321"
+        },
+        "8c-7e2a-df490b13": {
+            "email_id": "8c-7e2a-df490b13",
+            "date": "2023-06-05 17:40:00",
+            "sender": "lara.jean@fmail.com",
+            "receivers": [
+                "suryarani.kumar@myfictionalemail.com"
+            ],
+            "subject": "Your invoices",
+            "body": "I completed your invoices for last month. Here they are: MyCloudDocs.com/invoice-98765"
+        },
+        "2f-9c6d-5e7a81c4": {
+            "email_id": "2f-9c6d-5e7a81c4",
+            "date": "2023-05-05 18:00:00",
+            "sender": "lara.jean@fmail.com",
+            "receivers": [
+                "suryarani.kumar@myfictionalemail.com"
+            ],
+            "subject": "Your invoices",
+            "body": "I completed your invoices for last month. Here they are: MyCloudDocs.com/invoice-24680"
+        }
+    },
+    "salcano": {
+        "75-ff99-d8d1383b": {
+            "email_id": "75-ff99-d8d1383b",
+            "date": "2023-09-05 11:00:00",
+            "sender": "hotel-dealz@resorts.com",
+            "receivers": [
+                "hugosalcano@somail.com"
+            ],
+            "subject": "Da best package deals in Hawaii! Flight and hotel in one?!",
+            "body": "Limited time sale on a hotel and flight combo! Getaway to Hawaii for $199 a night for 5 nights! Click here now!"
+        },
+        "b5-cf2d-5231552e": {
+            "email_id": "b5-cf2d-5231552e",
+            "date": "2023-08-29 18:00:00",
+            "sender": "rainbow-ice@brokedamouth.co",
+            "receivers": [
+                "hugosalcano@somail.com"
+            ],
+            "subject": "Discounts on Hawaiian shaved ice!",
+            "body": "We at broke da mouth shaved ice are offering a 50% discount on all shaved ice orders over $20! Come on down to our store in Honolulu and get your fix today!"
+        },
+        "0b-5119-b5f0a5b5": {
+            "email_id": "0b-5119-b5f0a5b5",
+            "date": "2023-09-07 18:00:00",
+            "sender": "dasherservice@dashmart.com",
+            "receivers": [
+                "hugosalcano@somail.com"
+            ],
+            "subject": "Discount Deals at Dominos",
+            "body": "Hawaiian pizza is on sale this week! Get a 50% discount off your next order of $20 or more."
+        }
+    }
+}

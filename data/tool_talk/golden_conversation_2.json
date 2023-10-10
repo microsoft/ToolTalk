@@ -1,0 +1,86 @@
+{
+    "name": "golden_conversation_2",
+    "conversation_id": "2",
+    "suites_used": [
+        "Calendar"
+    ],
+    "apis_used": [
+        "QueryCalendar",
+        "CreateEvent"
+    ],
+    "user": {
+        "username": "justinkool",
+        "email": "justintime@fmail.com",
+        "phone": "123-456-7890",
+        "name": "Justin Kool",
+        "password": "justforkicks123",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "Seattle",
+        "timestamp": "2023-09-11 13:20:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "justinkool"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hey, I think I need a break. Do I have an hour for a walk?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "You do not have any events for the next hour. Would you like to schedule a walk?",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "QueryCalendar",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "start_time": "2023-09-11 13:20:00",
+                            "end_time": "2023-09-11 14:20:00"
+                        }
+                    },
+                    "response": {
+                        "events": []
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Yes, please block the next hour for me."
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "Your event has been created. Is there anything else I can help you with?",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "CreateEvent",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "name": "Walk",
+                            "event_type": "event",
+                            "start_time": "2023-09-11 13:20:00",
+                            "end_time": "2023-09-11 14:20:00"
+                        }
+                    },
+                    "response": {
+                        "event_id": "e149636f-d9ca"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "No, thank you. I'm heading out now."
+        }
+    ]
+}

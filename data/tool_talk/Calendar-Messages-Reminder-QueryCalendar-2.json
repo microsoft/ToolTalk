@@ -1,0 +1,99 @@
+{
+    "name": "Calendar-Messages-Reminder-QueryCalendar-2",
+    "conversation_id": "9a054cc8-a79e-4f1c-8495-56f1c75357ae",
+    "suites_used": [
+        "Calendar",
+        "Messages",
+        "Reminder"
+    ],
+    "apis_used": [
+        "ModifyEvent",
+        "QueryCalendar",
+        "SendMessage"
+    ],
+    "scenario": "The user wants to modify an event they created earlier to accommodate a new attendee. They query their calendar to find the event id of the event they want to modify (QueryCalendar). They then modify the event by adding the new attendee to the list of attendees and changing the location to a larger venue (ModifyEvent). They also send a message to the original attendees of the event to notify them of the changes and introduce the new attendee (SendMessage). They then query their calendar again to see if the modified event conflicts with any other events or reminders they have (QueryCalendar). They find that they have a reminder for a task that is due on the same day as the event. They decide to postpone the task and change the due date of the reminder (ModifyReminder).",
+    "user": {
+        "username": "decture",
+        "email": "VirginiaJGraham@gahoo.com",
+        "phone": "703-607-3363",
+        "name": "Virginia J. Graham",
+        "password": "chaew5Oeth",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "Paris",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "decture"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Can you add Erica (erica) and Steve (stevene) to the meeting on Monday for the Team Summit? Also change the location to Room 1a now that we have more people."
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Okay I have modified the event.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "QueryCalendar",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "start_time": "2023-09-11 09:00:00",
+                            "end_time": "2023-09-11 23:59:59"
+                        }
+                    },
+                    "response": {
+                        "events": [
+                            {
+                                "event_id": "bb4588f1-c21c",
+                                "name": "Team Summit",
+                                "event_type": "meeting",
+                                "start_time": "2023-09-11 13:00:00",
+                                "end_time": "2023-09-11 14:30:00",
+                                "location": null,
+                                "description": null,
+                                "attendees": [
+                                    "justinkool",
+                                    "lifeng",
+                                    "decture",
+                                    "ahhchiu",
+                                    "salcano",
+                                    "mstein"
+                                ]
+                            }
+                        ]
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "ModifyEvent",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "event_id": "bb4588f1-c21c",
+                            "new_location": "Room 1a",
+                            "new_attendees": [
+                                "justinkool",
+                                "lifeng",
+                                "decture",
+                                "ahhchiu",
+                                "salcano",
+                                "mstein",
+                                "erica",
+                                "stevene"
+                            ]
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}

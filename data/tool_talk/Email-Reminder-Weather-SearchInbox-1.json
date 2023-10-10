@@ -1,0 +1,164 @@
+{
+    "name": "Email-Reminder-Weather-SearchInbox-1",
+    "conversation_id": "36db426f-eeac-44eb-b3bd-bc797b83f005",
+    "suites_used": [
+        "Email",
+        "Reminder",
+        "Weather"
+    ],
+    "apis_used": [
+        "SearchInbox",
+        "SendEmail",
+        "AddReminder",
+        "ForecastWeather"
+    ],
+    "scenario": "The user wants to plan a weekend trip to a nearby city (ForecastWeather). They search their inbox for any travel deals or coupons they might have received (SearchInbox). They find a promotional code for a hotel booking site and decide to use it (SendEmail). They also find an email from their friend who lives in the city, asking them to visit (SendEmail). They reply to their friend and ask for some recommendations on what to do and see in the city (SendEmail). They also add a reminder to pack their bags and print their tickets (AddReminder).",
+    "user": {
+        "username": "mstein",
+        "email": "steinki89@fexter.com",
+        "phone": "937-272-9068",
+        "name": "Michael Steinke",
+        "password": "weiChe0oo",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "London",
+        "timestamp": "2023-09-14 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "mstein"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "I want to go to Edinburgh this weekend, can you check the weather conditions?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "The weather in Edinburgh will be rainy tomorrow, cloudy the day after, and drizzly the day after that.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "ForecastWeather",
+                        "parameters": {
+                            "location": "Edinburgh"
+                        }
+                    },
+                    "response": {
+                        "forecast": [
+                            {
+                                "date": "2023-09-15",
+                                "high": 61,
+                                "low": 48,
+                                "conditions": "60% Rainy"
+                            },
+                            {
+                                "date": "2023-09-16",
+                                "high": 60,
+                                "low": 56,
+                                "conditions": "Cloudy"
+                            },
+                            {
+                                "date": "2023-09-17",
+                                "high": 64,
+                                "low": 44,
+                                "conditions": "Light Rain"
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Perfect. Can you look up my email for anything about Edinburgh?"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "I found one email titled 'FLASH SALE: Edinburgh hotel coupons' from Hotel Dealz (hoteldealz) and one email titled 'Come visit me in Edinburgh' from Sally (sallee).",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SearchInbox",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "query": "Edinburgh"
+                        }
+                    },
+                    "response": {
+                        "emails": [
+                            {
+                                "email_id": "0a-1b2c-3d4e5f6",
+                                "date": "2023-09-10 11:00:00",
+                                "sender": "hotel-dealz-noreply@deals.com",
+                                "receivers": [
+                                    "steinki89@fexter.com"
+                                ],
+                                "subject": "FLASH SALE: Edinburgh hotel coupons",
+                                "body": "Check out these sick hotel dealzzzzz in Edinburgh. 50% off for the next 24 hours only! https://www.deals.com/edinburgh"
+                            },
+                            {
+                                "email_id": "ff-7890-abcdef12",
+                                "date": "2023-09-10 11:06:00",
+                                "sender": "sallee@fakemail.com",
+                                "receivers": [
+                                    "steinki89@fexter.com"
+                                ],
+                                "subject": "Come visit me in Edinburgh",
+                                "body": "Hey you should come visit me in Edinburgh. I'm here for the next few weeks. Let me know if you want to meet up!"
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "Ok can you reply to Sally saying that I will be visiting this weekend? And add a reminder for me to pack my bags tonight at 8pm."
+        },
+        {
+            "index": 5,
+            "role": "assistant",
+            "text": "I have replied to Sally and set a reminder for tonight to pack your bags.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SendEmail",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "to": [
+                                "sallee@fakemail.com"
+                            ],
+                            "subject": "Re: Come visit me in Edinburgh",
+                            "body": "Hey Sally, I will be visiting this weekend. I'm looking forward to seeing you!"
+                        }
+                    },
+                    "response": {
+                        "email_id": "5b-dd80-9f8a27ab"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "AddReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "task": "Pack bags",
+                            "due_date": "2023-09-14 20:00:00"
+                        }
+                    },
+                    "response": {
+                        "reminder_id": "5b-dd80"
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}

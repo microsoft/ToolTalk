@@ -1,0 +1,68 @@
+{
+    "name": "SendMessage-easy",
+    "conversation_id": "79898399-9748-4482-b842-e9f0c95befbb",
+    "suites_used": [
+        "Messages"
+    ],
+    "apis_used": [
+        "SendMessage"
+    ],
+    "scenario": "SendMessage easy scenario",
+    "user": {
+        "username": "salcano",
+        "email": "hugosalcano@somail.com",
+        "phone": "402-581-7997",
+        "name": "Hugo Saldana Cano",
+        "password": "aeghah9Ei",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "London",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "salcano"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hey, can I send a message to my friend justinkool?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Sure, what do you want to say?"
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "How about something simple like a greeting?"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "Sounds good, I'll send it now.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SendMessage",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "receiver": "justinkool",
+                            "message": "Hello, how are you?"
+                        }
+                    },
+                    "response": {
+                        "message_id": "e149636f-ecc3f121"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "Great, thanks!"
+        }
+    ]
+}

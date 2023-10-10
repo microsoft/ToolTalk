@@ -1,0 +1,73 @@
+{
+    "name": "RegisterUser-easy",
+    "conversation_id": "79e26be0-f2bb-41e1-b3a7-2273ef6dd194",
+    "suites_used": [
+        "AccountTools"
+    ],
+    "apis_used": [
+        "RegisterUser"
+    ],
+    "scenario": "RegisterUser easy scenario",
+    "user": {
+        "username": "hestler",
+        "email": "j.hester@gahoo.com",
+        "phone": "708-340-0190",
+        "name": "Julian Hester",
+        "password": "Meizuch4uu"
+    },
+    "metadata": {
+        "location": "San Francisco",
+        "timestamp": "2023-09-11 09:00:00"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hey I'd like to sign up for a new account!"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Sure, to sign up for a new account, I'll need your name, email, phone number, username, and a password."
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "My name is Julian Hester, my email is j.hester@gahoo.com, my phone number is 708-340-0190. Can you set my username to hestler and my password to Meizuch4uu?"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "Sure, I've created your account. You have already been logged in.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "RegisterUser",
+                        "parameters": {
+                            "username": "hestler",
+                            "password": "Meizuch4uu",
+                            "email": "j.hester@gahoo.com",
+                            "phone": "708-340-0190",
+                            "name": "Julian Hester"
+                        }
+                    },
+                    "response": {
+                        "session_token": "e149636f-d9ca-0792",
+                        "user": {
+                            "username": "hestler",
+                            "email": "j.hester@gahoo.com",
+                            "phone": "708-340-0190",
+                            "name": "Julian Hester"
+                        }
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "Wow that was easy! Thanks!"
+        }
+    ]
+}

@@ -1,0 +1,123 @@
+{
+    "name": "AccountTools-Alarm-Calendar-AddAlarm-0",
+    "conversation_id": "de6eb33d-0ea2-468e-bd84-ebf4ea3827c8",
+    "suites_used": [
+        "AccountTools",
+        "Alarm",
+        "Calendar"
+    ],
+    "apis_used": [
+        "LogoutUser",
+        "RegisterUser",
+        "AddAlarm",
+        "CreateEvent",
+        "QueryCalendar"
+    ],
+    "scenario": "The user wants to create a new account and set an alarm for an important meeting the next day. They use RegisterUser to sign up with their username, password, email, name, and phone. They receive a session_token and their account information. They use CreateEvent to add the meeting to their calendar, providing the name, event_type, description, start_time, end_time, location, and attendees. They receive an event_id on success. They use AddAlarm to set an alarm for 30 minutes before the meeting, providing their session_token and the time. They receive an alarm_id on success. They use QueryCalendar to check their schedule for the next day, providing their session_token, start_time, and end_time. They receive a list of events in the time range. They use LogoutUser to log out of their account, providing their session_token. They receive a status of success or failed.",
+    "user": {
+        "username": "hestler",
+        "email": "j.hester@gahoo.com",
+        "phone": "708-340-0190",
+        "name": "Julian Hester",
+        "password": "Meizuch4uu"
+    },
+    "metadata": {
+        "location": "Seattle",
+        "timestamp": "2023-09-11 09:00:00"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hi assistant, I want to make a new account and put an important meeting on the calendar for tomorrow."
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Ok, I can help with that. Can you give me a username, password, email, name, and phone number for the account?"
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "My name is Julian Hester and I want my user name to be hestler. Email is j.hester@gahoo.com, phone is 708-340-0190 and password should be Meizuch4uu."
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "Thanks, I made the account. Can you give me the the name of the event and the start and end time?",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "RegisterUser",
+                        "parameters": {
+                            "username": "hestler",
+                            "password": "Meizuch4uu",
+                            "email": "j.hester@gahoo.com",
+                            "phone": "708-340-0190",
+                            "name": "Julian Hester"
+                        }
+                    },
+                    "response": {
+                        "session_token": "e149636f-d9ca-0792",
+                        "user": {
+                            "username": "hestler",
+                            "email": "j.hester@gahoo.com",
+                            "phone": "708-340-0190",
+                            "name": "Julian Hester"
+                        }
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "Thanks, the event is a client meeting with Alice (alice59) from 8 am to 9. Can you also add an alarm for 30 minutes before the meeting?"
+        },
+        {
+            "index": 5,
+            "role": "assistant",
+            "text": "Got it, I've created the event and alarm.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "CreateEvent",
+                        "parameters": {
+                            "session_token": "e149636f-d9ca-0792",
+                            "name": "Client Meeting",
+                            "event_type": "meeting",
+                            "start_time": "2023-09-12 08:00:00",
+                            "end_time": "2023-09-12 09:00:00",
+                            "attendees": [
+                                "alice59"
+                            ]
+                        }
+                    },
+                    "response": {
+                        "event_id": "e149636f-d9ca"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "AddAlarm",
+                        "parameters": {
+                            "session_token": "e149636f-d9ca-0792",
+                            "time": "07:30:00"
+                        }
+                    },
+                    "response": {
+                        "alarm_id": "5bff-dd80"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 6,
+            "role": "user",
+            "text": "Thanks, that's all for now."
+        }
+    ]
+}

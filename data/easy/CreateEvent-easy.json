@@ -1,0 +1,71 @@
+{
+    "name": "CreateEvent-easy",
+    "conversation_id": "0be430e6-236f-432c-9287-82666ef1b1a3",
+    "suites_used": [
+        "Calendar"
+    ],
+    "apis_used": [
+        "CreateEvent"
+    ],
+    "scenario": "CreateEvent easy scenario",
+    "user": {
+        "username": "olivedo",
+        "email": "olivieisme@somail.com",
+        "phone": "440-328-5425",
+        "name": "Olivie Doiron",
+        "password": "SaeH9Ligh",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "New York",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "olivedo"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "I just got tickets for a Beatles concert this Friday. Can you create an event for me?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Sure, when is the concert?"
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "It goes from 8-11 at Madison Square Garden."
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "I've created the event for you.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "CreateEvent",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "name": "Beatles Concert",
+                            "event_type": "event",
+                            "start_time": "2023-09-15 20:00:00",
+                            "end_time": "2023-09-15 23:00:00",
+                            "location": "Madison Square Garden"
+                        }
+                    },
+                    "response": {
+                        "event_id": "e149636f-d9ca"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "Thanks!"
+        }
+    ]
+}
