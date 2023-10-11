@@ -1,0 +1,82 @@
+{
+    "name": "Alarm-Messages-Reminder-SearchMessage-2",
+    "conversation_id": "8db5d2b3-9adf-4513-8d34-8c1f72df15cc",
+    "suites_used": [
+        "Alarm",
+        "Messages",
+        "Reminder"
+    ],
+    "apis_used": [
+        "DeleteAlarm",
+        "FindAlarms",
+        "SearchMessages",
+        "SendMessage",
+        "AddReminder",
+        "CompleteReminder",
+        "GetReminders"
+    ],
+    "scenario": "The user wants to find all the messages they sent to their crush in the last month that contain the word \"love\" (SearchMessages). They then want to complete any reminders they have related to their crush, such as buying flowers or chocolates (GetReminders + CompleteReminder). They also want to delete any alarms they have set for the next day, as they plan to spend the whole day with their crush (FindAlarms + DeleteAlarm). They also want to add a reminder for the next week to send a message to their crush saying how much they enjoyed the date (AddReminder). They also want to send a message to their crush right now saying how excited they are for tomorrow (SendMessage).",
+    "user": {
+        "username": "justinkool",
+        "email": "justintime@fmail.com",
+        "phone": "123-456-7890",
+        "name": "Justin Kool",
+        "password": "justforkicks123"
+    },
+    "metadata": {
+        "location": "Tokyo",
+        "timestamp": "2023-09-11 09:00:00"
+    },
+    "conversation": [
+        {
+            "role": "user",
+            "text": "I wanna know who has said \"I love you\" to me. Can you pull up a list of people who messaged me that?"
+        },
+        {
+            "role": "assistant",
+            "text": "The users who have messaged you \"I love you\" are (justinsmom), (grandmakool), (koolestdad), and (bobbyboi).",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SearchMessages",
+                        "parameters": null
+                    },
+                    "response": null,
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "role": "user",
+            "text": "Ok can you send Holly (twols) a message telling her I'm excited for our date tomorrow? And send Katie (katy) a message asking her if she likes horses? And ask Georgina if she's free on Sunday."
+        },
+        {
+            "role": "assistant",
+            "text": null,
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SendMessage",
+                        "parameters": null
+                    },
+                    "response": null,
+                    "exception": null
+                }, {
+                    "request": {
+                        "api_name": "SendMessage",
+                        "parameters": null
+                    },
+                    "response": null,
+                    "exception": null
+                },{
+                    "request": {
+                        "api_name": "SendMessage",
+                        "parameters": null
+                    },
+                    "response": null,
+                    "exception": null
+                }
+            ]
+        },
+    ]
+}

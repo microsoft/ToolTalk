@@ -1,0 +1,82 @@
+{
+    "name": "Alarm-Messages-Weather-AddAlarm-2",
+    "conversation_id": "50b8dd5b-c977-471e-b553-321f88518555",
+    "suites_used": [
+        "Alarm",
+        "Messages",
+        "Weather"
+    ],
+    "apis_used": [
+        "AddAlarm",
+        "DeleteAlarm",
+        "SearchMessages",
+        "SendMessage",
+        "CurrentWeather",
+        "ForecastWeather"
+    ],
+    "scenario": "The user wants to set an alarm for 6:00 am (AddAlarm) to go for a run. They want to check the forecast weather (ForecastWeather) and the current weather (CurrentWeather) of their location to decide what to wear and how long to run. They also want to send a message to their running partner (SendMessage) to confirm their meeting point and time. They then want to search their messages (SearchMessages) to find the last message they received from their coach with some tips and advice. They also want to delete an alarm (DeleteAlarm) that they accidentally set for 5:00 am.",
+    "user": {
+        "username": "lifeng",
+        "email": "lifeng@gahoo.com",
+        "phone": "512-322-9516",
+        "name": "Li Feng",
+        "password": "ooZ0ahKae"
+    },
+    "metadata": {
+        "location": "Seattle",
+        "timestamp": "2023-09-11 09:00:00"
+    },
+    "conversation": [
+        {
+            "role": "user",
+            "text": "I need an alarm for 6 am tomorrow to go on a run. What's the weather looking like for that?"
+        },
+        {
+            "role": "assistant",
+            "text": "Ok I set an alarm for 6 am. The weather forecast for tomorrow in Seattle is drizzly with a low of 40 and a high of 58.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "AddAlarm",
+                        "parameters": null
+                    },
+                    "response": null,
+                    "exception": null
+                },{
+                    "request": {
+                        "api_name": "ForecastWeather",
+                        "parameters": null
+                    },
+                    "response": null,
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "role": "user",
+            "text": "Search my messages for tips from Coach Pam for running in the rain."
+        },
+        {
+            "role": "assistant",
+            "text": "What's Coach Pam's username?",
+        },
+        {
+            "role": "user",
+            "text": "coachpam"
+        },
+        {
+            "role": "assistant",
+            "text": "Coach Pam said \"You need to power through when running in the rain\".",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SearchMessages",
+                        "parameters": null
+                    },
+                    "response": null,
+                    "exception": null
+                }
+            ]
+        },
+    ]
+}

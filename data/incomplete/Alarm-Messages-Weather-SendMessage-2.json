@@ -1,0 +1,92 @@
+{
+    "name": "Alarm-Messages-Weather-SendMessage-2",
+    "conversation_id": "6efb3f2f-080f-41a4-a7de-2e1211b78fb1",
+    "suites_used": [
+        "Alarm",
+        "Messages",
+        "Weather"
+    ],
+    "apis_used": [
+        "DeleteAlarm",
+        "SearchMessages",
+        "SendMessage",
+        "ForecastWeather"
+    ],
+    "scenario": "The user wants to send a message to their crush, inviting them to go out for a date. They want to check the forecast weather of their city to see if it is suitable for an outdoor activity (ForecastWeather). They also want to find out if they have any messages from their crush that they might have missed (SearchMessages). They find out that their crush has not replied to their last message, which was sent two days ago. They feel a bit discouraged, but they decide to try again. They then delete an alarm that they had set for a movie night with their friends, since they want to keep their schedule free (DeleteAlarm). They then send the message to their crush, suggesting a picnic in the park and hoping for a positive response (SendMessage).",
+    "user": {
+        "username": "ahhchiu",
+        "email": "k.chiu@taoxi.edu",
+        "phone": "806-361-3049",
+        "name": "Kong Chiu",
+        "password": "eehahTe2t",
+        "session_token": "abc"
+    },
+    "metadata": {
+        "location": "Tokyo",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "abc"
+    },
+    "conversation": [
+        {
+            "role": "user",
+            "text": "Can you send a message to Naomi (naochan) asking her on a date to the rug tufting store?"
+        },
+        {
+            "role": "assistant",
+            "text": "Ok I've sent Naomi a message asking her if she wants to go on a date to the rug tufting store.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SendMessage",
+                        "parameters": null
+                    },
+                    "response": null,
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "role": "user",
+            "text": "What's the last time she sent me a message?"
+        },
+        {
+            "role": "assistant",
+            "text": "The last time she sent you a message is 9/1.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SearchMessages",
+                        "parameters": null
+                    },
+                    "response": null,
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "role": "user",
+            "text": "I think she's just busy. Can you delete my event tonight for Movie night since she might respond then?"
+        },
+        {
+            "role": "assistant",
+            "text": "I deleted your event tonight titled \"Movie night\"",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "QueryCalendar",
+                        "parameters": null
+                    },
+                    "response": null,
+                    "exception": null
+                },{
+                    "request": {
+                        "api_name": "DeleteEvent",
+                        "parameters": null
+                    },
+                    "response": null,
+                    "exception": null
+                }
+            ]
+        },
+    ]
+}

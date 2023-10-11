@@ -1,0 +1,88 @@
+{
+    "name": "Alarm-Messages-Weather-FindAlarm-2",
+    "conversation_id": "661db775-9efe-49ef-87ae-5bde425a1730",
+    "suites_used": [
+        "Alarm",
+        "Messages",
+        "Weather"
+    ],
+    "apis_used": [
+        "DeleteAlarm",
+        "FindAlarms",
+        "SearchMessages",
+        "HistoricWeather"
+    ],
+    "scenario": "The user wants to delete some old alarms that they no longer need and free up some space on their device. They use the FindAlarms API to see all the alarms that they have set and see that they have 10 alarms in total. They use the SearchMessages API to see if any of the alarms are related to messages that they have received or sent and see that 3 of them are. They use the DeleteAlarm API to delete the 3 alarms that are related to messages. They use the HistoricWeather API to see if any of the alarms are related to weather events that they were interested in and see that 2 of them are. They use the DeleteAlarm API to delete the 2 alarms that are related to weather events.",
+    "user": {
+        "username": "ahhchiu",
+        "email": "k.chiu@taoxi.edu",
+        "phone": "806-361-3049",
+        "name": "Kong Chiu",
+        "password": "eehahTe2t",
+        "session_token": "abc"
+    },
+    "metadata": {
+        "location": "Seattle",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "abc"
+    },
+    "conversation": [
+        {
+            "role": "user",
+            "text": "I want to clean up my alarms. How many do I have right now?"
+        },
+        {
+            "role": "assistant",
+            "text": "You have six alarms.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "FindAlarms",
+                        "parameters": null
+                    },
+                    "response": null,
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "role": "user",
+            "text": "Ok delete all my alarms that are set before 11 am and add one for 9:30am."
+        },
+        {
+            "role": "assistant",
+            "text": "Okay I deleted three of your alarms and added one.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "DeleteAlarm",
+                        "parameters": null
+                    },
+                    "response": null,
+                    "exception": null
+                },{
+                    "request": {
+                        "api_name": "DeleteAlarm",
+                        "parameters": null
+                    },
+                    "response": null,
+                    "exception": null
+                },{
+                    "request": {
+                        "api_name": "DeleteAlarm",
+                        "parameters": null
+                    },
+                    "response": null,
+                    "exception": null
+                },{
+                    "request": {
+                        "api_name": "AddAlarm",
+                        "parameters": null
+                    },
+                    "response": null,
+                    "exception": null
+                }
+            ]
+        },
+    ]
+}
