@@ -24,25 +24,39 @@ OpenAI's API. The results will be saved in the `results` folder. The script cach
 re-run if it is interrupted for any reason.
 
 ```bash
+export OPENAI_API_KEY=<your key>
+bash evaluate_gpt35turbo.sh
+bash evaluate_gpt4.sh
 ```
 
 Your results should look something like this, there will be some variance due to both models having non-deterministic results.
 
 | Model   | ToolTalk | Success rate | Precision | Recall | Incorrect Action Rate |
 |---------|----------|--------------|-----------|--------|-----------------------|
-| GPT-3.5 | easy     |              |           |        |                       |
-| GPT-4   | easy     |              |           |        |                       |
-| GPT-3.5 | hard     |              |           |        |                       |
-| GPT-4   | hard     |              |           |        |                       |
+| GPT-3.5 | Easy     | 85.7%        | 42.4%     | 89.3%  | 5.0%                  |
+| GPT-4   | Easy     | 92.8%        | 69.2%     | 96.4%  | 3.8%                  |
+| GPT-3.5 | Hard     | 26.0%        | 54.6%     | 69.7%  | 23.9%                 |
+| GPT-4   | Hard     | 50.0%        | 74.9%     | 79.0%  | 25.1%                 |
+
+## Generating scenarios
+
+To generate new scenarios, you can use the following command.
+
+```bash
+python -m tooltalk.generation.scenario_generator_v2.py
+```
 
 ## Evaluating on new models
 
-
+The easiest way to evaluate on new models would be to create a new `Predictor` class that inherits from `tooltalk.evaluation.tool_executor.BaseAPIPredictor`.
+For an example of how to do this, see `tooltalk.evaluation.tool_executor.GPT3Predictor` and `tooltalk.evaluation.evaluate_openai.OpenAIPredictor`.
 
 ## TODO
 
 - [ ] Add link to paper
+- [ ] Release ToolTalk code
 - [ ] Evaluate on other models
+- [ ] Create more examples
 
 ## Citing
 
