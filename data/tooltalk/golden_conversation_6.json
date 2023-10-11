@@ -1,0 +1,183 @@
+{
+    "name": "golden_conversation_6",
+    "conversation_id": "6",
+    "suites_used": [
+        "Alarm",
+        "Calendar",
+        "Email"
+    ],
+    "apis_used": [
+        "AddAlarm",
+        "FindAlarms",
+        "QueryCalendar",
+        "SearchInbox",
+        "SendEmail"
+    ],
+    "scenario": "The user creates a new account then wants to see if their friends have accounts as well. They have their email address, so they use (QueryUser) to look up their username and send them a message (SendMesage).",
+    "user": {
+        "username": "hestler",
+        "email": "j.hester@gahoo.com",
+        "phone": "708-340-0190",
+        "name": "Julian Hester",
+        "password": "Meizuch4uu"
+    },
+    "metadata": {
+        "location": "Paris",
+        "timestamp": "2023-09-11 09:00:00"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hello, I would like to create a new account. I heard some of my friends are on the platform."
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Sure, in order to create an account, I will need a valid email address, a username, and a password. Optionally, you can provide your name and phone number as well."
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Sure, is hestler available? You can use j.hester@gahoo.com as my email address. My name is Julian Hester. Can you set my password to Meizuch4uu?"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "Done, I have created your account. Your username is hestler. I have logged you into the platform.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "RegisterUser",
+                        "parameters": {
+                            "username": "hestler",
+                            "password": "Meizuch4uu",
+                            "email": "j.hester@gahoo.com",
+                            "name": "Julian Hester"
+                        }
+                    },
+                    "response": {
+                        "session_token": "e149636f-d9ca-0792",
+                        "user": {
+                            "username": "hestler",
+                            "email": "j.hester@gahoo.com",
+                            "phone": null,
+                            "name": "Julian Hester"
+                        }
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "Great, can you check if my friends are on the platform as well? Their emails are justintime@fmail.com steinki89@fexter.com and bob.candi@fmail.com"
+        },
+        {
+            "index": 5,
+            "role": "assistant",
+            "text": "Sure, it looks like Justin and Michael are on the platform. Unfortunately, the third email address returned no results.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "QueryUser",
+                        "parameters": {
+                            "session_token": "e149636f-d9ca-0792",
+                            "email": "justintime@fmail.com"
+                        }
+                    },
+                    "response": {
+                        "users": [
+                            {
+                                "username": "justinkool",
+                                "email": "justintime@fmail.com",
+                                "phone": "123-456-7890",
+                                "name": "Justin Kool"
+                            }
+                        ]
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "QueryUser",
+                        "parameters": {
+                            "session_token": "e149636f-d9ca-0792",
+                            "email": "steinki89@fexter.com"
+                        }
+                    },
+                    "response": {
+                        "users": [
+                            {
+                                "username": "mstein",
+                                "email": "steinki89@fexter.com",
+                                "phone": "937-272-9068",
+                                "name": "Michael Steinke"
+                            }
+                        ]
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "QueryUser",
+                        "parameters": {
+                            "session_token": "e149636f-d9ca-0792",
+                            "email": "bob.candi@fmail.com"
+                        }
+                    },
+                    "response": {
+                        "users": []
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 6,
+            "role": "user",
+            "text": "Ah, that's too bad. Can you send them a message for me? Just let them know I signed up"
+        },
+        {
+            "index": 7,
+            "role": "assistant",
+            "text": "I've sent a message to Justin and Michael. Is there anything else I can help you with?",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SendMessage",
+                        "parameters": {
+                            "session_token": "e149636f-d9ca-0792",
+                            "receiver": "justinkool",
+                            "message": "Hey, I just signed up for the platform. How are you?"
+                        }
+                    },
+                    "response": {
+                        "message_id": "e149636f-ecc3f121"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "SendMessage",
+                        "parameters": {
+                            "session_token": "e149636f-d9ca-0792",
+                            "receiver": "mstein",
+                            "message": "Hey, I just signed up for the platform. How are you?"
+                        }
+                    },
+                    "response": {
+                        "message_id": "5c5373e0-ecf4712d"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 8,
+            "role": "user",
+            "text": "No that's it"
+        }
+    ]
+}

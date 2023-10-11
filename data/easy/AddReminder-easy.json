@@ -1,0 +1,57 @@
+{
+    "name": "AddReminder-easy",
+    "conversation_id": "fc16280a-c9a9-4b55-b23b-3d6c1e0d1b11",
+    "suites_used": [
+        "Reminder"
+    ],
+    "apis_used": [
+        "AddReminder"
+    ],
+    "scenario": "AddReminder easy scenario",
+    "user": {
+        "username": "decture",
+        "email": "VirginiaJGraham@gahoo.com",
+        "phone": "703-607-3363",
+        "name": "Virginia J. Graham",
+        "password": "chaew5Oeth",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "San Francisco",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "decture"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hey can you add a reminder for me to take out the trash?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Sure, I've set a reminder for you to take out the trash. Would you like to set another reminder?",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "AddReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "task": "take out the trash"
+                        }
+                    },
+                    "response": {
+                        "reminder_id": "5b-dd80"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "No just that one thanks."
+        }
+    ]
+}

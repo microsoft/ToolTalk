@@ -1,0 +1,81 @@
+{
+    "name": "SendEmail-easy",
+    "conversation_id": "5076cdf2-f6c2-4640-93eb-e307caf9f088",
+    "suites_used": [
+        "Email"
+    ],
+    "apis_used": [
+        "SendEmail"
+    ],
+    "scenario": "SendEmail easy scenario",
+    "user": {
+        "username": "justinkool",
+        "email": "justintime@fmail.com",
+        "phone": "123-456-7890",
+        "name": "Justin Kool",
+        "password": "justforkicks123",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "Tokyo",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "justinkool"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hey can you send an email to my colleague?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Sure, what's their email address?"
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "It's olivieisme@somail.com"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "What would you like the subject to be?"
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "It's just a test email, can you put 'test' as the subject? The body can be empty."
+        },
+        {
+            "index": 5,
+            "role": "assistant",
+            "text": "Sure, I'll send it now.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SendEmail",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "to": [
+                                "olivieisme@somail.com"
+                            ],
+                            "subject": "test",
+                            "body": ""
+                        }
+                    },
+                    "response": {
+                        "email_id": "5b-dd80-9f8a27ab"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 6,
+            "role": "user",
+            "text": "Thanks!"
+        }
+    ]
+}

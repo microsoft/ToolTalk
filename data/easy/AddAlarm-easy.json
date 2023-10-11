@@ -1,0 +1,57 @@
+{
+    "name": "AddAlarm-easy",
+    "conversation_id": "90a1a217-55bc-4d6d-8b76-99440aae3a1a",
+    "suites_used": [
+        "Alarm"
+    ],
+    "apis_used": [
+        "AddAlarm"
+    ],
+    "scenario": "AddAlarm easy scenario",
+    "user": {
+        "username": "justinkool",
+        "email": "justintime@fmail.com",
+        "phone": "123-456-7890",
+        "name": "Justin Kool",
+        "password": "justforkicks123",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "New York",
+        "timestamp": "2023-09-11 13:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "justinkool"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hey I have class tonight at 7. Can you set an alarm for 6:30?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "I have set an alarm for you at 6:30 PM",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "AddAlarm",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "time": "18:30:00"
+                        }
+                    },
+                    "response": {
+                        "alarm_id": "5bff-dd80"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Thanks, I think I'll take a quick nap."
+        }
+    ]
+}

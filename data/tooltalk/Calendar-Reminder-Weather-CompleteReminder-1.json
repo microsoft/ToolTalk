@@ -1,0 +1,132 @@
+{
+    "name": "Calendar-Reminder-Weather-CompleteReminder-1",
+    "conversation_id": "90d1b411-80aa-467c-883b-a9e363912c05",
+    "suites_used": [
+        "Calendar",
+        "Reminder",
+        "Weather"
+    ],
+    "apis_used": [
+        "CreateEvent",
+        "AddReminder",
+        "CompleteReminder",
+        "CurrentWeather",
+        "HistoricWeather"
+    ],
+    "scenario": "The user has a reminder to buy a birthday gift for their friend by Monday (AddReminder). They want to see what the weather is like in their friend's city, so they can choose an appropriate gift (CurrentWeather). They see that the weather is cold and snowy, so they decide to buy a warm scarf and gloves. They create an event on their calendar to go to the mall on Saturday (CreateEvent). They also want to compare the weather in their friend's city to their own, so they use the HistoricWeather API to get the average temperature and precipitation for both locations in the past month (HistoricWeather). They see that their friend's city is much colder and wetter than theirs, so they feel good about their gift choice. They buy the gift on Saturday and complete the reminder (CompleteReminder).",
+    "user": {
+        "username": "olivedo",
+        "email": "olivieisme@somail.com",
+        "phone": "440-328-5425",
+        "name": "Olivie Doiron",
+        "password": "SaeH9Ligh",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "New York",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "olivedo"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Check my reminders."
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "You have a reminder to buy Brody a birthday present by next Monday.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "GetReminders",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404"
+                        }
+                    },
+                    "response": {
+                        "reminders": [
+                            {
+                                "reminder_id": "1f-8a4c",
+                                "task": "Buy Brody a birthday present",
+                                "due_date": "2023-09-18 00:00:00",
+                                "status": "pending"
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Is it getting cold yet in Juneau?"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "The current weather in Juneau is rainy with a low of 50 and a high of 59.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "CurrentWeather",
+                        "parameters": {
+                            "location": "Juneau"
+                        }
+                    },
+                    "response": {
+                        "weather": {
+                            "date": "2023-09-11",
+                            "high": 59,
+                            "low": 50,
+                            "conditions": "30% Rainy"
+                        }
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "Ok I think I'll get them a new raincoat, can you set a reminder to go buy that for Saturday? Mark the original reminder as complete."
+        },
+        {
+            "index": 5,
+            "role": "assistant",
+            "text": "I have added a reminder to buy Brody a new raincoat on Saturday and marked the reminder to buy them a birthday present as complete.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "AddReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "task": "Buy Brody a new raincoat",
+                            "due_date": "2023-09-16 00:00:00"
+                        }
+                    },
+                    "response": {
+                        "reminder_id": "5b-dd80"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "CompleteReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "reminder_id": "1f-8a4c"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}

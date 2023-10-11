@@ -1,0 +1,67 @@
+{
+    "name": "QueryUser-easy",
+    "conversation_id": "f09ca824-0f96-47a3-ae0f-5924e0e484a5",
+    "suites_used": [
+        "AccountTools"
+    ],
+    "apis_used": [
+        "QueryUser"
+    ],
+    "scenario": "QueryUser easy scenario",
+    "user": {
+        "username": "decture",
+        "email": "VirginiaJGraham@gahoo.com",
+        "phone": "703-607-3363",
+        "name": "Virginia J. Graham",
+        "password": "chaew5Oeth",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "Seattle",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "decture"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hey can you look up a user to see if they exist?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Sure, what is the username?"
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "I actually don't have their username, only their email: hestler@gahoo.com"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "Okay, I checked and could not find any users.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "QueryUser",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "email": "hestler@gahoo.com"
+                        }
+                    },
+                    "response": {
+                        "users": []
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "Ah I see, oh well."
+        }
+    ]
+}

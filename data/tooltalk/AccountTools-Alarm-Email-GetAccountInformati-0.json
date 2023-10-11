@@ -1,0 +1,171 @@
+{
+    "name": "AccountTools-Alarm-Email-GetAccountInformati-0",
+    "conversation_id": "c9c87c8a-4d76-4df2-ae6b-c9c336e72ec2",
+    "suites_used": [
+        "AccountTools",
+        "Alarm",
+        "Email"
+    ],
+    "apis_used": [
+        "ChangePassword",
+        "GetAccountInformation",
+        "LogoutUser",
+        "UpdateAccountInformation",
+        "UserLogin",
+        "SendEmail"
+    ],
+    "scenario": "The user wants to log in to their account and check their account information (UserLogin + GetAccountInformation). They notice that their email and phone number are outdated, so they decide to update them (UpdateAccountInformation). They also want to change their password to a more secure one (ChangePassword). They then want to send an email to their friend to let them know about their new contact details (SendEmail). They log out of their account after finishing their tasks (LogoutUser).",
+    "user": {
+        "username": "justinkool",
+        "email": "justintime@fmail.com",
+        "phone": "123-456-7890",
+        "name": "Justin Kool",
+        "password": "justforkicks123"
+    },
+    "metadata": {
+        "location": "San Francisco",
+        "timestamp": "2023-09-11 09:00:00"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hey can you help me check my account information?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Sure, I see you're not logged in. Can you provide you username and password?"
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Yeah, it's justinkool and justforkicks123"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "I've logged you in. Looks like your current email is justintime@fmail.com, your phone number is 123-456-7890, and name is set to Justin Kool. Is that correct?",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "UserLogin",
+                        "parameters": {
+                            "username": "justinkool",
+                            "password": "justforkicks123"
+                        }
+                    },
+                    "response": {
+                        "session_token": "e149636f-d9ca-0792"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "GetAccountInformation",
+                        "parameters": {
+                            "session_token": "e149636f-d9ca-0792"
+                        }
+                    },
+                    "response": {
+                        "user": {
+                            "username": "justinkool",
+                            "email": "justintime@fmail.com",
+                            "phone": "123-456-7890",
+                            "name": "Justin Kool"
+                        }
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "Thanks! Looks like this account has a wrong number and my dead name. Can you help me update them?"
+        },
+        {
+            "index": 5,
+            "role": "assistant",
+            "text": "Sure, what would you like to change them to?"
+        },
+        {
+            "index": 6,
+            "role": "user",
+            "text": "My new number is 987-654-3210 and my name is Jessica Kool."
+        },
+        {
+            "index": 7,
+            "role": "assistant",
+            "text": "I've updated your account information. Is there anything else I can help you with?",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "UpdateAccountInformation",
+                        "parameters": {
+                            "session_token": "e149636f-d9ca-0792",
+                            "password": "justforkicks123",
+                            "new_phone_number": "987-654-3210",
+                            "new_name": "Jessica Kool"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 8,
+            "role": "user",
+            "text": "Yes, can you send an email to my friend to let them know about my new contact details? Then I think I'm done for the day so you can log me out."
+        },
+        {
+            "index": 9,
+            "role": "assistant",
+            "text": "Sure, what's your friend's email address?"
+        },
+        {
+            "index": 10,
+            "role": "user",
+            "text": "It's will.derms@gahoo.com"
+        },
+        {
+            "index": 11,
+            "role": "assistant",
+            "text": "I've sent the email. Have a nice day!",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SendEmail",
+                        "parameters": {
+                            "session_token": "e149636f-d9ca-0792",
+                            "to": [
+                                "will.derms@gahoo.com"
+                            ],
+                            "subject": "New contact details",
+                            "body": "Hi Will, this is Jessica Kool. I've changed my phone number to 987-654-3210. Please update your records. Thanks!"
+                        }
+                    },
+                    "response": {
+                        "email_id": "5b-dd80-9f8a27ab"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "LogoutUser",
+                        "parameters": {
+                            "session_token": "e149636f-d9ca-0792"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}

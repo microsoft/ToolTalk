@@ -1,0 +1,90 @@
+{
+    "justinkool": {
+        "username": "justinkool",
+        "email": "justintime@fmail.com",
+        "phone": "123-456-7890",
+        "name": "Justin Kool",
+        "password": "justforkicks123",
+        "session_token": null
+    },
+    "decture": {
+        "username": "decture",
+        "email": "VirginiaJGraham@gahoo.com",
+        "phone": "703-607-3363",
+        "name": "Virginia J. Graham",
+        "password": "chaew5Oeth",
+        "session_token": null
+    },
+    "mstein": {
+        "username": "mstein",
+        "email": "steinki89@fexter.com",
+        "phone": "937-272-9068",
+        "name": "Michael Steinke",
+        "password": "weiChe0oo",
+        "session_token": null
+    },
+    "ahhchiu": {
+        "username": "ahhchiu",
+        "email": "k.chiu@taoxi.edu",
+        "phone": "806-361-3049",
+        "name": "Kong Chiu",
+        "password": "eehahTe2t",
+        "session_token": null
+    },
+    "lifeng": {
+        "username": "lifeng",
+        "email": "lifeng@gahoo.com",
+        "phone": "512-322-9516",
+        "name": "Li Feng",
+        "password": "ooZ0ahKae",
+        "session_token": null
+    },
+    "salcano": {
+        "username": "salcano",
+        "email": "hugosalcano@somail.com",
+        "phone": "402-581-7997",
+        "name": "Hugo Saldana Cano",
+        "password": "aeghah9Ei",
+        "session_token": null
+    },
+    "olivedo": {
+        "username": "olivedo",
+        "email": "olivieisme@somail.com",
+        "phone": "440-328-5425",
+        "name": "Olivie Doiron",
+        "password": "SaeH9Ligh",
+        "session_token": null
+    },
+    "larajean": {
+        "username": "larajean",
+        "email": "lara.jean@fmail.com",
+        "phone": "941-773-9153",
+        "name": "Lara C Jean",
+        "password": "X7$wQ#9zPvY2*",
+        "session_token": null
+    },
+    "SuryaRani90": {
+        "username": "SuryaRani90",
+        "email": "suryarani.kumar@myfictionalemail.com",
+        "phone": "415-555-6789",
+        "name": "Surya Rani Kumar",
+        "password": "Tiger@Lily22",
+        "session_token": null
+    },
+    "geoff": {
+        "username": "geoff",
+        "email": "geoff.smith@example.com",
+        "phone": "555-123-4567",
+        "name": "Jeff Smith",
+        "password": "P@ssw0rd123",
+        "session_token": null
+    },
+    "ShadowRider32": {
+        "username": "ShadowRider32",
+        "name": "Alex Knight",
+        "email": "shadowrider32@emailprovider.com",
+        "phone": "555-555-1234",
+        "password": "MysticKnight#123",
+        "session_token": null
+    }
+}

@@ -1,0 +1,74 @@
+{
+    "name": "UserLogin-easy",
+    "conversation_id": "1df9e4a7-b93c-45c1-8914-10fdaf0b86ab",
+    "suites_used": [
+        "AccountTools"
+    ],
+    "apis_used": [
+        "UserLogin"
+    ],
+    "scenario": "UserLogin easy scenario",
+    "user": {
+        "username": "justinkool",
+        "email": "justintime@fmail.com",
+        "phone": "123-456-7890",
+        "name": "Justin Kool",
+        "password": "justforkicks123"
+    },
+    "metadata": {
+        "location": "Paris",
+        "timestamp": "2023-09-11 09:00:00"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hey can you log me in?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Sure, what's your username?"
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "justinkool"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "What's your password?"
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "justforkicks123"
+        },
+        {
+            "index": 5,
+            "role": "assistant",
+            "text": "You're logged in!",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "UserLogin",
+                        "parameters": {
+                            "username": "justinkool",
+                            "password": "justforkicks123"
+                        }
+                    },
+                    "response": {
+                        "session_token": "e149636f-d9ca-0792"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 6,
+            "role": "user",
+            "text": "Thanks!"
+        }
+    ]
+}

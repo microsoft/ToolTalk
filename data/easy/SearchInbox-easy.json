@@ -1,0 +1,100 @@
+{
+    "name": "SearchInbox-easy",
+    "conversation_id": "92a4155a-ec03-4e64-b74f-b2b890738b6f",
+    "suites_used": [
+        "Email"
+    ],
+    "apis_used": [
+        "SearchInbox"
+    ],
+    "scenario": "SearchInbox easy scenario",
+    "user": {
+        "username": "mstein",
+        "email": "steinki89@fexter.com",
+        "phone": "937-272-9068",
+        "name": "Michael Steinke",
+        "password": "weiChe0oo",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "London",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "mstein"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hey can you search my inbox for emails from John?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Sure, what's John's email address?"
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "It's john.carbugle@fmail.com"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "Sure, here are the 3 most recent emails from John: London Recommendations, RE: Project Update, RE: Project Update. Would you like to summarize them?",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SearchInbox",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "sender": "john.carbugle@fmail.com"
+                        }
+                    },
+                    "response": {
+                        "emails": [
+                            {
+                                "email_id": "75-ff99-d8d1383b",
+                                "date": "2023-09-09 11:00:00",
+                                "sender": "john.carbugle@fmail.com",
+                                "receivers": [
+                                    "steinki89@fexter.com"
+                                ],
+                                "subject": "London Recommendations",
+                                "body": "Hey I'm coming to London in a few days. Do you have any recommendations for restaurants?"
+                            },
+                            {
+                                "email_id": "b5-cf2d-5231552e",
+                                "date": "2023-09-05 00:00:00",
+                                "sender": "john.carbugle@fmail.com",
+                                "receivers": [
+                                    "steinki89@fexter.com",
+                                    "lifeng@gahoo.com"
+                                ],
+                                "subject": "RE: Project Update",
+                                "body": "Oh I see, that's a good point Li, I can add a new section in the doc about this."
+                            },
+                            {
+                                "email_id": "0b-5119-b5f0a5b5",
+                                "date": "2023-09-02 00:00:00",
+                                "sender": "john.carbugle@fmail.com",
+                                "receivers": [
+                                    "steinki89@fexter.com",
+                                    "lifeng@gahoo.com"
+                                ],
+                                "subject": "RE: Project Update",
+                                "body": "Hey I was able to look at the updates you sent over. I think we should go with the second option. I left some comments in the document. Let me know if you have any questions."
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "No I'm good. Just wanted to see if I missed anything. Thanks!"
+        }
+    ]
+}

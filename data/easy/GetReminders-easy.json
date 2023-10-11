@@ -1,0 +1,85 @@
+{
+    "name": "GetReminders-easy",
+    "conversation_id": "20c0fec4-3ef9-4ca3-99b9-163f1ab8049d",
+    "suites_used": [
+        "Reminder"
+    ],
+    "apis_used": [
+        "GetReminders"
+    ],
+    "scenario": "GetReminders easy scenario",
+    "user": {
+        "username": "justinkool",
+        "email": "justintime@fmail.com",
+        "phone": "123-456-7890",
+        "name": "Justin Kool",
+        "password": "justforkicks123",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "London",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "justinkool"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hey do I have any reminders set? I feel like I'm forgetting to do something."
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "You have 3 reminders set. Would you like me to read them to you?",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "GetReminders",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404"
+                        }
+                    },
+                    "response": {
+                        "reminders": [
+                            {
+                                "reminder_id": "59-80bc",
+                                "task": "Take out the trash",
+                                "due_date": null,
+                                "status": "complete"
+                            },
+                            {
+                                "reminder_id": "14-579a",
+                                "task": "Write abstract",
+                                "due_date": "2023-09-12 00:00:00",
+                                "status": "pending"
+                            },
+                            {
+                                "reminder_id": "0b-5119",
+                                "task": "Call grandma",
+                                "due_date": null,
+                                "status": "pending"
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Sure"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "You have reminders to take out the trash, write abstract, and call grandma. Take out the trash is complete. Write abstract is due tomorrow. Call grandma is pending."
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "Oh yikes, I knew I forgot something."
+        }
+    ]
+}

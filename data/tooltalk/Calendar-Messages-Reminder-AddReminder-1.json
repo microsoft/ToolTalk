@@ -1,0 +1,188 @@
+{
+    "name": "Calendar-Messages-Reminder-AddReminder-1",
+    "conversation_id": "35b5029c-e42d-429a-b0cc-d0be8a73ef87",
+    "suites_used": [
+        "Calendar",
+        "Messages",
+        "Reminder"
+    ],
+    "apis_used": [
+        "QueryCalendar",
+        "SendMessage",
+        "AddReminder",
+        "CompleteReminder",
+        "GetReminders"
+    ],
+    "scenario": "The user wants to check their calendar for any upcoming events and reminders. They first query their calendar for the events that occur in the next week (QueryCalendar). They then get a list of their reminders that are due in the next week (GetReminders). They see that they have a reminder to pay their rent by the end of the month, and they decide to do it right away (CompleteReminder). They also see that they have an event for a birthday party on the weekend, and they want to buy a gift for the host. They add a reminder to order a gift online by Friday (AddReminder). They then send a message to the host to RSVP and ask for their address (SendMessage).",
+    "user": {
+        "username": "ShadowRider32",
+        "name": "Alex Knight",
+        "email": "shadowrider32@emailprovider.com",
+        "phone": "555-555-1234",
+        "password": "MysticKnight#123",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "San Francisco",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "ShadowRider32"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "I want to go through my upcoming reminders for the week one at a time. Can you help with that?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Sure, your first reminder is to pay rent.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "GetReminders",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404"
+                        }
+                    },
+                    "response": {
+                        "reminders": [
+                            {
+                                "reminder_id": "59-80bc",
+                                "task": "pay rent",
+                                "due_date": null,
+                                "status": "pending"
+                            },
+                            {
+                                "reminder_id": "14-579a",
+                                "task": "buy gift for Emily",
+                                "due_date": "2023-09-16 00:00:00",
+                                "status": "pending"
+                            },
+                            {
+                                "reminder_id": "0b-5119",
+                                "task": "Call grandma",
+                                "due_date": null,
+                                "status": "pending"
+                            },
+                            {
+                                "reminder_id": "4f-7a1d",
+                                "task": "Schedule date with Barnie",
+                                "due_date": null,
+                                "status": "pending"
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Ok, done. Mark as complete."
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "Marked reminder as complete. Do you want to move on to your next reminder?",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "CompleteReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "reminder_id": "59-80bc"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "yes"
+        },
+        {
+            "index": 5,
+            "role": "assistant",
+            "text": "The next reminder is to buy a gift for Emily by Friday."
+        },
+        {
+            "index": 6,
+            "role": "user",
+            "text": "next"
+        },
+        {
+            "index": 7,
+            "role": "assistant",
+            "text": "The next reminder is to call your grandma"
+        },
+        {
+            "index": 8,
+            "role": "user",
+            "text": "Add a reminder to call my mom tomorrow"
+        },
+        {
+            "index": 9,
+            "role": "assistant",
+            "text": "Okay, I added the reminder. Do you want to move on to your next reminder?",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "AddReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "task": "Call my mom",
+                            "due_date": "2023-09-12 00:00:00"
+                        }
+                    },
+                    "response": {
+                        "reminder_id": "5b-dd80"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 10,
+            "role": "user",
+            "text": "yes"
+        },
+        {
+            "index": 11,
+            "role": "assistant",
+            "text": "The next reminder is to schedule a date with Barnie."
+        },
+        {
+            "index": 12,
+            "role": "user",
+            "text": "Delete that one."
+        },
+        {
+            "index": 13,
+            "role": "assistant",
+            "text": "Reminder deleted. That is all the reminders you have.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "DeleteReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "reminder_id": "4f-7a1d"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}

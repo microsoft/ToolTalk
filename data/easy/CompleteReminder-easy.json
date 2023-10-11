@@ -1,0 +1,57 @@
+{
+    "name": "CompleteReminder-easy",
+    "conversation_id": "98f4a000-88ea-43a8-a3eb-09d3d2bdbe0e",
+    "suites_used": [
+        "Reminder"
+    ],
+    "apis_used": [
+        "CompleteReminder"
+    ],
+    "scenario": "CompleteReminder easy scenario",
+    "user": {
+        "username": "mstein",
+        "email": "steinki89@fexter.com",
+        "phone": "937-272-9068",
+        "name": "Michael Steinke",
+        "password": "weiChe0oo",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "Seattle",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "mstein"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hey can you complete a reminder for me, it's id is 0b-5119"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "I've completed the reminder for you. Is there anything else I can help you with?",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "CompleteReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "reminder_id": "0b-5119"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "No that's it, thanks!"
+        }
+    ]
+}

@@ -1,0 +1,112 @@
+{
+    "name": "Calendar-Messages-Weather-DeleteEvent-0",
+    "conversation_id": "259cb6f6-e8a8-4edc-a1ea-6e4dcd2d6335",
+    "suites_used": [
+        "Calendar",
+        "Messages",
+        "Weather"
+    ],
+    "apis_used": [
+        "DeleteEvent",
+        "QueryCalendar",
+        "SearchMessages",
+        "SendMessage",
+        "CurrentWeather"
+    ],
+    "scenario": "The user wants to cancel a meeting with a client due to a personal emergency. They first check their calendar for the event details (QueryCalendar). They then delete the event from their calendar (DeleteEvent). They also send a message to the client explaining the situation and apologizing for the inconvenience (SendMessage). They then search for any previous messages from the client to see if they have any alternative contacts or preferences (SearchMessages). They also check the weather of the client's location to see if there are any adverse conditions that might affect their rescheduling (CurrentWeather).",
+    "user": {
+        "username": "justinkool",
+        "email": "justintime@fmail.com",
+        "phone": "123-456-7890",
+        "name": "Justin Kool",
+        "password": "justforkicks123",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "London",
+        "timestamp": "2023-09-10 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "justinkool"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "I need to cancel my meeting with Alicia tomorrow. Can you check the details for the event?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "I found a meeting tomorrow at 10 am with the title Justin:Alicia. The description says \"Talk about anything. Move to your convenience.\" The attendees are you and Alicia (aliciab)",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "QueryCalendar",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "start_time": "2023-09-11 00:00:00",
+                            "end_time": "2023-09-11 23:59:59"
+                        }
+                    },
+                    "response": {
+                        "events": [
+                            {
+                                "event_id": "5480d946-2381",
+                                "name": "Justin:Alicia",
+                                "event_type": "meeting",
+                                "start_time": "2023-09-11 10:00:00",
+                                "end_time": "2023-09-11 10:30:00",
+                                "location": "Conference Room 1",
+                                "description": "Talk about anything. Move to your convenience.",
+                                "attendees": [
+                                    "justinkool",
+                                    "aliciab"
+                                ]
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Can you delete the meeting and send a message to her apologizing for the inconvenience?"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "I deleted the event tomorrow and sent an apology message to Alicia.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "DeleteEvent",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "event_id": "5480d946-2381"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "SendMessage",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "receiver": "aliciab",
+                            "message": "I'm sorry, but I have to cancel out meeting tomorrow."
+                        }
+                    },
+                    "response": {
+                        "message_id": "e149636f-ecc3f121"
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,67 @@
+{
+    "name": "FindAlarms-easy",
+    "conversation_id": "7e27daee-d11e-4a3b-8fb1-cb976029668e",
+    "suites_used": [
+        "Alarm"
+    ],
+    "apis_used": [
+        "FindAlarms"
+    ],
+    "scenario": "FindAlarms easy scenario",
+    "user": {
+        "username": "mstein",
+        "email": "steinki89@fexter.com",
+        "phone": "937-272-9068",
+        "name": "Michael Steinke",
+        "password": "weiChe0oo",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "Paris",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "mstein"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hey do I have any alarms set around 6 PM?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "I found two alarm around 6 PM, one for 6 PM and one for 6:30 PM.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "FindAlarms",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "start_range": "17:00:00",
+                            "end_range": "19:00:00"
+                        }
+                    },
+                    "response": {
+                        "alarms": [
+                            {
+                                "alarm_id": "4631-000e",
+                                "time": "18:00:00"
+                            },
+                            {
+                                "alarm_id": "4e20-0a4c",
+                                "time": "18:30:00"
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Oh good, I don't need to set one then."
+        }
+    ]
+}

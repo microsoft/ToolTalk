@@ -1,0 +1,146 @@
+{
+    "name": "Messages-Reminder-Weather-AddReminder-1",
+    "conversation_id": "a2b446cd-055b-4173-9f4c-8b61dcab7b63",
+    "suites_used": [
+        "Messages",
+        "Reminder",
+        "Weather"
+    ],
+    "apis_used": [
+        "AddReminder",
+        "DeleteReminder",
+        "GetReminders",
+        "ForecastWeather"
+    ],
+    "scenario": "The user wants to organize their tasks for the week. They want to add a reminder to finish their project report by Friday (AddReminder). They also want to add a reminder to call their mom on her birthday on Wednesday (AddReminder). They want to get a list of their reminders to see what else they need to do (GetReminders). They realize they have already completed one of their reminders, so they want to delete it (DeleteReminder). They also want to check the weather for the weekend to see if they can go hiking (ForecastWeather).",
+    "user": {
+        "username": "ahhchiu",
+        "email": "k.chiu@taoxi.edu",
+        "phone": "806-361-3049",
+        "name": "Kong Chiu",
+        "password": "eehahTe2t",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "Tokyo",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "ahhchiu"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "I need to organize my reminders. Can you add a reminder to finish my report by Friday and a reminder to call my mom on 9/17 for her birthday?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "I have added a reminder to finish your report on 9/15 and a reminder to call your mom on 9/17.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "AddReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "task": "finish your report",
+                            "due_date": "2023-09-15 23:59:59"
+                        }
+                    },
+                    "response": {
+                        "reminder_id": "5b-dd80"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "AddReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "task": "call your mom",
+                            "due_date": "2023-09-17 23:59:59"
+                        }
+                    },
+                    "response": {
+                        "reminder_id": "20-d9ca"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Can you check if I have any other reminders for the week?"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "You have two other reminders for this week. The first is to buy groceries by today. The second is to call Amy tomorrow.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "GetReminders",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404"
+                        }
+                    },
+                    "response": {
+                        "reminders": [
+                            {
+                                "reminder_id": "59-80bc",
+                                "task": "Buy groceries",
+                                "due_date": "2023-09-11 23:59:59",
+                                "status": "pending"
+                            },
+                            {
+                                "reminder_id": "14-579a",
+                                "task": "Call Amy",
+                                "due_date": "2023-09-11 23:59:59",
+                                "status": "pending"
+                            },
+                            {
+                                "reminder_id": "5b-dd80",
+                                "task": "finish your report",
+                                "due_date": "2023-09-15 23:59:59",
+                                "status": "pending"
+                            },
+                            {
+                                "reminder_id": "20-d9ca",
+                                "task": "call your mom",
+                                "due_date": "2023-09-17 23:59:59",
+                                "status": "pending"
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "Ok, I already called Amy. Can you delete that one?"
+        },
+        {
+            "index": 5,
+            "role": "assistant",
+            "text": "Sure I have deleted the reminder to call Amy.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "DeleteReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "reminder_id": "14-579a"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}

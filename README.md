@@ -1,14 +1,52 @@
-# Project
+# ToolTalk
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+This is the repo for ToolTalk: Evaluating Tool Usage in a Conversation Setting.
 
-As the maintainer of this project, please make a few updates:
+## Setup
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+ToolTalk can be setup using the following commands. Install local package with dev dependencies to enable unit tests.
+
+```bash
+pip install -r requirements.txt
+pip install ".[dev]"
+```
+
+To verify that the installation was successful, run the unit tests.
+
+```bash
+pytest tests
+```
+
+## Reproducing the results
+
+The results on GPT-3.5-turbo and GPT-4 can be reproduced using the following commands. This requires having access to 
+OpenAI's API. The results will be saved in the `results` folder. The script caches intermediary results, so it can be 
+re-run if it is interrupted for any reason.
+
+```bash
+```
+
+Your results should look something like this, there will be some variance due to both models having non-deterministic results.
+
+| Model   | ToolTalk | Success rate | Precision | Recall | Incorrect Action Rate |
+|---------|----------|--------------|-----------|--------|-----------------------|
+| GPT-3.5 | easy     |              |           |        |                       |
+| GPT-4   | easy     |              |           |        |                       |
+| GPT-3.5 | hard     |              |           |        |                       |
+| GPT-4   | hard     |              |           |        |                       |
+
+## Evaluating on new models
+
+
+
+## TODO
+
+- [ ] Add link to paper
+- [ ] Evaluate on other models
+
+## Citing
+
+If you use ToolTalk in your research, please cite the following paper:
 
 ## Contributing
 

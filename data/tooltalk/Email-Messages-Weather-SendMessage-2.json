@@ -1,0 +1,150 @@
+{
+    "name": "Email-Messages-Weather-SendMessage-2",
+    "conversation_id": "41778a52-58b0-4ff1-aa42-e82eb8fe904b",
+    "suites_used": [
+        "Email",
+        "Messages",
+        "Weather"
+    ],
+    "apis_used": [
+        "SearchMessages",
+        "SendMessage",
+        "ForecastWeather",
+        "HistoricWeather"
+    ],
+    "scenario": "The user wants to send a message to their online date to ask them out for a coffee. They want to impress them with their knowledge of the weather and suggest a nice place to meet. They want to check the historic weather of their date's location to see if there is a pattern or trend (HistoricWeather). They search for the weather of their date's location for the last 10 days (HistoricWeather). They find that the weather has been mostly sunny and warm. They also want to check the forecast weather of their date's location for the next 3 days to see if there is any chance of rain or snow (ForecastWeather). They find that the weather will be mostly cloudy and cool. They then search for messages from their date to see if they have mentioned any preferences or hobbies (SearchMessages). They search for messages with the sender \"date\" and the query \"coffee\" or \"hobby\" in the last week (SearchMessages). They find that their date likes coffee with almond milk and enjoys reading books. They then compose a message to their date with the weather information and a suggestion of a cozy cafe with a bookshelf (SendMessage).",
+    "user": {
+        "username": "salcano",
+        "email": "hugosalcano@somail.com",
+        "phone": "402-581-7997",
+        "name": "Hugo Saldana Cano",
+        "password": "aeghah9Ei",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "New York",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "salcano"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "I want to ask Virginia from FindADate out on a date but not sure if we should go to the park or some cafe. Can you check the weather tomorrow?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Sure the weather tomorrow is partly cloudy with a low of 58 and a high of 78.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "ForecastWeather",
+                        "parameters": {
+                            "location": "New York"
+                        }
+                    },
+                    "response": {
+                        "forecast": [
+                            {
+                                "date": "2023-09-12",
+                                "high": 78,
+                                "low": 58,
+                                "conditions": "Partly Cloudy"
+                            },
+                            {
+                                "date": "2023-09-13",
+                                "high": 72,
+                                "low": 64,
+                                "conditions": "80% Rainy"
+                            },
+                            {
+                                "date": "2023-09-14",
+                                "high": 76,
+                                "low": 60,
+                                "conditions": "Sunny"
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Ok can you search through messages with her for \"milk\"?"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "What is her username?"
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "It's decture"
+        },
+        {
+            "index": 5,
+            "role": "assistant",
+            "text": "Okay, I found two messages: \"Why are people so obsessed with oat milk?\" and \"I could never drink oat milk\"",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SearchMessages",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "query": "milk",
+                            "sender": "decture"
+                        }
+                    },
+                    "response": {
+                        "messages": [
+                            {
+                                "message_id": "006f526d-00747977",
+                                "timestamp": "2023-09-10 14:05:00",
+                                "sender": "decture",
+                                "message": "Why are people so obsessed with oat milk?"
+                            },
+                            {
+                                "message_id": "00747977-006f526d",
+                                "timestamp": "2023-09-10 14:07:13",
+                                "sender": "decture",
+                                "message": "I could never drink oat milk"
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 6,
+            "role": "user",
+            "text": "Ok send her a message saying \"Meet me at Oatz tomorrow at 10. You'll get why people are so obsessed once you try their latte.\""
+        },
+        {
+            "index": 7,
+            "role": "assistant",
+            "text": "Okay I sent Virginia the message.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SendMessage",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "receiver": "decture",
+                            "message": "Meet me at Oatz tomorrow at 10. You'll get why people are so obsessed once you try their latte."
+                        }
+                    },
+                    "response": {
+                        "message_id": "e149636f-ecc3f121"
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}

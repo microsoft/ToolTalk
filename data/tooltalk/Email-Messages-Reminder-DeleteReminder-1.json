@@ -1,0 +1,134 @@
+{
+    "name": "Email-Messages-Reminder-DeleteReminder-1",
+    "conversation_id": "25921b06-9668-4be7-b28c-d8432db6103b",
+    "suites_used": [
+        "Email",
+        "Messages",
+        "Reminder"
+    ],
+    "apis_used": [
+        "SearchInbox",
+        "SendEmail",
+        "SearchMessages",
+        "SendMessage",
+        "AddReminder",
+        "DeleteReminder",
+        "GetReminders"
+    ],
+    "scenario": "The user wants to delete a reminder for a task that they have postponed to a later date. They first log in to the app and get a session_token. They then use the GetReminders API to see all their reminders. They find the reminder_id of the task they want to delete and use the DeleteReminder API to remove it. They then use the AddReminder API to create a new reminder for the same task, but with a different due_date. They then use the SearchInbox API to look for any emails from the task assigner, using the assigner's email address as the sender parameter and the task name as the query. They open the most recent email and use the SendEmail API to inform the assigner that they have postponed the task and updated the reminder. They then use the SearchMessages API to look for any messages from the assigner, using the assigner's username as the sender parameter and the task name as the query. They open the most recent message and use the SendMessage API to send an apology message that they have postponed the task and updated the reminder.",
+    "user": {
+        "username": "salcano",
+        "email": "hugosalcano@somail.com",
+        "phone": "402-581-7997",
+        "name": "Hugo Saldana Cano",
+        "password": "aeghah9Ei",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "Seattle",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "salcano"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "I couldn't finish my report on time. Can you delete my reminder to finish the report by 8 am today?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Okay I deleted your reminder to finish your report at 8 am today.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "GetReminders",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404"
+                        }
+                    },
+                    "response": {
+                        "reminders": [
+                            {
+                                "reminder_id": "0b-5119",
+                                "task": "Finish report",
+                                "due_date": "2023-09-11 08:00:00",
+                                "status": "pending"
+                            }
+                        ]
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "DeleteReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "reminder_id": "0b-5119"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Can you send an email asking the professor (profx@gahoo.com) for an extension to 3 pm?"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "Ok I have sent an email to your professor asking for an extension for the deadline for the report to 3pm.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SendEmail",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "to": [
+                                "profx@gahoo.com"
+                            ],
+                            "subject": "Extension for report",
+                            "body": "Hey professor, I couldn't finish my report on time. Can I have an extension to 3 pm today? Thanks, Hugo"
+                        }
+                    },
+                    "response": {
+                        "email_id": "5b-dd80-9f8a27ab"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "Set a reminder to check my email in an hour."
+        },
+        {
+            "index": 5,
+            "role": "assistant",
+            "text": "I have set a reminder to check your email at 10 am.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "AddReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "task": "check your email",
+                            "due_date": "2023-09-11 10:00:00"
+                        }
+                    },
+                    "response": {
+                        "reminder_id": "5b-dd80"
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}

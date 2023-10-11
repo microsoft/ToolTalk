@@ -1,0 +1,159 @@
+{
+    "name": "Calendar-Messages-Reminder-ModifyEvent-0",
+    "conversation_id": "a92df84f-19dc-4b4d-87e5-88e33d7c2bcc",
+    "suites_used": [
+        "Calendar",
+        "Messages",
+        "Reminder"
+    ],
+    "apis_used": [
+        "ModifyEvent",
+        "QueryCalendar",
+        "SendMessage"
+    ],
+    "scenario": "The user wants to reschedule a meeting with a client (ModifyEvent). They want to check their calendar for the next available slot (QueryCalendar). They also want to see if the client has any events in their calendar that might conflict (QueryCalendar). They find a suitable time and update the meeting details (ModifyEvent). They then send a message to the client to confirm the change (SendMessage).",
+    "user": {
+        "username": "lifeng",
+        "email": "lifeng@gahoo.com",
+        "phone": "512-322-9516",
+        "name": "Li Feng",
+        "password": "ooZ0ahKae",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "San Francisco",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "lifeng"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "I need to move my meeting with Tao (taotao) today. Can you check my next available 30 minute slot after lunch?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Your next available timeslot after \"Lunch\" from 12 to 1 pm is at 4:40 pm.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "QueryCalendar",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "start_time": "2023-09-11 12:00:00",
+                            "end_time": "2023-09-11 23:59:59"
+                        }
+                    },
+                    "response": {
+                        "events": [
+                            {
+                                "event_id": "5480d946-2381",
+                                "name": "Lunch",
+                                "event_type": "event",
+                                "start_time": "2023-09-11 12:00:00",
+                                "end_time": "2023-09-11 01:00:00",
+                                "location": null,
+                                "description": null,
+                                "attendees": null
+                            },
+                            {
+                                "event_id": "2ff57743-1180",
+                                "name": "Client Meeting",
+                                "event_type": "meeting",
+                                "start_time": "2023-09-11 13:00:00",
+                                "end_time": "2023-09-11 13:30:00",
+                                "location": "Conference Room 2",
+                                "description": "Meeting with client from XBoe.",
+                                "attendees": [
+                                    "lifeng",
+                                    "mstein"
+                                ]
+                            },
+                            {
+                                "event_id": "7ea2fc9f-f7b4",
+                                "name": "Research Review Series",
+                                "event_type": "event",
+                                "start_time": "2023-09-11 13:35:00",
+                                "end_time": "2023-09-11 15:00:00",
+                                "location": "online",
+                                "description": "Research review series. Topic: Machine Learning",
+                                "attendees": null
+                            },
+                            {
+                                "event_id": "7cdd6d20-040e",
+                                "name": "Design Review",
+                                "event_type": "meeting",
+                                "start_time": "2023-09-11 15:15:00",
+                                "end_time": "2023-09-11 16:40:00",
+                                "location": "Meeting Room 11c",
+                                "description": "Adhoc design review for new features",
+                                "attendees": [
+                                    "lifeng",
+                                    "justinkool",
+                                    "salcano"
+                                ]
+                            },
+                            {
+                                "event_id": "294b409-6535",
+                                "name": "Weekly 1:1",
+                                "event_type": "meeting",
+                                "start_time": "2023-09-11 14:00:00",
+                                "end_time": "2023-09-11 14:30:00",
+                                "location": "online",
+                                "description": null,
+                                "attendees": [
+                                    "taotao",
+                                    "lifeng"
+                                ]
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Ok, can you move my meeting to then? Also send a message to confirm they're okay with that."
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "Ok I've moved the meeting and sent a message to Tao.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "ModifyEvent",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "event_id": "294b409-6535",
+                            "new_start_time": "2023-09-11 16:40:00",
+                            "new_end_time": "2023-09-11 17:10:00"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "SendMessage",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "receiver": "taotao",
+                            "message": "Hi Tao, I've moved our meeting to 4:40 pm today. Please let me know if that works for you."
+                        }
+                    },
+                    "response": {
+                        "message_id": "e149636f-ecc3f121"
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}

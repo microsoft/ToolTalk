@@ -1,0 +1,138 @@
+{
+    "name": "Calendar-Reminder-Weather-ModifyEvent-1",
+    "conversation_id": "e32a3a5c-ce4e-4ef6-9a95-fa8cf3bcfb21",
+    "suites_used": [
+        "Calendar",
+        "Reminder",
+        "Weather"
+    ],
+    "apis_used": [
+        "ModifyEvent",
+        "QueryCalendar",
+        "AddReminder",
+        "CompleteReminder",
+        "GetReminders",
+        "CurrentWeather"
+    ],
+    "scenario": "The user is a busy professional who has a lot of meetings and deadlines. They want to query their calendar for the next week to see their schedule (QueryCalendar). They see that they have a meeting with a client on Monday at 10 am, but they also have a reminder to finish a report by 11 am (GetReminders). They decide to reschedule the meeting to Tuesday at 9 am, so they modify the event on their calendar (ModifyEvent). They also want to check the weather for Monday to see if they need an umbrella (CurrentWeather). They see that it will be rainy, so they add a reminder to bring an umbrella (AddReminder). They also want to complete the reminder for the report, so they mark it as done (CompleteReminder).",
+    "user": {
+        "username": "justinkool",
+        "email": "justintime@fmail.com",
+        "phone": "123-456-7890",
+        "name": "Justin Kool",
+        "password": "justforkicks123",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "Paris",
+        "timestamp": "2023-09-29 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "justinkool"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "What's the calendar look like for today and tomorrow?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Today you have a meeting with a client from 10 to 10:30 am, a submission deadline for your paper from 11 to 11:30 am, and a meeting with your professor from 2 to 3 pm. Tomorrow you have no events.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "QueryCalendar",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "start_time": "2023-09-29 00:00:00",
+                            "end_time": "2023-09-30 23:59:59"
+                        }
+                    },
+                    "response": {
+                        "events": [
+                            {
+                                "event_id": "2ff57743-1180",
+                                "name": "Client Meeting",
+                                "event_type": "meeting",
+                                "start_time": "2023-09-29 10:00:00",
+                                "end_time": "2023-09-29 10:30:00",
+                                "location": "Conference Room 2",
+                                "description": "Meeting with client from XBoe.",
+                                "attendees": [
+                                    "justinkool",
+                                    "mstein"
+                                ]
+                            },
+                            {
+                                "event_id": "7ea2fc9f-f7b4",
+                                "name": "Meet with Professor Xiu",
+                                "event_type": "meeting",
+                                "start_time": "2023-09-29 14:00:00",
+                                "end_time": "2023-09-29 15:00:00",
+                                "location": "University CS Center",
+                                "description": "Meet with Professor Xiu to discuss research.",
+                                "attendees": [
+                                    "justinkool",
+                                    "proxiu"
+                                ]
+                            },
+                            {
+                                "event_id": "7cdd6d20-040e",
+                                "name": "Paper Submission Deadline",
+                                "event_type": "event",
+                                "start_time": "2023-09-29 11:00:00",
+                                "end_time": "2023-09-29 11:30:00",
+                                "location": null,
+                                "description": "Last day to submit paper to conference.",
+                                "attendees": null
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Ok can you reschedule the meeting with the client to 11 am tomorrow? Also set a reminder to leave the house at 1:30 pm."
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "I have rescheduled your meeting and set a reminder. Is there anything else I can help you with?",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "ModifyEvent",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "event_id": "2ff57743-1180",
+                            "new_start_time": "2023-09-30 11:00:00",
+                            "new_end_time": "2023-09-30 11:30:00"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "AddReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "task": "Leave the house",
+                            "due_date": "2023-09-29 13:30:00"
+                        }
+                    },
+                    "response": {
+                        "reminder_id": "5b-dd80"
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}

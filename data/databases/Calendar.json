@@ -1,0 +1,437 @@
+{
+    "justinkool": {
+        "5480d946-2381": {
+            "event_id": "5480d946-2381",
+            "name": "Justin:Alicia",
+            "event_type": "meeting",
+            "start_time": "2023-09-11 10:00:00",
+            "end_time": "2023-09-11 10:30:00",
+            "location": "Conference Room 1",
+            "description": "Talk about anything. Move to your convenience.",
+            "attendees": [
+                "justinkool",
+                "aliciab"
+            ]
+        },
+        "2ff57743-1180": {
+            "event_id": "2ff57743-1180",
+            "name": "Client Meeting",
+            "event_type": "meeting",
+            "start_time": "2023-09-29 10:00:00",
+            "end_time": "2023-09-29 10:30:00",
+            "location": "Conference Room 2",
+            "description": "Meeting with client from XBoe.",
+            "attendees": [
+                "justinkool",
+                "mstein"
+            ]
+        },
+        "7ea2fc9f-f7b4": {
+            "event_id": "7ea2fc9f-f7b4",
+            "name": "Meet with Professor Xiu",
+            "event_type": "meeting",
+            "start_time": "2023-09-29 14:00:00",
+            "end_time": "2023-09-29 15:00:00",
+            "location": "University CS Center",
+            "description": "Meet with Professor Xiu to discuss research.",
+            "attendees": [
+                "justinkool",
+                "proxiu"
+            ]
+        },
+        "7cdd6d20-040e": {
+            "event_id": "7cdd6d20-040e",
+            "name": "Paper Submission Deadline",
+            "event_type": "event",
+            "start_time": "2023-09-29 11:00:00",
+            "end_time": "2023-09-29 11:30:00",
+            "location": null,
+            "description": "Last day to submit paper to conference.",
+            "attendees": null
+        },
+        "b448cdb4-caac": {
+            "event_id": "b448cdb4-caac",
+            "name": "Weekly Team Meeting",
+            "event_type": "meeting",
+            "start_time": "2023-09-11 10:00:00",
+            "end_time": "2023-09-11 11:00:00",
+            "location": "Conference Room 3",
+            "description": "Weekly team meeting to discuss progress and updates.",
+            "attendees": [
+                "justinkool",
+                "salcano",
+                "mstein",
+                "lifeng"
+            ]
+        },
+        "c3463779-7861": {
+            "event_id": "c3463779-7861",
+            "name": "Doctor's Appointment",
+            "event_type": "event",
+            "start_time": "2023-09-11 10:30:00",
+            "end_time": "2023-09-11 11:30:00",
+            "location": "123 Main St. San Francisco, CA 94105",
+            "description": "Annual checkup with Dr. Tang",
+            "attendees": null
+        },
+        "bb4588f1-c21c": {
+            "event_id": "bb4588f1-c21c",
+            "name": "Lunch with Li Feng",
+            "event_type": "meeting",
+            "start_time": "2023-09-11 12:00:00",
+            "end_time": "2023-09-11 13:00:00",
+            "location": null,
+            "description": null,
+            "attendees": [
+                "justinkool",
+                "lifeng"
+            ]
+        },
+        "294b409-6535": {
+            "event_id": "294b409-6535",
+            "name": "1 on 1 with Hugo",
+            "event_type": "meeting",
+            "start_time": "2023-09-11 14:00:00",
+            "end_time": "2023-09-11 15:00:00",
+            "location": "online",
+            "description": "bi-weekly sync",
+            "attendees": [
+                "justinkool",
+                "salcano"
+            ]
+        }
+    },
+    "decture": {
+        "29496535-b409": {
+            "event_id": "29496535-b409",
+            "name": "Dentist Appointment",
+            "event_type": "event",
+            "start_time": "2023-09-11 15:00:00",
+            "end_time": "2023-09-11 17:00:00",
+            "location": "dental office",
+            "description": null,
+            "attendees": null
+        },
+        "bb4588f1-c21c": {
+            "event_id": "bb4588f1-c21c",
+            "name": "Team Summit",
+            "event_type": "meeting",
+            "start_time": "2023-09-11 13:00:00",
+            "end_time": "2023-09-11 14:30:00",
+            "location": null,
+            "description": null,
+            "attendees": [
+                "justinkool",
+                "lifeng",
+                "decture",
+                "ahhchiu",
+                "salcano",
+                "mstein"
+            ]
+        },
+        "c3463779-7861": {
+            "event_id": "c3463779-7861",
+            "name": "Birthday Party",
+            "event_type": "event",
+            "start_time": "2023-09-17 11:30:00",
+            "end_time": "2023-09-17 15:30:00",
+            "location": "Chuck e cheeses",
+            "description": "Happy 40th!",
+            "attendees": [
+                "decture",
+                "SuryaRani90",
+                "geoff"
+            ]
+        }
+    },
+    "salcano": {
+        "2949b409-6535": {
+            "event_id": "2949b409-6535",
+            "name": "1 on 1",
+            "event_type": "meeting",
+            "start_time": "2023-09-11 14:00:00",
+            "end_time": "2023-09-11 15:00:00",
+            "location": "online",
+            "description": "bi-weekly sync",
+            "attendees": [
+                "justinkool",
+                "salcano"
+            ]
+        },
+        "2ff57743-1180": {
+            "event_id": "2ff57743-1180",
+            "name": "Hugo-Alice",
+            "event_type": "meeting",
+            "start_time": "2023-09-15 10:00:00",
+            "end_time": "2023-09-15 10:30:00",
+            "location": "Conference Room 2",
+            "description": null,
+            "attendees": [
+                "salcano",
+                "alice"
+            ]
+        },
+        "7ea2fc9f-f7b4": {
+            "event_id": "7ea2fc9f-f7b4",
+            "name": "Bob-Hugo",
+            "event_type": "meeting",
+            "start_time": "2023-09-18 14:00:00",
+            "end_time": "2023-09-18 15:00:00",
+            "location": "online",
+            "description": null,
+            "attendees": [
+                "salcano",
+                "bob"
+            ]
+        },
+        "7cdd6d20-040e": {
+            "event_id": "7cdd6d20-040e",
+            "name": "Tracy-Hugo",
+            "event_type": "meeting",
+            "start_time": "2023-09-19 11:00:00",
+            "end_time": "2023-09-19 11:30:00",
+            "location": "online",
+            "description": null,
+            "attendees": [
+                "salcano",
+                "tracy"
+            ]
+        }
+    },
+    "ahhchiu": {
+        "644db5d6-1603": {
+            "event_id": "644db5d6-1603",
+            "name": "Weekly team sync",
+            "event_type": "meeting",
+            "start_time": "2023-09-11 09:00:00",
+            "end_time": "2023-09-11 10:00:00",
+            "location": "online",
+            "description": "Weekly sync",
+            "attendees": [
+                "justinkool",
+                "salcano",
+                "ahhchiu",
+                "decture"
+            ]
+        },
+        "b6f21640-b047": {
+            "event_id": "b6f21640-b047",
+            "name": "1:1 with manager",
+            "event_type": "meeting",
+            "start_time": "2023-09-13 14:00:00",
+            "end_time": "2023-09-13 15:00:00",
+            "location": "online",
+            "description": null,
+            "attendees": [
+                "ahhchiu",
+                "salcano"
+            ]
+        },
+        "05cc41d0-ef0d": {
+            "event_id": "05cc41d0-ef0d",
+            "name": "Lunch",
+            "event_type": "meeting",
+            "start_time": "2023-09-14 12:00:00",
+            "end_time": "2023-09-14 13:00:00",
+            "location": "online",
+            "description": "Let's try out that new sushi place!",
+            "attendees": [
+                "justinkool",
+                "ahhchiu"
+            ]
+        },
+        "f1328156-9a76": {
+            "event_id": "f1328156-9a76",
+            "name": "Matt's Birthday",
+            "event_type": "event",
+            "start_time": "2023-10-04 00:00:00",
+            "end_time": "2023-10-04 23:59:59",
+            "location": null,
+            "description": null,
+            "attendees": null
+        },
+        "6b486bbb-e4b8": {
+            "event_id": "6b486bbb-e4b8",
+            "name": "The Cave",
+            "event_type": "event",
+            "start_time": "2023-10-31 20:00:00",
+            "end_time": "2023-11-01 02:00:00",
+            "location": null,
+            "description": null,
+            "attendees": null
+        }
+    },
+    "mstein": {
+        "5480d946-2381": {
+            "event_id": "5480d946-2381",
+            "name": "Fly to Paris",
+            "event_type": "event",
+            "start_time": "2023-09-12 10:00:00",
+            "end_time": "2023-09-13 04:00:00",
+            "location": null,
+            "description": null,
+            "attendees": null
+        },
+        "2ff57743-1180": {
+            "event_id": "2ff57743-1180",
+            "name": "Client Meeting",
+            "event_type": "meeting",
+            "start_time": "2023-09-29 10:00:00",
+            "end_time": "2023-09-29 10:30:00",
+            "location": "Conference Room 2",
+            "description": "Meeting with client from XBoe.",
+            "attendees": [
+                "justinkool",
+                "mstein"
+            ]
+        },
+        "7ea2fc9f-f7b4": {
+            "event_id": "7ea2fc9f-f7b4",
+            "name": "Shopping",
+            "event_type": "event",
+            "start_time": "2023-09-13 14:00:00",
+            "end_time": "2023-09-13 15:00:00",
+            "location": "Paris",
+            "description": "Get those paris goods!",
+            "attendees": null
+        },
+        "7cdd6d20-040e": {
+            "event_id": "7cdd6d20-040e",
+            "name": "Fly back from Paris",
+            "event_type": "event",
+            "start_time": "2023-09-17 11:00:00",
+            "end_time": "2023-09-18 05:30:00",
+            "location": null,
+            "description": null,
+            "attendees": null
+        }
+    },
+    "lifeng": {
+        "5480d946-2381": {
+            "event_id": "5480d946-2381",
+            "name": "Lunch",
+            "event_type": "event",
+            "start_time": "2023-09-11 12:00:00",
+            "end_time": "2023-09-11 13:00:00",
+            "location": null,
+            "description": null,
+            "attendees": null
+        },
+        "2ff57743-1180": {
+            "event_id": "2ff57743-1180",
+            "name": "Client Meeting",
+            "event_type": "meeting",
+            "start_time": "2023-09-11 13:00:00",
+            "end_time": "2023-09-11 13:30:00",
+            "location": "Conference Room 2",
+            "description": "Meeting with client from XBoe.",
+            "attendees": [
+                "lifeng",
+                "mstein"
+            ]
+        },
+        "7ea2fc9f-f7b4": {
+            "event_id": "7ea2fc9f-f7b4",
+            "name": "Research Review Series",
+            "event_type": "event",
+            "start_time": "2023-09-11 13:35:00",
+            "end_time": "2023-09-11 15:00:00",
+            "location": "online",
+            "description": "Research review series. Topic: Machine Learning",
+            "attendees": null
+        },
+        "7cdd6d20-040e": {
+            "event_id": "7cdd6d20-040e",
+            "name": "Design Review",
+            "event_type": "meeting",
+            "start_time": "2023-09-11 15:15:00",
+            "end_time": "2023-09-11 16:40:00",
+            "location": "Meeting Room 11c",
+            "description": "Adhoc design review for new features",
+            "attendees": [
+                "lifeng",
+                "justinkool",
+                "salcano"
+            ]
+        },
+        "294b409-6535": {
+            "event_id": "294b409-6535",
+            "name": "Weekly 1:1",
+            "event_type": "meeting",
+            "start_time": "2023-09-11 14:00:00",
+            "end_time": "2023-09-11 14:30:00",
+            "location": "online",
+            "description": null,
+            "attendees": [
+                "taotao",
+                "salcano"
+            ]
+        }
+    },
+    "olivedo": {
+        "5480d946-2381": {
+            "event_id": "5480d946-2381",
+            "name": "Olivie:Alicia",
+            "event_type": "meeting",
+            "start_time": "2023-09-11 10:00:00",
+            "end_time": "2023-09-11 10:30:00",
+            "location": "Home",
+            "description": "Talk about anything. Move to your convenience.",
+            "attendees": [
+                "olivedo",
+                "aliciab"
+            ]
+        },
+        "2ff57743-1180": {
+            "event_id": "2ff57743-1180",
+            "name": "Client Meeting",
+            "event_type": "meeting",
+            "start_time": "2023-09-11 11:00:00",
+            "end_time": "2023-09-11 11:30:00",
+            "location": "Boston",
+            "description": "Meeting with client from XBoe.",
+            "attendees": [
+                "olivedo",
+                "mstein"
+            ]
+        },
+        "7ea2fc9f-f7b4": {
+            "event_id": "7ea2fc9f-f7b4",
+            "name": "Meet with Professor Xiu",
+            "event_type": "meeting",
+            "start_time": "2023-09-12 14:00:00",
+            "end_time": "2023-09-12 15:00:00",
+            "location": "Los Angeles",
+            "description": "Meet with Professor Xiu to discuss research.",
+            "attendees": [
+                "olivedo",
+                "proxiu"
+            ]
+        },
+        "7cdd6d20-040e": {
+            "event_id": "7cdd6d20-040e",
+            "name": "Paper Submission Deadline",
+            "event_type": "event",
+            "start_time": "2023-09-29 11:00:00",
+            "end_time": "2023-09-29 11:30:00",
+            "location": null,
+            "description": "Last day to submit paper to conference.",
+            "attendees": null
+        },
+        "b448cdb4-caac": {
+            "event_id": "b448cdb4-caac",
+            "name": "Weekly Team Meeting",
+            "event_type": "meeting",
+            "start_time": "2023-09-11 10:00:00",
+            "end_time": "2023-09-11 11:00:00",
+            "location": "Conference Room 3",
+            "description": "Weekly team meeting to discuss progress and updates.",
+            "attendees": [
+                "olivedo",
+                "salcano",
+                "mstein",
+                "lifeng"
+            ]
+        }
+    }
+}

@@ -1,0 +1,59 @@
+{
+    "name": "ModifyEvent-easy",
+    "conversation_id": "1907f0d4-fa80-4c6f-ae72-38fc443608c7",
+    "suites_used": [
+        "Calendar"
+    ],
+    "apis_used": [
+        "ModifyEvent"
+    ],
+    "scenario": "ModifyEvent easy scenario",
+    "user": {
+        "username": "decture",
+        "email": "VirginiaJGraham@gahoo.com",
+        "phone": "703-607-3363",
+        "name": "Virginia J. Graham",
+        "password": "chaew5Oeth",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "Seattle",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "decture"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hey I have a dentist appoint today from 3-5 that I can no longer make. I called the office and rescheduled it for the same time next month on the 18th. Can you update my calendar? The event_id is 29496535-b409"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Sure, I've updated your calendar. Anything else I can help you with?",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "ModifyEvent",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "event_id": "29496535-b409",
+                            "new_start_time": "2023-10-18 15:00:00",
+                            "new_end_time": "2023-10-18 17:00:00"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "Nope, that's it. Thanks!"
+        }
+    ]
+}

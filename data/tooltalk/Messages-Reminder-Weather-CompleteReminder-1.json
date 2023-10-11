@@ -1,0 +1,146 @@
+{
+    "name": "Messages-Reminder-Weather-CompleteReminder-1",
+    "conversation_id": "8ab3dafb-ef39-48d8-aae4-22fddab8d489",
+    "suites_used": [
+        "Messages",
+        "Reminder",
+        "Weather"
+    ],
+    "apis_used": [
+        "CompleteReminder",
+        "HistoricWeather"
+    ],
+    "scenario": "The user wants to complete a reminder to pay their rent. They want to see how much money they have left in their bank account (GetBalance). They see that they have enough to pay the rent, but not much more. They want to see if they can save some money by switching to a cheaper electricity plan (GetElectricityPlans). They see that there is a plan that offers a lower rate, but requires a 12-month contract. They want to see how the weather has changed in their area in the past year (HistoricWeather). They see that there have been more hot and cold days than usual, which means more electricity usage. They decide to stick with their current plan, which has no contract. They pay their rent online (PayRent). They complete the reminder to pay their rent (CompleteReminder).",
+    "user": {
+        "username": "salcano",
+        "email": "hugosalcano@somail.com",
+        "phone": "402-581-7997",
+        "name": "Hugo Saldana Cano",
+        "password": "aeghah9Ei",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "Paris",
+        "timestamp": "2023-09-11 09:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "salcano"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "I forgot to pay rent this month. Can you set a reminder for me to pay rent on the first day of the month for the rest of the year?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Sure I have set reminders for 10/1, 11/1, and 12/1 to pay rent.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "AddReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "task": "Pay rent",
+                            "due_date": "2023-10-01 00:00:00"
+                        }
+                    },
+                    "response": {
+                        "reminder_id": "5b-dd80"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "AddReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "task": "Pay rent",
+                            "due_date": "2023-11-01 00:00:00"
+                        }
+                    },
+                    "response": {
+                        "reminder_id": "20-d9ca"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "AddReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "task": "Pay rent",
+                            "due_date": "2023-12-01 00:00:00"
+                        }
+                    },
+                    "response": {
+                        "reminder_id": "07-1add"
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "I sent a message to my landlord apologizing about the late rent. Can you mark my reminder to do that as complete?"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "Sure, I marked your reminder to apologize to your landlord as complete.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "GetReminders",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404"
+                        }
+                    },
+                    "response": {
+                        "reminders": [
+                            {
+                                "reminder_id": "59-80bc",
+                                "task": "apologize to landlord",
+                                "due_date": null,
+                                "status": "pending"
+                            },
+                            {
+                                "reminder_id": "5b-dd80",
+                                "task": "Pay rent",
+                                "due_date": "2023-10-01 00:00:00",
+                                "status": "pending"
+                            },
+                            {
+                                "reminder_id": "20-d9ca",
+                                "task": "Pay rent",
+                                "due_date": "2023-11-01 00:00:00",
+                                "status": "pending"
+                            },
+                            {
+                                "reminder_id": "07-1add",
+                                "task": "Pay rent",
+                                "due_date": "2023-12-01 00:00:00",
+                                "status": "pending"
+                            }
+                        ]
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "CompleteReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "reminder_id": "59-80bc"
+                        }
+                    },
+                    "response": {
+                        "status": "success"
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}

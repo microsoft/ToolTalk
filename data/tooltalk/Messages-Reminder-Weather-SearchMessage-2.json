@@ -1,0 +1,195 @@
+{
+    "name": "Messages-Reminder-Weather-SearchMessage-2",
+    "conversation_id": "f5bccae7-ab75-4c20-a5a6-87aa456c36fe",
+    "suites_used": [
+        "Messages",
+        "Reminder",
+        "Weather"
+    ],
+    "apis_used": [
+        "SearchMessages",
+        "SendMessage",
+        "DeleteReminder",
+        "GetReminders",
+        "HistoricWeather"
+    ],
+    "scenario": "The user wants to do some research on the weather patterns of New York for a school project. They use HistoricWeather to get the weather data of New York for the past month. They see that the data is incomplete and only has 10 records. They use SearchMessages to look for any messages from their teacher with the query \"weather\". They see that they have a message from two days ago that says they can use any online source for the data. They use SendMessage to thank their teacher and ask for some recommendations. They get a reply with a link to a website that has more data. They use GetReminders to see if they have any reminders for the project. They see that they have one with the task \"Submit weather project\" and the due_date set to next Monday. They use DeleteReminder to delete the reminder and create a new one with the same task and due_date, but with a note that says \"Use website for data\".",
+    "user": {
+        "username": "decture",
+        "email": "VirginiaJGraham@gahoo.com",
+        "phone": "703-607-3363",
+        "name": "Virginia J. Graham",
+        "password": "chaew5Oeth",
+        "session_token": "98a5a87a-7714-b404"
+    },
+    "metadata": {
+        "location": "San Francisco",
+        "timestamp": "2023-09-11 16:00:00",
+        "session_token": "98a5a87a-7714-b404",
+        "username": "decture"
+    },
+    "conversation": [
+        {
+            "index": 0,
+            "role": "user",
+            "text": "Hi, I'm working on a project about weather patterns in New York for my AP Environmental Science class. Can you pull up the data on what the average temperature has been for today for each year in the last decade?"
+        },
+        {
+            "index": 1,
+            "role": "assistant",
+            "text": "Sorry, I don't have the data for the last 10 years but the high today is 85 degrees and the low is 72 degrees.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "CurrentWeather",
+                        "parameters": {
+                            "location": "San Francisco"
+                        }
+                    },
+                    "response": {
+                        "weather": {
+                            "date": "2023-09-11",
+                            "high": 85,
+                            "low": 72,
+                            "conditions": "Sunny"
+                        }
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "role": "user",
+            "text": "That's annoying. Do you have any historical data about the weather here in September?"
+        },
+        {
+            "index": 3,
+            "role": "assistant",
+            "text": "Sure the historical minimum temperature has been 50 degrees, the historical maximum has been 90 degrees, with the record minimum and maximum being 48 and 102. Average rainfall is 3 inches and there are typically 0 snow days.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "HistoricWeather",
+                        "parameters": {
+                            "location": "San Francisco",
+                            "month": "September"
+                        }
+                    },
+                    "response": {
+                        "weather": {
+                            "min_temp": 50,
+                            "max_temp": 90,
+                            "record_min_temp": 48,
+                            "record_max_temp": 102,
+                            "avg_rainfall": 3.0,
+                            "snow_days": 0
+                        }
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "role": "user",
+            "text": "Ok, I don't think that's good enough for my project. Can you check my email for any messages from my teacher about weather?"
+        },
+        {
+            "index": 5,
+            "role": "assistant",
+            "text": "Sure, I found an email from Mrs. Fritz titled 'How to research weather patterns' with a list of links to weather websites.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "SearchInbox",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "query": "weather"
+                        }
+                    },
+                    "response": {
+                        "emails": [
+                            {
+                                "email_id": "7c-c867-6a524766",
+                                "date": "2023-09-07 16:00:00",
+                                "sender": "Sara.Fritz@gahoo.com",
+                                "receivers": [
+                                    "VirginiaJGraham@gahoo.com",
+                                    "lifeng@gahoo.com",
+                                    "steinki89@fexter.com",
+                                    "hugosalcano@somail.com"
+                                ],
+                                "subject": "How to research weather patterns",
+                                "body": "Hello class!\n\nI had some questions about how to research weather patterns. I've included a list of websites that should help you get started on your project.\n- https://www.dailyweather.com/\n- https://www.theweatherdb.net\n- https://www.weathergate.com/research\n\nThanks, Mrs. Fritz"
+                            }
+                        ]
+                    },
+                    "exception": null
+                }
+            ]
+        },
+        {
+            "index": 6,
+            "role": "user",
+            "text": "Ok great, can you send an email to everyone else Mrs. Fritz sent that email to asking if any of the websites were useful? And then set a reminder for me to check my email in 3 hours."
+        },
+        {
+            "index": 7,
+            "role": "assistant",
+            "text": "Got it, I have sent the email and set the reminder.",
+            "apis": [
+                {
+                    "request": {
+                        "api_name": "GetAccountInformation",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404"
+                        }
+                    },
+                    "response": {
+                        "user": {
+                            "username": "decture",
+                            "email": "VirginiaJGraham@gahoo.com",
+                            "phone": "703-607-3363",
+                            "name": "Virginia J. Graham"
+                        }
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "SendEmail",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "to": [
+                                "lifeng@gahoo.com",
+                                "steinki89@fexter.com",
+                                "hugosalcano@somail.com"
+                            ],
+                            "subject": "Did you find the websites useful?",
+                            "body": "Did anyone try the websites yet? Are any of the websites useful?"
+                        }
+                    },
+                    "response": {
+                        "email_id": "5b-dd80-9f8a27ab"
+                    },
+                    "exception": null
+                },
+                {
+                    "request": {
+                        "api_name": "AddReminder",
+                        "parameters": {
+                            "session_token": "98a5a87a-7714-b404",
+                            "task": "check my email",
+                            "due_date": "2023-09-11 19:00:00"
+                        }
+                    },
+                    "response": {
+                        "reminder_id": "5b-dd80"
+                    },
+                    "exception": null
+                }
+            ]
+        }
+    ]
+}
