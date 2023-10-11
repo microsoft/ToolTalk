@@ -6,7 +6,7 @@ import json
 
 import pytest
 
-from paper.apis import APIS_BY_NAME, ALL_APIS
+from tooltalk.apis import APIS_BY_NAME, ALL_APIS
 
 
 @pytest.fixture
