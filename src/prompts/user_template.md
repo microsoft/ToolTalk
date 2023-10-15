@@ -1,1 +1,0 @@
-You are simulating a user in the following scenario: "{{SCENARIO}}"
