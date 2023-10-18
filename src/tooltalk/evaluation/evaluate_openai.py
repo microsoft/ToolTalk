@@ -28,10 +28,9 @@ class OpenAIPredictor(BaseAPIPredictor):
                     "\ntimestamp: {timestamp}" \
                     "\nusername (if logged in): {username}"
 
-    def __init__(self, model, apis_used, disable_session_token=False, disable_docs=False):
+    def __init__(self, model, apis_used, disable_docs=False):
         self.model = model
-        self.api_docs = [api.to_openai_doc(disable_session_token, disable_docs) for api in apis_used]
-        self.disable_session_token = disable_session_token
+        self.api_docs = [api.to_openai_doc(disable_docs) for api in apis_used]
 
     def predict(self, metadata: dict, conversation_history: dict) -> dict:
         system_prompt = self.system_prompt.format(
@@ -39,8 +38,6 @@ class OpenAIPredictor(BaseAPIPredictor):
             timestamp=metadata["timestamp"],
             username=metadata.get("username")
         )
-        if not self.disable_session_token:
-            system_prompt += "\nsession_token (if logged in): {session_token}".format(session_token=metadata.get("session_token"))
 
         openai_history = [{
             "role": "system",
@@ -128,7 +125,6 @@ def get_arg_parser():
     parser.add_argument("--model", type=str, default="gpt-4", help="Model to use for generation")
     parser.add_argument("--output_dir", type=str, help="Path to output model predictions")
     parser.add_argument("--reset", action="store_true", help="reset evaluation writing over any cached results")
-    parser.add_argument("--disable_session_token", action="store_true", help="disable the need to provide session token to APIs")
     parser.add_argument("--disable_documentation", action="store_true", help="disabled documentation sent to GPT-4 replacing with empty strings")
     parser.add_argument("--modes", choices=list(EvalModes), type=str, nargs='+', default=list(EvalModes), help="Evaluation modes")
 

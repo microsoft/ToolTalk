@@ -24,11 +24,6 @@ emails: List[dict]
 class SearchInbox(API):
     description = "Searches for emails matching filters returning 5 most recent results."
     parameters = {
-        "session_token": {
-            'type': "string",
-            'description': 'The session_token of the user.',
-            'required': True
-        },
         "query": {
             "type": "string",
             "description": "Query containing keywords to search for.",
@@ -87,6 +82,17 @@ class SearchInbox(API):
             start_date: Optional[str] = None,
             end_date: Optional[str] = None
     ) -> dict:
+        """
+        Searches for emails matching filters returning 5 most recent results.
+
+        Args:
+            session_token: User's session_token. Handled by ToolExecutor.
+            query: Query containing keywords to search for.
+            match_type: Whether to match any or all keywords. Defaults to any.
+            sender: The email address of the sender.
+            start_date: Starting time to search for, in the pattern of %Y-%m-%d %H:%M:%S.
+            end_date: End time to search for, in the pattern of %Y-%m-%d %H:%M:%S.
+        """
         user_info = self.check_session_token(session_token)
         username = user_info['username']
         if username not in self.database:
@@ -158,11 +164,6 @@ class SearchInbox(API):
 class SendEmail(API):
     description = 'Sends an email on behalf of a given user.'
     parameters = {
-        "session_token": {
-            'type': "string",
-            'description': 'The session_token of the user.',
-            'required': True
-        },
         "to": {
             "type": "array",
             "items": {"type": "string"},
@@ -189,6 +190,15 @@ class SendEmail(API):
     is_action = True
 
     def call(self, session_token: str, to: List[str], subject: str, body: str) -> dict:
+        """
+        Sends an email on behalf of a given user.
+
+        Args:
+            session_token: User's session_token. Handled by ToolExecutor.
+            to: Receiving addresses of the email.
+            subject: The subject of the email.
+            body: The content of the email.
+        """
         self.check_session_token(session_token)
         for email in to:
             if not verify_email_format(email):

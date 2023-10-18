@@ -20,11 +20,6 @@ time: str
 class AddAlarm(API):
     description = "Adds an alarm for a set time."
     parameters = {
-        'session_token': {
-            'type': 'string',
-            'description': "User's session_token.",
-            "required": True
-        },
         'time': {
             'type': 'string',
             'description': 'The time for alarm. Format: %H:%M:%S',
@@ -40,13 +35,11 @@ class AddAlarm(API):
 
     def call(self, session_token: str, time: str) -> dict:
         """
-        Calls the API with the given parameters.
+        Adds an alarm for a set time.
 
-        Parameters:
-        - time (datetime): the time of alarm clock.
-
-        Returns:
-        - response (dict): the response from the API call.
+        Args:
+            session_token: User's session_token. Handled by ToolExecutor.
+            time: The time for alarm. Format: %H:%M:%S
         """
         datetime.strptime(time, '%H:%M:%S')
         user_info = self.check_session_token(session_token)
@@ -80,11 +73,6 @@ class AddAlarm(API):
 class DeleteAlarm(API):
     description = "Deletes an alarm given an alarm_id."
     parameters = {
-        'session_token': {
-            'type': 'string',
-            'description': "User's session_token.",
-            "required": True
-        },
         'alarm_id': {
             'type': 'string',
             'description': "8 digit alarm ID.",
@@ -99,6 +87,13 @@ class DeleteAlarm(API):
     is_action = True
 
     def call(self, session_token: str, alarm_id: str) -> dict:
+        """
+        Deletes an alarm given an alarm_id.
+
+        Args:
+            session_token: User's session_token. Handled by ToolExecutor.
+            alarm_id: 8 digit alarm ID.
+        """
         user_info = self.check_session_token(session_token)
         username = user_info['username']
         if username not in self.database:
@@ -112,11 +107,6 @@ class DeleteAlarm(API):
 class FindAlarms(API):
     description = "Finds alarms the user has set."
     parameters = {
-        'session_token': {
-            "type": "string",
-            'description': "User's session_token.",
-            "required": True
-        },
         "start_range": {
             "type": "string",
             'description': "Optional starting time range to find alarms. Format: %H:%M:%S",
@@ -146,6 +136,14 @@ class FindAlarms(API):
     is_action = False
 
     def call(self, session_token: str, start_range: str = None, end_range: str = None) -> dict:
+        """
+        Finds alarms the user has set. Optionally takes in start and end time range to find alarms.
+
+        Args:
+            session_token: User's session_token. Handled by ToolExecutor.
+            start_range: Optional starting time range to find alarms. Format: %H:%M:%S
+            end_range: Optional ending time range to find alarms. Format: %H:%M:%S
+        """
         user_info = self.check_session_token(session_token)
         username = user_info['username']
         if username not in self.database:

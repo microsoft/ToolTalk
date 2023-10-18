@@ -35,11 +35,6 @@ class AccountAPI(API, ABC):
 class ChangePassword(AccountAPI):
     description = 'Changes the password of an account.'
     parameters = {
-        "session_token": {
-            'type': "string",
-            'description': 'The token of the user.',
-            'required': True,
-        },
         'old_password': {
             'type': "string",
             'description': 'The old password of the user.',
@@ -79,11 +74,6 @@ class ChangePassword(AccountAPI):
 class DeleteAccount(AccountAPI):
     description = 'Deletes a user\'s account, requires user to be logged in.'
     parameters = {
-        'session_token': {
-            'type': "string",
-            'description': 'The session session_token of the user.',
-            "required": True
-        },
         "password": {
             "type": "string",
             "description": "The password of the user.",
@@ -118,9 +108,7 @@ class DeleteAccount(AccountAPI):
 
 class GetAccountInformation(AccountAPI):
     description = "Retrieves account information of logged in user."
-    parameters = {
-        "session_token": {"type": "string", "description": "The session_token of the user.", "required": True},
-    }
+    parameters = {}
     output = {
         "user": {
             "type": "object",
@@ -149,13 +137,7 @@ class GetAccountInformation(AccountAPI):
 
 class LogoutUser(AccountAPI):
     description = "Logs user out."
-    parameters = {
-        "session_token": {
-            "type": "string",
-            "description": "The session_token of the user.",
-            "required": True
-        },
-    }
+    parameters = {}
     output = {
         "status": {"type": "string", "description": "success or failed."},
     }
@@ -181,11 +163,6 @@ class LogoutUser(AccountAPI):
 class QueryUser(AccountAPI):
     description = "Finds users given a username or email."
     parameters = {
-        "session_token": {
-            "type": "string",
-            "description": "The token of the user.",
-            "required": True
-        },
         'username': {
             'type': "string",
             'description': 'The username of the user, required if email is not supplied.',
@@ -287,7 +264,7 @@ class RegisterUser(AccountAPI):
         },
     }
     output = {
-        "session_token": {'type': "string", 'description': 'The token of the user.'},
+        # "session_token": {'type': "string", 'description': 'The token of the user.'},
         'user': {'type': 'dict', 'description': 'The account information of the user.'},
     }
     database_name = ACCOUNT_DB_NAME
@@ -432,11 +409,6 @@ class SendVerificationCode(AccountAPI):
 class UpdateAccountInformation(AccountAPI):
     description = "Updates account information of a user."
     parameters = {
-        "session_token": {
-            "type": "string",
-            "description": "The token of the user.",
-            "required": True
-        },
         "password": {
             "type": "string",
             "description": "The password of the user.",
@@ -518,7 +490,7 @@ class UserLogin(AccountAPI):
         },
     }
     output = {
-        "session_token": {'type': "string", 'description': 'The token of the user.'},
+        # "session_token": {'type': "string", 'description': 'The token of the user.'},
     }
     database_name = ACCOUNT_DB_NAME
     is_action = True

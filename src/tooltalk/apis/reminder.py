@@ -20,11 +20,6 @@ reminders: dict of reminder ids
 class AddReminder(API):
     description = "Add a reminder."
     parameters = {
-        "session_token": {
-            "type": "string",
-            "description": "The session_token of the user.",
-            "required": True
-        },
         "task": {
             "type": "string",
             "description": "The task to be reminded of.",
@@ -41,6 +36,14 @@ class AddReminder(API):
     database_name = REMINDER_DB_NAME
 
     def call(self, session_token: str, task: str, due_date: Optional[str] = None) -> dict:
+        """
+        Add a reminder.
+
+        Args:
+            session_token: User's session_token. Handled by ToolExecutor.
+            task: The task to be reminded of.
+            due_date: Optional date the task is due, in the format of %Y-%m-%d %H:%M:%S.
+        """
         user_info = self.check_session_token(session_token)
         username = user_info["username"]
         if username not in self.database:
@@ -98,11 +101,6 @@ class AddReminder(API):
 class CompleteReminder(API):
     description = "Complete a reminder."
     parameters = {
-        "session_token": {
-            "type": "string",
-            "description": "The session_token of the user.",
-            "required": True
-        },
         "reminder_id": {
             "type": "string",
             "description": "The reminder_id of the reminder to be deleted.",
@@ -114,6 +112,13 @@ class CompleteReminder(API):
     database_name = REMINDER_DB_NAME
 
     def call(self, session_token: str, reminder_id: str) -> dict:
+        """
+        Complete a reminder.
+
+        Args:
+            session_token: User's session_token. Handled by ToolExecutor.
+            reminder_id: The reminder_id of the reminder to be deleted.
+        """
         user_info = self.check_session_token(session_token)
         username = user_info["username"]
         if reminder_id not in self.database[username]:
@@ -127,11 +132,6 @@ class CompleteReminder(API):
 class DeleteReminder(API):
     description = "Delete a reminder."
     parameters = {
-        "session_token": {
-            "type": "string",
-            "description": "The session_token of the user.",
-            "required": True
-        },
         "reminder_id": {
             "type": "string",
             "description": "The reminder_id of the reminder to be deleted.",
@@ -143,6 +143,13 @@ class DeleteReminder(API):
     database_name = REMINDER_DB_NAME
 
     def call(self, session_token: str, reminder_id: str) -> dict:
+        """
+        Delete a reminder.
+
+        Args:
+            session_token: User's session_token. Handled by ToolExecutor.
+            reminder_id: The reminder_id of the reminder to be deleted.
+        """
         user_info = self.check_session_token(session_token)
         username = user_info["username"]
         if reminder_id not in self.database[username]:
@@ -153,13 +160,7 @@ class DeleteReminder(API):
 
 class GetReminders(API):
     description = "Get a list of reminders."
-    parameters = {
-        "session_token": {
-            "type": "string",
-            "description": "The session_token of the user.",
-            "required": True
-        }
-    }
+    parameters = {}
     output = {
         "reminders": {
             "type": "array",
@@ -186,6 +187,12 @@ class GetReminders(API):
     database_name = REMINDER_DB_NAME
 
     def call(self, session_token: str) -> dict:
+        """
+        Get a list of reminders.
+
+        Args:
+            session_token: User's session_token. Handled by ToolExecutor.
+        """
         user_info = self.check_session_token(session_token)
         username = user_info["username"]
         if username not in self.database:

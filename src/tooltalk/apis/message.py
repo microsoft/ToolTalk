@@ -23,11 +23,6 @@ messages: List[dict]
 class SearchMessages(API):
     description = "Searches messages matching filters returning 5 most recent results."
     parameters = {
-        "session_token": {
-            'type': "string",
-            'description': 'The session_token of the user.',
-            'required': True
-        },
         "query": {
             "type": "string",
             "description": "Query containing keywords to search for.",
@@ -82,6 +77,17 @@ class SearchMessages(API):
             start_date: Optional[str] = None,
             end_date: Optional[str] = None
     ) -> dict:
+        """
+        Searches messages matching filters returning 5 most recent results.
+
+        Args:
+            session_token: User's session_token. Handled by ToolExecutor.
+            query: Query containing keywords to search for.
+            match_type: Whether to match any or all keywords. Defaults to any.
+            sender: Username of the sender.
+            start_date: Starting time to search for, in the pattern of %Y-%m-%d %H:%M:%S.
+            end_date: End time to search for, in the pattern of %Y-%m-%d %H:%M:%S.
+        """
         user_info = self.check_session_token(session_token)
         username = user_info['username']
         if username not in self.database:
@@ -148,11 +154,6 @@ class SearchMessages(API):
 class SendMessage(API):
     description = 'Sends a message to another user.'
     parameters = {
-        "session_token": {
-            'type': "string",
-            'description': 'The session_token of the user.',
-            "required": True
-        },
         "receiver": {
             'type': "string",
             'description': 'The receiver\'s username.',
@@ -173,6 +174,14 @@ class SendMessage(API):
     is_action = True
 
     def call(self, session_token: str, receiver: str, message: str) -> dict:
+        """
+        Sends a message to another user.
+
+        Args:
+            session_token: User's session_token. Handled by ToolExecutor.
+            receiver: The receiver's username.
+            message: The message.
+        """
         self.check_session_token(session_token)
         # accept all receivers since they could resolve
         if message == "":
