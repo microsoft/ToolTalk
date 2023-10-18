@@ -118,15 +118,17 @@ class EvalModes(str, Enum):
 
 def get_arg_parser():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--dataset", type=str, help="Path to config for models to evaluate")
+    parser.add_argument("--dataset", type=str, help="Path to dataset for models to evaluate")
     parser.add_argument("--api_key", type=str, default="openai.key", help="Path to OpenAI API key")
     parser.add_argument("--api_mode", type=str, choices=["exact", "suite", "all"], default="all",
                         help="API mode to use for evaluation, determines which api docs to include")
     parser.add_argument("--model", type=str, default="gpt-4", help="Model to use for generation")
     parser.add_argument("--output_dir", type=str, help="Path to output model predictions")
     parser.add_argument("--reset", action="store_true", help="reset evaluation writing over any cached results")
-    parser.add_argument("--disable_documentation", action="store_true", help="disabled documentation sent to GPT-4 replacing with empty strings")
-    parser.add_argument("--modes", choices=list(EvalModes), type=str, nargs='+', default=list(EvalModes), help="Evaluation modes")
+    parser.add_argument("--disable_documentation", action="store_true",
+                        help="disabled documentation sent to GPT-4 replacing with empty strings")
+    parser.add_argument("--modes", choices=list(EvalModes), type=str, nargs='+', default=list(EvalModes),
+                        help="Evaluation modes")
 
     return parser
 
