@@ -72,6 +72,7 @@ class SearchInbox(API):
     }
     is_action = False
     database_name = EMAIL_DB_NAME
+    requires_auth = True
 
     def call(
             self,
@@ -188,6 +189,7 @@ class SendEmail(API):
         },
     }
     is_action = True
+    requires_auth = True
 
     def call(self, session_token: str, to: List[str], subject: str, body: str) -> dict:
         """

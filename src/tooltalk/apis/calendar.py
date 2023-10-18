@@ -89,6 +89,7 @@ class CreateEvent(API):
 
     database_name = CALENDAR_DB_NAME
     is_action = True
+    requires_auth = True
 
     def call(
             self,
@@ -200,6 +201,7 @@ class DeleteEvent(API):
 
     database_name = CALENDAR_DB_NAME
     is_action = True
+    requires_auth = True
 
     def call(self, session_token: str, event_id: str) -> dict:
         """
@@ -265,6 +267,7 @@ class ModifyEvent(API):
 
     database_name = CALENDAR_DB_NAME
     is_action = True
+    requires_auth = True
 
     def call(
             self,
@@ -394,6 +397,7 @@ class QueryCalendar(API):
 
     database_name = CALENDAR_DB_NAME
     is_action = False
+    requires_auth = True
 
     def call(self, session_token: str, start_time: str, end_time: str) -> dict:
         """

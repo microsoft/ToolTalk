@@ -51,6 +51,7 @@ class ChangePassword(AccountAPI):
     }
     database_name = ACCOUNT_DB_NAME
     is_action = True
+    requires_auth = True
 
     def call(self, session_token: str, old_password: str, new_password: str) -> dict:
         """
@@ -84,6 +85,7 @@ class DeleteAccount(AccountAPI):
         }
     }
     is_action = True
+    requires_auth = True
 
     def call(self, session_token: str, password: str) -> dict:
         """
@@ -117,6 +119,7 @@ class GetAccountInformation(AccountAPI):
         }
     }
     is_action = False
+    requires_auth = True
 
     def call(self, session_token: str) -> dict:
         """
@@ -144,6 +147,7 @@ class LogoutUser(AccountAPI):
     }
     is_action = True
     database_name = ACCOUNT_DB_NAME
+    requires_auth = True
 
     def call(self, session_token: str) -> dict:
         """
@@ -190,6 +194,7 @@ class QueryUser(AccountAPI):
     }
     database_name = ACCOUNT_DB_NAME
     is_action = False
+    requires_auth = True
 
     def call(self, session_token: str, username: Optional[str] = None, email: Optional[str] = None) -> dict:
         """
@@ -426,6 +431,7 @@ class UpdateAccountInformation(AccountAPI):
     }
     is_action = True
     database_name = ACCOUNT_DB_NAME
+    requires_auth = True
 
     def call(
             self,

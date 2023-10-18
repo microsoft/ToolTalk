@@ -67,6 +67,7 @@ class SearchMessages(API):
     }
     is_action = False
     database_name = MESSAGE_DB_NAME
+    requires_auth = True
 
     def call(
             self,
@@ -172,6 +173,7 @@ class SendMessage(API):
         },
     }
     is_action = True
+    requires_auth = True
 
     def call(self, session_token: str, receiver: str, message: str) -> dict:
         """

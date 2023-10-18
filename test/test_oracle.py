@@ -1,9 +1,8 @@
-import argparse
-import copy
 import os
-import sys
+import copy
 import json
 import logging
+import argparse
 from typing import List
 
 import pytest
@@ -25,9 +24,8 @@ class OraclePredictor(BaseAPIPredictor):
     aka it produces oracle predictions for testing purposes.
     """
 
-    def __init__(self, conversation: dict, disable_session_token: bool = False):
+    def __init__(self, conversation: dict):
         self.conversation = conversation
-        self.disable_session_token = disable_session_token
 
     def predict(self, metadata: dict, conversation_history: dict) -> dict:
         assert metadata == self.conversation["metadata"]
@@ -58,7 +56,7 @@ class OraclePredictor(BaseAPIPredictor):
                 }
             else:
                 parameters = copy.deepcopy(turn["apis"][api_index]["request"]["parameters"])
-                if "session_token" in parameters and self.disable_session_token:
+                if "session_token" in parameters:
                     del parameters["session_token"]
                 return {
                     "role": "api",
@@ -77,7 +75,6 @@ class OraclePredictor(BaseAPIPredictor):
 def get_arg_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset_name", type=str)
-    parser.add_argument("--disable_session_token", action="store_true")
 
     return parser
 
@@ -94,16 +91,13 @@ def main(flags: List[str] = None):
     test_dataset_path = os.path.join(data_dir, args.dataset_name)
     test_database_path = os.path.join(data_dir, "databases")
 
-    tool_executor = ToolExecutor(
-        init_database_dir=test_database_path,
-        disable_session_token=args.disable_session_token
-    )
+    tool_executor = ToolExecutor(init_database_dir=test_database_path)
     for file_name, file_path in tqdm(get_names_and_paths(test_dataset_path)):
         logger.info(f"Running conversation: {file_name}")
         with open(file_path, 'r', encoding='utf-8') as reader:
             conversation = json.load(reader)
 
-        predictor_func = OraclePredictor(conversation, disable_session_token=args.disable_session_token)
+        predictor_func = OraclePredictor(conversation)
         conversation_with_predictions = tool_executor.run_conversation(conversation, predictor_func)
         conversation_with_metrics = tool_executor.evaluate_predictions(conversation_with_predictions)
         metrics = conversation_with_metrics["metrics"]
@@ -115,10 +109,7 @@ def main(flags: List[str] = None):
 
 @pytest.mark.parametrize("dataset_name", ["easy", "tooltalk"])
 def test_oracle(dataset_name):
-    main([
-        "--dataset_name", dataset_name,
-        "--disable_session_token"
-    ])
+    main(["--dataset_name", dataset_name])
 
 
 if __name__ == '__main__':

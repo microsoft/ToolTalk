@@ -34,6 +34,7 @@ class AddReminder(API):
     output = {"reminder_id": {"type": "string", "description": "reminder_id on success"}}
     is_action = True
     database_name = REMINDER_DB_NAME
+    requires_auth = True
 
     def call(self, session_token: str, task: str, due_date: Optional[str] = None) -> dict:
         """
@@ -110,6 +111,7 @@ class CompleteReminder(API):
     output = {"status": {"type": "string", "description": "success or failure"}}
     is_action = True
     database_name = REMINDER_DB_NAME
+    requires_auth = True
 
     def call(self, session_token: str, reminder_id: str) -> dict:
         """
@@ -141,6 +143,7 @@ class DeleteReminder(API):
     output = {"status": {"type": "string", "description": "success or failure"}}
     is_action = True
     database_name = REMINDER_DB_NAME
+    requires_auth = True
 
     def call(self, session_token: str, reminder_id: str) -> dict:
         """
@@ -185,6 +188,7 @@ class GetReminders(API):
     }
     is_action = False
     database_name = REMINDER_DB_NAME
+    requires_auth = True
 
     def call(self, session_token: str) -> dict:
         """

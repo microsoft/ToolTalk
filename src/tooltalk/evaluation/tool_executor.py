@@ -88,7 +88,7 @@ class ToolExecutor:
             return request, response
 
         tool = self.get_init_tool(api_name)
-        if "session_token" in tool.parameters:
+        if tool.requires_auth:
             if self.session_token is None:
                 response = {
                     "response": None,

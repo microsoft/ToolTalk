@@ -32,6 +32,7 @@ class AddAlarm(API):
 
     database_name = ALARM_DB_NAME
     is_action = True
+    requires_auth = True
 
     def call(self, session_token: str, time: str) -> dict:
         """
@@ -85,6 +86,7 @@ class DeleteAlarm(API):
 
     database_name = ALARM_DB_NAME
     is_action = True
+    requires_auth = True
 
     def call(self, session_token: str, alarm_id: str) -> dict:
         """
@@ -134,6 +136,7 @@ class FindAlarms(API):
 
     database_name = ALARM_DB_NAME
     is_action = False
+    requires_auth = True
 
     def call(self, session_token: str, start_range: str = None, end_range: str = None) -> dict:
         """

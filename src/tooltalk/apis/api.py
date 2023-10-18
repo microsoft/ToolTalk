@@ -13,6 +13,7 @@ class API(ABC):
     parameters: dict
     output: dict
     is_action: bool
+    requires_auth: bool = False
     database_name: Optional[str] = None
 
     def __init__(
