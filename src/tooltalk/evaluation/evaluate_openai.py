@@ -14,7 +14,6 @@ from tqdm import tqdm
 
 from tooltalk.apis import APIS_BY_NAME, ALL_APIS
 from tooltalk.evaluation.tool_executor import ToolExecutor, BaseAPIPredictor
-from tooltalk.evaluation import DATABASE_PATH
 from tooltalk.utils.file_utils import get_names_and_paths
 from tooltalk.utils.openai_utils import openai_chat_completion
 
@@ -119,6 +118,7 @@ class EvalModes(str, Enum):
 def get_arg_parser():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dataset", type=str, help="Path to dataset for models to evaluate")
+    parser.add_argument("--database", type=str, help="Path to database used in evaluation")
     parser.add_argument("--api_key", type=str, default="openai.key", help="Path to OpenAI API key")
     parser.add_argument("--api_mode", type=str, choices=["exact", "suite", "all"], default="all",
                         help="API mode to use for evaluation, determines which api docs to include")
@@ -146,10 +146,7 @@ def main(flags: List[str] = None):
 
     total_metrics = Counter()
     os.makedirs(args.output_dir, exist_ok=True)
-    tool_executor = ToolExecutor(
-        init_database_dir=DATABASE_PATH,
-        disable_session_token=args.disable_session_token
-    )
+    tool_executor = ToolExecutor(init_database_dir=args.database)
     for file_name, file_path in tqdm(get_names_and_paths(args.dataset)):
         output_file_path = os.path.join(args.output_dir, file_name)
         if os.path.exists(output_file_path) and not args.reset:
@@ -178,7 +175,6 @@ def main(flags: List[str] = None):
             predictor_func = OpenAIPredictor(
                 model=args.model,
                 apis_used=apis_used,
-                disable_session_token=args.disable_session_token,
                 disable_docs=args.disable_documentation
             )
             conversation = tool_executor.run_conversation(conversation, predictor_func)
