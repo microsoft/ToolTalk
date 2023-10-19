@@ -22,13 +22,11 @@ class ToolExecutor:
             init_database_dir: str = None,
             ignore_list: List[str] = None,
             account_database: str = ACCOUNT_DB_NAME,
-            disable_session_token: bool = False,
     ) -> None:
         self.databases = dict()
         self.database_files = dict()
         self.account_database = account_database
         self.ignore_list = ignore_list if ignore_list is not None else list()
-        self.disable_session_token = disable_session_token
         self.session_token = None
 
         for file_name, file_path in get_names_and_paths(init_database_dir):
@@ -90,7 +88,7 @@ class ToolExecutor:
             return request, response
 
         tool = self.get_init_tool(api_name)
-        if self.disable_session_token and "session_token" in tool.parameters:
+        if tool.requires_auth:
             if self.session_token is None:
                 response = {
                     "response": None,
@@ -107,13 +105,12 @@ class ToolExecutor:
 
         # execute tool
         response = tool(**parameters)
-        if self.disable_session_token:
-            # capture session_token and simulate login and logout
-            if api_name in [UserLogin.__name__, RegisterUser.__name__] and response["exception"] is None:
-                self.session_token = response["response"]["session_token"]
-            elif api_name == LogoutUser.__name__ and response["exception"] is None:
-                self.session_token = None
 
+        # capture session_token and simulate login and logout
+        if api_name in [UserLogin.__name__, RegisterUser.__name__] and response["exception"] is None:
+            self.session_token = response["response"]["session_token"]
+        elif api_name == LogoutUser.__name__ and response["exception"] is None:
+            self.session_token = None
         return request, response
 
     def compare_api_calls(self, prediction: dict, ground_truth: dict) -> bool:

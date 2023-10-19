@@ -42,11 +42,6 @@ EventTypes = _EventTypes()
 class CreateEvent(API):
     description = "Adds events to a user's calendar."
     parameters = {
-        'session_token': {
-            'type': "string",
-            'description': "User's session_token.",
-            "required": True
-        },
         'name': {
             'type': "string",
             "enum": ['meeting', 'event'],
@@ -55,7 +50,7 @@ class CreateEvent(API):
         },
         "event_type": {
             "type": "string",
-            "description": "The type of the event, either 'meeting', 'event', or 'reminder.",
+            "description": "The type of the event, either 'meeting' or 'event'.",
             "required": True,
         },
         "description": {
@@ -94,6 +89,7 @@ class CreateEvent(API):
 
     database_name = CALENDAR_DB_NAME
     is_action = True
+    requires_auth = True
 
     def call(
             self,
@@ -106,6 +102,19 @@ class CreateEvent(API):
             location: str = None,
             attendees: List[str] = None,
     ) -> dict:
+        """
+        Adds an event to the user's calendar.
+
+        Args:
+            session_token: User's session_token. Handled by ToolExecutor.
+            name: The name of the event.
+            event_type: The type of the event, either 'meeting' or 'event'
+            start_time: The start time of the event, in the pattern of %Y-%m-%d %H:%M:%S
+            end_time: The end time of the event, in the pattern of %Y-%m-%d %H:%M:%S
+            description: Optional, the description of the event, no more than 1024 characters.
+            location: Optional, the location where the event is to be held.
+            attendees: The attendees as an array of usernames. Required if event type is meeting.
+        """
         if event_type not in asdict(EventTypes).values():
             raise APIException(f"Event type {event_type} not supported.")
         if event_type == EventTypes.MEETING and not attendees:
@@ -180,11 +189,6 @@ class CreateEvent(API):
 class DeleteEvent(API):
     description = "Deletes events from a user's calendar."
     parameters = {
-        'session_token': {
-            'type': "string",
-            'description': "User's session_token.",
-            "required": True
-        },
         'event_id': {
             'type': "string",
             'description': 'The id of the event to be deleted.',
@@ -197,8 +201,16 @@ class DeleteEvent(API):
 
     database_name = CALENDAR_DB_NAME
     is_action = True
+    requires_auth = True
 
     def call(self, session_token: str, event_id: str) -> dict:
+        """
+        Deletes an event from the user's calendar.
+
+        Args:
+            session_token: User's session_token. Handled by ToolExecutor.
+            event_id: The id of the event to be deleted.
+        """
         user_info = self.check_session_token(session_token)
         username = user_info["username"]
         if username not in self.database:
@@ -212,11 +224,6 @@ class DeleteEvent(API):
 class ModifyEvent(API):
     description = "Allows modification of an existing event."
     parameters = {
-        'session_token': {
-            'type': "string",
-            'description': "User's session_token.",
-            "required": True
-        },
         "event_id": {
             "type": "string",
             "description": "The id of the event to be modified.",
@@ -260,6 +267,7 @@ class ModifyEvent(API):
 
     database_name = CALENDAR_DB_NAME
     is_action = True
+    requires_auth = True
 
     def call(
             self,
@@ -272,6 +280,19 @@ class ModifyEvent(API):
             new_location: str = None,
             new_attendees: list = None
     ) -> dict:
+        """
+        Modifies an existing event.
+
+        Args:
+            session_token: User's session_token. Handled by ToolExecutor.
+            event_id: The id of the event to be modified.
+            new_name: The new name of the event.
+            new_start_time: The new start time of the event.
+            new_end_time: The new end time of the event. Required if new_start_time is provided.
+            new_description: The new description of the event.
+            new_location: The new location of the event.
+            new_attendees: The new attendees of the event. Array of usernames.
+        """
         user_info = self.check_session_token(session_token)
         username = user_info["username"]
         if username not in self.database:
@@ -344,11 +365,6 @@ class ModifyEvent(API):
 class QueryCalendar(API):
     description = "Query for events that occur in a time range."
     parameters = {
-        'session_token': {
-            'type': "string",
-            'description': "User's session_token.",
-            'required': True
-        },
         'start_time': {
             'type': "string",
             'description': 'The start time of the meeting, in the pattern of %Y-%m-%d %H:%M:%S',
@@ -381,8 +397,17 @@ class QueryCalendar(API):
 
     database_name = CALENDAR_DB_NAME
     is_action = False
+    requires_auth = True
 
     def call(self, session_token: str, start_time: str, end_time: str) -> dict:
+        """
+        Query for events that occur in a time range.
+
+        Args:
+            session_token: User's session_token. Handled by ToolExecutor.
+            start_time: The start time of the meeting, in the pattern of %Y-%m-%d %H:%M:%S
+            end_time: The end time of the meeting, in the pattern of %Y-%m-%d %H:%M:%S
+        """
         user_info = self.check_session_token(session_token)
         username = user_info["username"]
         if username not in self.database:

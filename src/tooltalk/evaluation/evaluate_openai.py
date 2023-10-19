@@ -14,7 +14,6 @@ from tqdm import tqdm
 
 from tooltalk.apis import APIS_BY_NAME, ALL_APIS
 from tooltalk.evaluation.tool_executor import ToolExecutor, BaseAPIPredictor
-from tooltalk.evaluation import DATABASE_PATH
 from tooltalk.utils.file_utils import get_names_and_paths
 from tooltalk.utils.openai_utils import openai_chat_completion
 
@@ -28,10 +27,9 @@ class OpenAIPredictor(BaseAPIPredictor):
                     "\ntimestamp: {timestamp}" \
                     "\nusername (if logged in): {username}"
 
-    def __init__(self, model, apis_used, disable_session_token=False, disable_docs=False):
+    def __init__(self, model, apis_used, disable_docs=False):
         self.model = model
-        self.api_docs = [api.to_openai_doc(disable_session_token, disable_docs) for api in apis_used]
-        self.disable_session_token = disable_session_token
+        self.api_docs = [api.to_openai_doc(disable_docs) for api in apis_used]
 
     def predict(self, metadata: dict, conversation_history: dict) -> dict:
         system_prompt = self.system_prompt.format(
@@ -39,8 +37,6 @@ class OpenAIPredictor(BaseAPIPredictor):
             timestamp=metadata["timestamp"],
             username=metadata.get("username")
         )
-        if not self.disable_session_token:
-            system_prompt += "\nsession_token (if logged in): {session_token}".format(session_token=metadata.get("session_token"))
 
         openai_history = [{
             "role": "system",
@@ -121,16 +117,18 @@ class EvalModes(str, Enum):
 
 def get_arg_parser():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--dataset", type=str, help="Path to config for models to evaluate")
+    parser.add_argument("--dataset", type=str, help="Path to dataset for models to evaluate")
+    parser.add_argument("--database", type=str, help="Path to database used in evaluation")
     parser.add_argument("--api_key", type=str, default="openai.key", help="Path to OpenAI API key")
     parser.add_argument("--api_mode", type=str, choices=["exact", "suite", "all"], default="all",
                         help="API mode to use for evaluation, determines which api docs to include")
     parser.add_argument("--model", type=str, default="gpt-4", help="Model to use for generation")
     parser.add_argument("--output_dir", type=str, help="Path to output model predictions")
     parser.add_argument("--reset", action="store_true", help="reset evaluation writing over any cached results")
-    parser.add_argument("--disable_session_token", action="store_true", help="disable the need to provide session token to APIs")
-    parser.add_argument("--disable_documentation", action="store_true", help="disabled documentation sent to GPT-4 replacing with empty strings")
-    parser.add_argument("--modes", choices=list(EvalModes), type=str, nargs='+', default=list(EvalModes), help="Evaluation modes")
+    parser.add_argument("--disable_documentation", action="store_true",
+                        help="disabled documentation sent to GPT-4 replacing with empty strings")
+    parser.add_argument("--modes", choices=list(EvalModes), type=str, nargs='+', default=list(EvalModes),
+                        help="Evaluation modes")
 
     return parser
 
@@ -148,10 +146,7 @@ def main(flags: List[str] = None):
 
     total_metrics = Counter()
     os.makedirs(args.output_dir, exist_ok=True)
-    tool_executor = ToolExecutor(
-        init_database_dir=DATABASE_PATH,
-        disable_session_token=args.disable_session_token
-    )
+    tool_executor = ToolExecutor(init_database_dir=args.database)
     for file_name, file_path in tqdm(get_names_and_paths(args.dataset)):
         output_file_path = os.path.join(args.output_dir, file_name)
         if os.path.exists(output_file_path) and not args.reset:
@@ -180,7 +175,6 @@ def main(flags: List[str] = None):
             predictor_func = OpenAIPredictor(
                 model=args.model,
                 apis_used=apis_used,
-                disable_session_token=args.disable_session_token,
                 disable_docs=args.disable_documentation
             )
             conversation = tool_executor.run_conversation(conversation, predictor_func)

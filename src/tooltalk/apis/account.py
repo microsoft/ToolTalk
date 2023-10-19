@@ -35,11 +35,6 @@ class AccountAPI(API, ABC):
 class ChangePassword(AccountAPI):
     description = 'Changes the password of an account.'
     parameters = {
-        "session_token": {
-            'type': "string",
-            'description': 'The token of the user.',
-            'required': True,
-        },
         'old_password': {
             'type': "string",
             'description': 'The old password of the user.',
@@ -56,18 +51,16 @@ class ChangePassword(AccountAPI):
     }
     database_name = ACCOUNT_DB_NAME
     is_action = True
+    requires_auth = True
 
     def call(self, session_token: str, old_password: str, new_password: str) -> dict:
         """
-        Modifies the password of the account.
+        Changes the password of an account.
 
-        Parameters:
-        - token (str): the token of the user.
-        - old_password (str): the old password of the user.
-        - new_password (str): the new password of the user.
-
-        Returns:
-        - status (str): success or failed
+        Args:
+            session_token: User's session_token. Handled by ToolExecutor.
+            old_password: The old password of the user.
+            new_password: The new password of the user.
         """
         user_info = self.check_session_token(session_token)
         if user_info["password"] != old_password:
@@ -79,11 +72,6 @@ class ChangePassword(AccountAPI):
 class DeleteAccount(AccountAPI):
     description = 'Deletes a user\'s account, requires user to be logged in.'
     parameters = {
-        'session_token': {
-            'type': "string",
-            'description': 'The session session_token of the user.',
-            "required": True
-        },
         "password": {
             "type": "string",
             "description": "The password of the user.",
@@ -97,16 +85,15 @@ class DeleteAccount(AccountAPI):
         }
     }
     is_action = True
+    requires_auth = True
 
     def call(self, session_token: str, password: str) -> dict:
         """
-        Deletes the account.
+        Deletes a user's account.
 
-        Parameters:
-        - session_token (str): the session_token of the user.
-
-        Returns:
-        - status (str): success or failed
+        Args:
+            session_token: User's session_token. Handled by ToolExecutor.
+            password: The password of the user.
         """
         user_data = self.check_session_token(session_token)
         username = user_data['username']
@@ -118,9 +105,7 @@ class DeleteAccount(AccountAPI):
 
 class GetAccountInformation(AccountAPI):
     description = "Retrieves account information of logged in user."
-    parameters = {
-        "session_token": {"type": "string", "description": "The session_token of the user.", "required": True},
-    }
+    parameters = {}
     output = {
         "user": {
             "type": "object",
@@ -134,8 +119,15 @@ class GetAccountInformation(AccountAPI):
         }
     }
     is_action = False
+    requires_auth = True
 
     def call(self, session_token: str) -> dict:
+        """
+        Retrieves account information of logged in user.
+
+        Args:
+            session_token: User's session_token. Handled by ToolExecutor.
+        """
         user_info = self.check_session_token(session_token)
         return {
             "user": {
@@ -149,28 +141,20 @@ class GetAccountInformation(AccountAPI):
 
 class LogoutUser(AccountAPI):
     description = "Logs user out."
-    parameters = {
-        "session_token": {
-            "type": "string",
-            "description": "The session_token of the user.",
-            "required": True
-        },
-    }
+    parameters = {}
     output = {
         "status": {"type": "string", "description": "success or failed."},
     }
     is_action = True
     database_name = ACCOUNT_DB_NAME
+    requires_auth = True
 
     def call(self, session_token: str) -> dict:
         """
-        Logs the user out.
+        Logs user out.
 
-        Parameters:
-        - session_token (str): the session_token of the user.
-
-        Returns:
-        - status (str): success or failed
+        Args:
+            session_token: User's session_token. Handled by ToolExecutor.
         """
         # check session_token will fail if user is already logged out
         user_data = self.check_session_token(session_token)
@@ -181,11 +165,6 @@ class LogoutUser(AccountAPI):
 class QueryUser(AccountAPI):
     description = "Finds users given a username or email."
     parameters = {
-        "session_token": {
-            "type": "string",
-            "description": "The token of the user.",
-            "required": True
-        },
         'username': {
             'type': "string",
             'description': 'The username of the user, required if email is not supplied.',
@@ -215,17 +194,16 @@ class QueryUser(AccountAPI):
     }
     database_name = ACCOUNT_DB_NAME
     is_action = False
+    requires_auth = True
 
     def call(self, session_token: str, username: Optional[str] = None, email: Optional[str] = None) -> dict:
         """
-        Queries a user's account information given username or email.
+        Finds users given a username or email.
 
-        Parameters:
-        - username (str): the username of the user.
-        - email (str): the email of the user.
-
-        Returns:
-        - users (List[dict]): the account information of the user.
+        Args:
+            session_token: User's session_token. Handled by ToolExecutor.
+            username: The username of the user, required if email is not supplied.
+            email: The email of the user, required if username is not supplied. May match multiple users
         """
         self.check_session_token(session_token)
         if username is None and email is None:
@@ -302,16 +280,14 @@ class RegisterUser(AccountAPI):
             phone: Optional[str] = None
     ) -> dict:
         """
-        Registers a user.
+        Register a new user.
 
-        Parameters:
-        - username (str): the username of the user.
-        - password (str): the password of the user.
-        - email (str): the email of the user.
-        - phone (str): the phone of the user.
-
-        Returns:
-        - token (str): the token of the user.
+        Args:
+            username: The username of the user.
+            password: The password of the user.
+            email: The email of the user.
+            name: The name of the user.
+            phone: The phone of the user in the format xxx-xxx-xxxx.
         """
         if username in self.database:
             raise APIException('The username already exists.')
@@ -411,14 +387,11 @@ class SendVerificationCode(AccountAPI):
 
     def call(self, username: str, email: str) -> dict:
         """
-        Sends a verification code to the user.
+        Initiates a password reset for a user by sending a verification code to a backup email.
 
-        Parameters:
-        - username (str): the username of the user.
-        - email (str): the email of the user.
-
-        Returns:
-        - status (str): success or failed
+        Args:
+            username: The username of the user.
+            email: The email of the user.
         """
         if username not in self.database:
             raise APIException("The username does not exist.")
@@ -432,11 +405,6 @@ class SendVerificationCode(AccountAPI):
 class UpdateAccountInformation(AccountAPI):
     description = "Updates account information of a user."
     parameters = {
-        "session_token": {
-            "type": "string",
-            "description": "The token of the user.",
-            "required": True
-        },
         "password": {
             "type": "string",
             "description": "The password of the user.",
@@ -463,6 +431,7 @@ class UpdateAccountInformation(AccountAPI):
     }
     is_action = True
     database_name = ACCOUNT_DB_NAME
+    requires_auth = True
 
     def call(
             self,
@@ -473,16 +442,14 @@ class UpdateAccountInformation(AccountAPI):
             new_name: Optional[str] = None
     ) -> dict:
         """
-        Updates the account information of a user.
+        Updates account information of a user.
 
-        Parameters:
-        - token (str): the token of the user.
-        - password (str): the password of the user.
-        - new_email (str): the new email of the user.
-        - new_phone_number (str): the new phone number of the user.
-
-        Returns:
-        - status (str): success or failed
+        Args:
+            session_token: User's session_token. Handled by ToolExecutor.
+            password: The password of the user.
+            new_email: The new email of the user.
+            new_phone_number: The new phone number of the user in the format xxx-xxx-xxxx.
+            new_name: The new name of the user.
         """
         user_data = self.check_session_token(session_token)
         username = user_data['username']
@@ -524,7 +491,13 @@ class UserLogin(AccountAPI):
     is_action = True
 
     def call(self, username: str, password: str) -> dict:
-        """Logs user in and generates a session token"""
+        """
+        Logs in a user returns a token.
+
+        Args:
+            username: The username of the user.
+            password: The password of the user.
+        """
         if username not in self.database:
             raise APIException('The username does not exist.')
         if self.database[username]['password'] != password:

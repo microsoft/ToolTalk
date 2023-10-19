@@ -74,6 +74,12 @@ class CurrentWeather(WeatherAPI):
     database_name = WEATHER_DB_NAME
 
     def call(self, location: str) -> dict:
+        """
+        Get the current weather of a location.
+
+        Args:
+            location: The location to get the weather of.
+        """
         # find occurrence of date in database
         location = location.lower().strip()
         if location not in self.database:
@@ -112,6 +118,12 @@ class ForecastWeather(WeatherAPI):
     database_name = WEATHER_DB_NAME
 
     def call(self, location: str) -> dict:
+        """
+        Get the 3-day forecast weather of a location.
+
+        Args:
+            location: The location to get the weather of.
+        """
         # find occurrence of date in database
         location = location.lower().strip()
         if location not in self.database:
@@ -156,6 +168,13 @@ class HistoricWeather(API):
     database_name = "HistoricWeather"
 
     def call(self, location: str, month: str) -> dict:
+        """
+        Get historic weather information of a location by month.
+
+        Args:
+            location: The location to get the weather of.
+            month: The month to get weather of as a full name.
+        """
         location = location.lower().strip()
         if location not in self.database:
             raise APIException(f"Location {location} not found in database")

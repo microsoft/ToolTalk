@@ -13,6 +13,7 @@ class API(ABC):
     parameters: dict
     output: dict
     is_action: bool
+    requires_auth: bool = False
     database_name: Optional[str] = None
 
     def __init__(
@@ -119,12 +120,10 @@ class API(ABC):
         }
 
     @classmethod
-    def to_openai_doc(cls, disable_session_token: bool = False, disable_doc: bool = False) -> dict:
+    def to_openai_doc(cls, disable_doc: bool = False) -> dict:
         parameters = dict()
         required = list()
         for name, attributes in cls.parameters.items():
-            if disable_session_token and name == "session_token":
-                continue
             if attributes["required"]:
                 required.append(name)
             attributes = attributes.copy()
