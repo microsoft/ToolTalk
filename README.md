@@ -1,10 +1,16 @@
-# ToolTalk
+# ToolTalk :wrench: :speech_balloon:
 
-Introducing ToolTalk: Evaluating Tool Usage in a Conversation Setting.
+Introducing ToolTalk a benchmark for evaluating Tool LLMs in a conversational setting.
+
+<p align="center">
+   <a href="arxiv" target=""_blank">Paper</a> | <a href="mailto:agentbench@googlegroups.com" target="_blank">Contact</a>
+</p>
 
 ## Benchmark
 
-<img src="images/Evaluation.png" width=80% />
+<div align="center">
+	<img src="images/Evaluation.png" width=90% />
+</div>
 
 What does this benchmark do?
 
