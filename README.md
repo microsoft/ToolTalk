@@ -1,6 +1,19 @@
 # ToolTalk
 
-This is the repo for ToolTalk: Evaluating Tool Usage in a Conversation Setting.
+Introducing ToolTalk: Evaluating Tool Usage in a Conversation Setting.
+
+## Benchmark
+
+<img src="images/Evaluation.png" width=80% />
+
+What does this benchmark do?
+
+| Model   | ToolTalk | Success rate | Precision | Recall | Incorrect Action Rate |
+|---------|----------|--------------|-----------|--------|-----------------------|
+| GPT-3.5 | Easy     | 85.7%        | 42.4%     | 89.3%  | 5.0%                  |
+| GPT-4   | Easy     | 92.8%        | 69.2%     | 96.4%  | 3.8%                  |
+| GPT-3.5 | Hard     | 26.0%        | 54.6%     | 69.7%  | 23.9%                 |
+| GPT-4   | Hard     | 50.0%        | 74.9%     | 79.0%  | 25.1%                 |
 
 ## Setup
 
@@ -8,7 +21,7 @@ ToolTalk can be setup using the following commands. Install local package with d
 
 ```bash
 pip install -r requirements.txt
-pip install ".[dev]"
+pip install -e ".[dev]"
 ```
 
 To verify that the installation was successful, run the unit tests.
@@ -29,14 +42,7 @@ bash evaluate_gpt35turbo.sh
 bash evaluate_gpt4.sh
 ```
 
-Your results should look something like this, there will be some variance due to both models having non-deterministic results.
-
-| Model   | ToolTalk | Success rate | Precision | Recall | Incorrect Action Rate |
-|---------|----------|--------------|-----------|--------|-----------------------|
-| GPT-3.5 | Easy     | 85.7%        | 42.4%     | 89.3%  | 5.0%                  |
-| GPT-4   | Easy     | 92.8%        | 69.2%     | 96.4%  | 3.8%                  |
-| GPT-3.5 | Hard     | 26.0%        | 54.6%     | 69.7%  | 23.9%                 |
-| GPT-4   | Hard     | 50.0%        | 74.9%     | 79.0%  | 25.1%                 |
+Your results should look something like the number above, there will be some variance due to both models having non-deterministic results.
 
 ## Generating scenarios
 
@@ -60,7 +66,14 @@ For an example of how to do this, see `tooltalk.evaluation.tool_executor.GPT3Pre
 
 ## Citing
 
-If you use ToolTalk in your research, please cite the following paper:
+```
+@article{farn2023tooltalk,
+  title={ToolTalk: Evaluating Tool Usage in a Conversation Setting},
+  author={Nicholas Farn and Richard Shin},
+  year={2023},
+  journal={arXiv preprint arXiv:XXXX.XXXXX},
+}
+```
 
 ## Contributing
 

@@ -1,6 +1,9 @@
 # ignore keys
 *.key
 
+# ignore output
+output/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
