@@ -10,6 +10,7 @@ import argparse
 from itertools import combinations
 from typing import Optional, List
 
+import openai
 from tqdm import tqdm
 
 from tooltalk.apis import ALL_SUITES
@@ -100,7 +101,7 @@ def main(flags: Optional[List[str]] = None) -> None:
                 try:
                     response_texts = openai_completion(
                         model=args.model,
-                        prompts=prompts,
+                        prompt=prompts,
                         max_tokens=max_tokens,
                         temperature=args.temperature,
                         stop="```"
