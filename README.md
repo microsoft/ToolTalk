@@ -1,10 +1,11 @@
 # ToolTalk :wrench: :speech_balloon:
 
+<p align="center">
+   <a href="arxiv" target="_blank">:page_facing_up: Paper</a> | <a href="mailto:tooltalk@service.microsoft.com" target="_blank">:e-mail: Contact</a>
+</p>
+
 Introducing ToolTalk a benchmark for evaluating Tool LLMs in a conversational setting.
 
-<p align="center">
-   <a href="arxiv" target=""_blank">Paper</a> | <a href="mailto:agentbench@googlegroups.com" target="_blank">Contact</a>
-</p>
 
 ## Benchmark
 
