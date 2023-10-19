@@ -43,7 +43,7 @@ Your results should look something like this, there will be some variance due to
 To generate new scenarios, you can use the following command.
 
 ```bash
-python -m tooltalk.generation.scenario_generator_v2.py
+python -m tooltalk.generation.scenario_generator --prompt src/prompts/scenario_template.md --output_dir output/scenarios
 ```
 
 ## Evaluating on new models
