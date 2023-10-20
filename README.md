@@ -1,19 +1,27 @@
-# ToolTalk :wrench: :speech_balloon:
+# :wrench: ToolTalk :speech_balloon:
 
 <p align="center">
-   <a href="arxiv" target="_blank">:page_facing_up: Paper</a> | <a href="mailto:tooltalk@service.microsoft.com" target="_blank">:e-mail: Contact</a>
+   <a href="arxiv" target="_blank">:page_facing_up: Paper</a> | <a href="mailto:tooltalk@service.microsoft.com" target="_blank">:mail: Contact</a>
 </p>
 
 Introducing ToolTalk a benchmark for evaluating Tool LLMs in a conversational setting.
 
-
-## Benchmark
+## Details
 
 <div align="center">
 	<img src="images/Evaluation.png" width=90% />
 </div>
 
-What does this benchmark do?
+ToolTalk is designed to evaluate tool-augmented LLMs as a chatbot,
+an increasingly popular paradigm for everyday users to harness the power of LLMs.
+ToolTalk contains a handcrafted dataset of 28 easy conversations and 50 hard conversations.
+We annotate these conversations to contain a ground truth usage of 28 unique tools belonging to 7 themed "plugins".
+
+Evaluation consists of prompting an LLM to predict the correct sequence of tools after every user utterance in a conversation.
+Thus, evaluating on a single conversation requires an LLM to correctly predict multiple sub-tasks.
+Predictions are compared against the ground truth to determine success for a single conversation.
+
+We evaluate two chatbots on ToolTalk powered by gpt-3.5-turbo-0613 and gpt-4-0613 implemented by using the chat completions API from OpenAI.
 
 | Model   | ToolTalk | Success rate | Precision | Recall | Incorrect Action Rate |
 |---------|----------|--------------|-----------|--------|-----------------------|
