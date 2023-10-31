@@ -1,3 +1,7 @@
+"""
+Copyright (c) Microsoft Corporation.
+Licensed under the MIT license.
+"""
 import copy
 from datetime import datetime
 from typing import Optional

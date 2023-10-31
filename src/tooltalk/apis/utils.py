@@ -1,3 +1,7 @@
+"""
+Copyright (c) Microsoft Corporation.
+Licensed under the MIT license.
+"""
 import re
 from functools import lru_cache
 from typing import List

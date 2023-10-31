@@ -1,4 +1,7 @@
 """
+Copyright (c) Microsoft Corporation.
+Licensed under the MIT license.
+
 Ensure tool documentation is complete
 """
 import inspect

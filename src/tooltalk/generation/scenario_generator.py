@@ -1,4 +1,7 @@
 """
+Copyright (c) Microsoft Corporation.
+Licensed under the MIT license.
+
 This script randomly samples API suites from API Bank and prompts GPT4 to generate queries that make use of at least
 one API from each sampled suite.
 """
