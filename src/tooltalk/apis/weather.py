@@ -1,3 +1,7 @@
+"""
+Copyright (c) Microsoft Corporation.
+Licensed under the MIT license.
+"""
 from abc import ABC
 from datetime import datetime, timedelta
 

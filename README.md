@@ -1,6 +1,34 @@
-# ToolTalk
+# :wrench: ToolTalk :speech_balloon:
 
-This is the repo for ToolTalk: Evaluating Tool Usage in a Conversation Setting.
+<p align="center">
+   <a href="arxiv" target="_blank">:page_facing_up: Paper</a> | <a href="mailto:tooltalk@service.microsoft.com" target="_blank">:mail: Contact</a>
+</p>
+
+Introducing ToolTalk a benchmark for evaluating Tool LLMs in a conversational setting.
+
+## Details
+
+<div align="center">
+	<img src="images/Evaluation.png" width=90% />
+</div>
+
+ToolTalk is designed to evaluate tool-augmented LLMs as a chatbot,
+an increasingly popular paradigm for everyday users to harness the power of LLMs.
+ToolTalk contains a handcrafted dataset of 28 easy conversations and 50 hard conversations.
+We annotate these conversations to contain a ground truth usage of 28 unique tools belonging to 7 themed "plugins".
+
+Evaluation consists of prompting an LLM to predict the correct sequence of tools after every user utterance in a conversation.
+Thus, evaluating on a single conversation requires an LLM to correctly predict multiple sub-tasks.
+Predictions are compared against the ground truth to determine success for a single conversation.
+
+We evaluate two chatbots on ToolTalk powered by gpt-3.5-turbo-0613 and gpt-4-0613 implemented by using the chat completions API from OpenAI.
+
+| Model   | ToolTalk | Success rate | Precision | Recall | Incorrect Action Rate |
+|---------|----------|--------------|-----------|--------|-----------------------|
+| GPT-3.5 | Easy     | 85.7%        | 42.4%     | 89.3%  | 5.0%                  |
+| GPT-4   | Easy     | 92.8%        | 69.2%     | 96.4%  | 3.8%                  |
+| GPT-3.5 | Hard     | 26.0%        | 54.6%     | 69.7%  | 23.9%                 |
+| GPT-4   | Hard     | 50.0%        | 74.9%     | 79.0%  | 25.1%                 |
 
 ## Setup
 
@@ -8,7 +36,7 @@ ToolTalk can be setup using the following commands. Install local package with d
 
 ```bash
 pip install -r requirements.txt
-pip install ".[dev]"
+pip install -e ".[dev]"
 ```
 
 To verify that the installation was successful, run the unit tests.
@@ -29,14 +57,7 @@ bash evaluate_gpt35turbo.sh
 bash evaluate_gpt4.sh
 ```
 
-Your results should look something like this, there will be some variance due to both models having non-deterministic results.
-
-| Model   | ToolTalk | Success rate | Precision | Recall | Incorrect Action Rate |
-|---------|----------|--------------|-----------|--------|-----------------------|
-| GPT-3.5 | Easy     | 85.7%        | 42.4%     | 89.3%  | 5.0%                  |
-| GPT-4   | Easy     | 92.8%        | 69.2%     | 96.4%  | 3.8%                  |
-| GPT-3.5 | Hard     | 26.0%        | 54.6%     | 69.7%  | 23.9%                 |
-| GPT-4   | Hard     | 50.0%        | 74.9%     | 79.0%  | 25.1%                 |
+Your results should look something like the number above, there will be some variance due to both models having non-deterministic results.
 
 ## Generating scenarios
 
@@ -60,7 +81,14 @@ For an example of how to do this, see `tooltalk.evaluation.tool_executor.GPT3Pre
 
 ## Citing
 
-If you use ToolTalk in your research, please cite the following paper:
+```
+@article{farn2023tooltalk,
+  title={ToolTalk: Evaluating Tool Usage in a Conversation Setting},
+  author={Nicholas Farn and Richard Shin},
+  year={2023},
+  journal={arXiv preprint arXiv:XXXX.XXXXX},
+}
+```
 
 ## Contributing
 
