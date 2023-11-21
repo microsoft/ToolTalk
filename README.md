@@ -72,21 +72,14 @@ python -m tooltalk.generation.scenario_generator --prompt src/prompts/scenario_t
 The easiest way to evaluate on new models would be to create a new `Predictor` class that inherits from `tooltalk.evaluation.tool_executor.BaseAPIPredictor`.
 For an example of how to do this, see `tooltalk.evaluation.tool_executor.GPT3Predictor` and `tooltalk.evaluation.evaluate_openai.OpenAIPredictor`.
 
-## TODO
-
-- [ ] Add link to paper
-- [ ] Release ToolTalk code
-- [ ] Evaluate on other models
-- [ ] Create more examples
-
 ## Citing
 
 ```
 @article{farn2023tooltalk,
-  title={ToolTalk: Evaluating Tool Usage in a Conversation Setting},
+  title={ToolTalk: Evaluating Tool-Usage in a Conversation Setting},
   author={Nicholas Farn and Richard Shin},
   year={2023},
-  journal={arXiv preprint arXiv:XXXX.XXXXX},
+  journal={arXiv preprint arXiv:2311.10775},
 }
 ```
 
