@@ -298,10 +298,6 @@ class ToolExecutor:
 
             # add predictions to original conversation object
             turn["predictions"] = predictions
-            ground_truth_history.append({
-                "role": "assistant",
-                "text": turn["text"]
-            })
             if "apis" in turn:
                 for api in turn["apis"]:
                     api_history.append(api)
@@ -311,6 +307,10 @@ class ToolExecutor:
                         "response": api["response"],
                         "exception": api["exception"]
                     })
+            ground_truth_history.append({
+                "role": "assistant",
+                "text": turn["text"]
+            })
 
         return conversation
 
