@@ -184,7 +184,7 @@ class QueryUser(AccountAPI):
         "users": {
             "type": "array",
             "item": {
-                "type": "dict",
+                "type": "object",
                 "description": "The account information of the user.",
                 "properties": {
                     'username': {'type': "string", 'description': 'The username of the user.'},
@@ -270,7 +270,7 @@ class RegisterUser(AccountAPI):
     }
     output = {
         "session_token": {'type': "string", 'description': 'The token of the user.'},
-        'user': {'type': 'dict', 'description': 'The account information of the user.'},
+        'user': {'type': 'object', 'description': 'The account information of the user.'},
     }
     database_name = ACCOUNT_DB_NAME
     is_action = True
