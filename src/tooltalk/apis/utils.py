@@ -4,7 +4,7 @@ Licensed under the MIT license.
 """
 import re
 from functools import lru_cache
-from typing import List
+from typing import Optional
 
 import numpy as np
 from sent2vec.vectorizer import Vectorizer
@@ -40,7 +40,7 @@ class _TextVectorizer:
 _vectorize_text: callable = None
 
 
-def semantic_str_compare(prediction_text: str, ground_truth_text: str) -> bool:
+def semantic_str_compare(prediction_text: Optional[str], ground_truth_text: str) -> bool:
     """
     Compares two strings semantically.
     """
@@ -49,7 +49,7 @@ def semantic_str_compare(prediction_text: str, ground_truth_text: str) -> bool:
         # initialize vectorizer only when needed
         _vectorize_text = _TextVectorizer()
 
-    prediction_vec = _vectorize_text(prediction_text)
+    prediction_vec = _vectorize_text(prediction_text or "")
     ground_truth_vec = _vectorize_text(ground_truth_text)
     cosine_similarity = np.dot(prediction_vec, ground_truth_vec) / (np.linalg.norm(prediction_vec) * np.linalg.norm(ground_truth_vec))
     return cosine_similarity
