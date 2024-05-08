@@ -99,13 +99,14 @@ class ToolExecutor:
                     "exception": "User is not logged in"
                 }
                 return request, response
-            elif api_name in [UserLogin.__name__, RegisterUser.__name__]:
-                response = {
-                    "response": None,
-                    "exception": "Only one user can be logged in at a time"
-                }
-                return request, response
             parameters["session_token"] = self.session_token
+        if api_name in [UserLogin.__name__, RegisterUser.__name__] and self.session_token is not None:
+            username = tool.check_session_token(self.session_token)["username"]
+            response = {
+                "response": None,
+                "exception": f"Only one user can be logged in at a time. Current user is {username}.",
+            }
+            return request, response
 
         # execute tool
         response = tool(**parameters)
