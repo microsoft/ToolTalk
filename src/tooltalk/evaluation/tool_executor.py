@@ -211,6 +211,7 @@ class ToolExecutor:
         action_precision = valid_action_count / action_count if action_count > 0 else 1
         bad_action_rate = bad_action_count / action_count if action_count > 0 else 0
         success = recall == 1.0 and bad_action_rate == 0.0
+        soft_success = recall * (1.0 - bad_action_rate)
         metrics = {
             "predictions": len(predictions),
             "ground_truths": len(ground_truths),
@@ -224,7 +225,8 @@ class ToolExecutor:
             # number of actions matching ground truth
             "bad_action_rate": bad_action_rate,
             # how often an action is bad aka successful but not matching ground truth
-            "success": success
+            "success": success,
+            "soft_success": soft_success,
         }
         conversation_with_predictions["metrics"] = metrics
         return conversation_with_predictions
