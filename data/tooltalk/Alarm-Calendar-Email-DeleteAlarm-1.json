@@ -3,16 +3,12 @@
     "conversation_id": "ea9c44d7-cc68-4474-8eeb-f753b2888af2",
     "suites_used": [
         "Alarm",
-        "Calendar",
-        "Email"
+        "Calendar"
     ],
     "apis_used": [
+        "DeleteAlarm",
         "AddAlarm",
-        "CreateEvent",
-        "DeleteEvent",
-        "QueryCalendar",
-        "SearchInbox",
-        "SendEmail"
+        "QueryCalendar"
     ],
     "scenario": "The user has a reminder on their calendar to buy a birthday gift for their friend at 3:00 PM (CreateEvent). The user sets an alarm for 2:30 PM to make sure they don't forget (AddAlarm). The user then queries their calendar for any other events happening today (QueryCalendar) and sees that they have a dentist appointment at 4:00 PM (CreateEvent). The user realizes that they don't have enough time to buy the gift and go to the dentist, so they decide to cancel the dentist appointment (DeleteEvent). The user then calls the dentist to reschedule and receives a confirmation email (SendEmail). The user searches their inbox for the email and adds the new appointment to their calendar (SearchInbox + CreateEvent).",
     "user": {
@@ -135,5 +131,18 @@
             "role": "user",
             "text": "Thanks!"
         }
+    ],
+    "intended_apis_used": [
+        "AddAlarm",
+        "CreateEvent",
+        "DeleteEvent",
+        "QueryCalendar",
+        "SearchInbox",
+        "SendEmail"
+    ],
+    "intended_suites_used": [
+        "Alarm",
+        "Calendar",
+        "Email"
     ]
 }

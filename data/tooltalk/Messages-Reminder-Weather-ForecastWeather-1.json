@@ -2,15 +2,14 @@
     "name": "Messages-Reminder-Weather-ForecastWeather-1",
     "conversation_id": "45ede01b-e809-4144-8762-29672c53dcc6",
     "suites_used": [
-        "Messages",
         "Reminder",
         "Weather"
     ],
     "apis_used": [
-        "SendMessage",
+        "CurrentWeather",
         "AddReminder",
         "DeleteReminder",
-        "CurrentWeather",
+        "GetReminders",
         "ForecastWeather"
     ],
     "scenario": "The user is a weather enthusiast and wants to compare the current weather of different cities around the world. They want to get the current weather of New York, London, Tokyo, and Sydney (CurrentWeather x 4). They want to save the results in a message to themselves (SendMessage). They want to set a reminder to check the weather again in 24 hours (AddReminder). They want to get the 3-day forecast weather of the same cities (ForecastWeather x 4). They want to delete the reminder they set earlier (DeleteReminder).",
@@ -240,5 +239,17 @@
                 }
             ]
         }
+    ],
+    "intended_apis_used": [
+        "SendMessage",
+        "AddReminder",
+        "DeleteReminder",
+        "CurrentWeather",
+        "ForecastWeather"
+    ],
+    "intended_suites_used": [
+        "Messages",
+        "Reminder",
+        "Weather"
     ]
 }

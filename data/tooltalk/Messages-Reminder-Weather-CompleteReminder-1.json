@@ -2,13 +2,12 @@
     "name": "Messages-Reminder-Weather-CompleteReminder-1",
     "conversation_id": "8ab3dafb-ef39-48d8-aae4-22fddab8d489",
     "suites_used": [
-        "Messages",
-        "Reminder",
-        "Weather"
+        "Reminder"
     ],
     "apis_used": [
-        "CompleteReminder",
-        "HistoricWeather"
+        "AddReminder",
+        "GetReminders",
+        "CompleteReminder"
     ],
     "scenario": "The user wants to complete a reminder to pay their rent. They want to see how much money they have left in their bank account (GetBalance). They see that they have enough to pay the rent, but not much more. They want to see if they can save some money by switching to a cheaper electricity plan (GetElectricityPlans). They see that there is a plan that offers a lower rate, but requires a 12-month contract. They want to see how the weather has changed in their area in the past year (HistoricWeather). They see that there have been more hot and cold days than usual, which means more electricity usage. They decide to stick with their current plan, which has no contract. They pay their rent online (PayRent). They complete the reminder to pay their rent (CompleteReminder).",
     "user": {
@@ -142,5 +141,14 @@
                 }
             ]
         }
+    ],
+    "intended_apis_used": [
+        "CompleteReminder",
+        "HistoricWeather"
+    ],
+    "intended_suites_used": [
+        "Messages",
+        "Reminder",
+        "Weather"
     ]
 }

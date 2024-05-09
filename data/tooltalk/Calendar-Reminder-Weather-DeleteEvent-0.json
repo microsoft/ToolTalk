@@ -3,16 +3,13 @@
     "conversation_id": "3594e114-eb95-4d4c-a368-98a18a7db1a9",
     "suites_used": [
         "Calendar",
-        "Reminder",
-        "Weather"
+        "Reminder"
     ],
     "apis_used": [
-        "CreateEvent",
+        "GetReminders",
         "DeleteEvent",
         "QueryCalendar",
-        "AddReminder",
-        "DeleteReminder",
-        "ForecastWeather"
+        "DeleteReminder"
     ],
     "scenario": "The user is planning a trip to Paris and wants to check the weather before booking their flights and hotels. They use ForecastWeather to get the 3-day forecast of Paris and see that it is sunny and mild. They then use CreateEvent to add a flight reservation event to their calendar, with the name, start_time, end_time, and location of the flight. They also use CreateEvent to add a hotel reservation event to their calendar, with the name, start_time, end_time, and location of the hotel. They then use AddReminder to create a reminder to pack their suitcase, with the task and due_date. They also use AddReminder to create a reminder to check in online, with the task and due_date. However, they later receive an email that their flight has been cancelled due to a strike. They use DeleteEvent to delete the flight reservation event from their calendar. They also use DeleteEvent to delete the hotel reservation event from their calendar. They then use DeleteReminder to delete the reminder to pack their suitcase. They also use DeleteReminder to delete the reminder to check in online. They then use QueryCalendar to see if they have any other events planned for the next week.",
     "user": {
@@ -158,5 +155,18 @@
                 }
             ]
         }
+    ],
+    "intended_apis_used": [
+        "CreateEvent",
+        "DeleteEvent",
+        "QueryCalendar",
+        "AddReminder",
+        "DeleteReminder",
+        "ForecastWeather"
+    ],
+    "intended_suites_used": [
+        "Calendar",
+        "Reminder",
+        "Weather"
     ]
 }

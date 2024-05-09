@@ -2,16 +2,14 @@
     "name": "Calendar-Reminder-Weather-CompleteReminder-1",
     "conversation_id": "90d1b411-80aa-467c-883b-a9e363912c05",
     "suites_used": [
-        "Calendar",
         "Reminder",
         "Weather"
     ],
     "apis_used": [
-        "CreateEvent",
-        "AddReminder",
-        "CompleteReminder",
         "CurrentWeather",
-        "HistoricWeather"
+        "GetReminders",
+        "CompleteReminder",
+        "AddReminder"
     ],
     "scenario": "The user has a reminder to buy a birthday gift for their friend by Monday (AddReminder). They want to see what the weather is like in their friend's city, so they can choose an appropriate gift (CurrentWeather). They see that the weather is cold and snowy, so they decide to buy a warm scarf and gloves. They create an event on their calendar to go to the mall on Saturday (CreateEvent). They also want to compare the weather in their friend's city to their own, so they use the HistoricWeather API to get the average temperature and precipitation for both locations in the past month (HistoricWeather). They see that their friend's city is much colder and wetter than theirs, so they feel good about their gift choice. They buy the gift on Saturday and complete the reminder (CompleteReminder).",
     "user": {
@@ -128,5 +126,17 @@
                 }
             ]
         }
+    ],
+    "intended_apis_used": [
+        "CreateEvent",
+        "AddReminder",
+        "CompleteReminder",
+        "CurrentWeather",
+        "HistoricWeather"
+    ],
+    "intended_suites_used": [
+        "Calendar",
+        "Reminder",
+        "Weather"
     ]
 }

@@ -2,15 +2,17 @@
     "name": "Messages-Reminder-Weather-SearchMessage-2",
     "conversation_id": "f5bccae7-ab75-4c20-a5a6-87aa456c36fe",
     "suites_used": [
-        "Messages",
+        "Email",
+        "AccountTools",
         "Reminder",
         "Weather"
     ],
     "apis_used": [
-        "SearchMessages",
-        "SendMessage",
-        "DeleteReminder",
-        "GetReminders",
+        "CurrentWeather",
+        "AddReminder",
+        "SearchInbox",
+        "SendEmail",
+        "GetAccountInformation",
         "HistoricWeather"
     ],
     "scenario": "The user wants to do some research on the weather patterns of New York for a school project. They use HistoricWeather to get the weather data of New York for the past month. They see that the data is incomplete and only has 10 records. They use SearchMessages to look for any messages from their teacher with the query \"weather\". They see that they have a message from two days ago that says they can use any online source for the data. They use SendMessage to thank their teacher and ask for some recommendations. They get a reply with a link to a website that has more data. They use GetReminders to see if they have any reminders for the project. They see that they have one with the task \"Submit weather project\" and the due_date set to next Monday. They use DeleteReminder to delete the reminder and create a new one with the same task and due_date, but with a note that says \"Use website for data\".",
@@ -191,5 +193,17 @@
                 }
             ]
         }
+    ],
+    "intended_apis_used": [
+        "SearchMessages",
+        "SendMessage",
+        "DeleteReminder",
+        "GetReminders",
+        "HistoricWeather"
+    ],
+    "intended_suites_used": [
+        "Messages",
+        "Reminder",
+        "Weather"
     ]
 }

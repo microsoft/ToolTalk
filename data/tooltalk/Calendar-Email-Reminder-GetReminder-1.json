@@ -7,12 +7,10 @@
         "Reminder"
     ],
     "apis_used": [
-        "CreateEvent",
-        "ModifyEvent",
-        "SearchInbox",
         "SendEmail",
+        "CreateEvent",
         "AddReminder",
-        "GetReminders"
+        "SearchInbox"
     ],
     "scenario": "The user wants to plan a trip to Hawaii with their family. They have a reminder to book the flights by the end of the week (GetReminders). They search their inbox for any emails from travel agencies or airlines that offer discounts or deals (SearchInbox). They find one email from a travel agency that has a package deal for flights and hotels. They reply to the email to inquire about the availability and price (SendEmail). They also create a new event on their calendar for the tentative dates of the trip (CreateEvent). They then add a new reminder to pack their bags two days before the trip (AddReminder). They also modify the reminder to book the flights to include the travel agency's contact information (ModifyEvent).",
     "user": {
@@ -155,5 +153,18 @@
                 }
             ]
         }
+    ],
+    "intended_apis_used": [
+        "CreateEvent",
+        "ModifyEvent",
+        "SearchInbox",
+        "SendEmail",
+        "AddReminder",
+        "GetReminders"
+    ],
+    "intended_suites_used": [
+        "Calendar",
+        "Email",
+        "Reminder"
     ]
 }

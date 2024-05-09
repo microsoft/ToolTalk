@@ -3,16 +3,12 @@
     "conversation_id": "e32a3a5c-ce4e-4ef6-9a95-fa8cf3bcfb21",
     "suites_used": [
         "Calendar",
-        "Reminder",
-        "Weather"
+        "Reminder"
     ],
     "apis_used": [
-        "ModifyEvent",
-        "QueryCalendar",
         "AddReminder",
-        "CompleteReminder",
-        "GetReminders",
-        "CurrentWeather"
+        "ModifyEvent",
+        "QueryCalendar"
     ],
     "scenario": "The user is a busy professional who has a lot of meetings and deadlines. They want to query their calendar for the next week to see their schedule (QueryCalendar). They see that they have a meeting with a client on Monday at 10 am, but they also have a reminder to finish a report by 11 am (GetReminders). They decide to reschedule the meeting to Tuesday at 9 am, so they modify the event on their calendar (ModifyEvent). They also want to check the weather for Monday to see if they need an umbrella (CurrentWeather). They see that it will be rainy, so they add a reminder to bring an umbrella (AddReminder). They also want to complete the reminder for the report, so they mark it as done (CompleteReminder).",
     "user": {
@@ -134,5 +130,18 @@
                 }
             ]
         }
+    ],
+    "intended_apis_used": [
+        "ModifyEvent",
+        "QueryCalendar",
+        "AddReminder",
+        "CompleteReminder",
+        "GetReminders",
+        "CurrentWeather"
+    ],
+    "intended_suites_used": [
+        "Calendar",
+        "Reminder",
+        "Weather"
     ]
 }

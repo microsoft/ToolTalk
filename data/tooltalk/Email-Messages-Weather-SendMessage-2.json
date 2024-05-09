@@ -2,15 +2,13 @@
     "name": "Email-Messages-Weather-SendMessage-2",
     "conversation_id": "41778a52-58b0-4ff1-aa42-e82eb8fe904b",
     "suites_used": [
-        "Email",
-        "Messages",
-        "Weather"
+        "Weather",
+        "Messages"
     ],
     "apis_used": [
         "SearchMessages",
         "SendMessage",
-        "ForecastWeather",
-        "HistoricWeather"
+        "ForecastWeather"
     ],
     "scenario": "The user wants to send a message to their online date to ask them out for a coffee. They want to impress them with their knowledge of the weather and suggest a nice place to meet. They want to check the historic weather of their date's location to see if there is a pattern or trend (HistoricWeather). They search for the weather of their date's location for the last 10 days (HistoricWeather). They find that the weather has been mostly sunny and warm. They also want to check the forecast weather of their date's location for the next 3 days to see if there is any chance of rain or snow (ForecastWeather). They find that the weather will be mostly cloudy and cool. They then search for messages from their date to see if they have mentioned any preferences or hobbies (SearchMessages). They search for messages with the sender \"date\" and the query \"coffee\" or \"hobby\" in the last week (SearchMessages). They find that their date likes coffee with almond milk and enjoys reading books. They then compose a message to their date with the weather information and a suggestion of a cozy cafe with a bookshelf (SendMessage).",
     "user": {
@@ -146,5 +144,16 @@
                 }
             ]
         }
+    ],
+    "intended_apis_used": [
+        "SearchMessages",
+        "SendMessage",
+        "ForecastWeather",
+        "HistoricWeather"
+    ],
+    "intended_suites_used": [
+        "Email",
+        "Messages",
+        "Weather"
     ]
 }

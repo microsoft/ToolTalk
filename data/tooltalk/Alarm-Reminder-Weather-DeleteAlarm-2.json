@@ -7,12 +7,9 @@
         "Weather"
     ],
     "apis_used": [
-        "AddAlarm",
-        "DeleteAlarm",
-        "AddReminder",
-        "CompleteReminder",
         "CurrentWeather",
-        "ForecastWeather"
+        "AddReminder",
+        "AddAlarm"
     ],
     "scenario": "The user is a freelancer who works from home. They set an alarm for 9:00 AM using AddAlarm. They also add a reminder to finish a project by noon using AddReminder. They check the current weather of their city using CurrentWeather and see that it is cloudy and windy. They decide to work indoors and add another reminder to order lunch using AddReminder. They wake up to the alarm and complete the first reminder using CompleteReminder. They check the forecast weather of their city using ForecastWeather and see that it will be sunny and warm in the afternoon. They decide to go for a walk after work and add another reminder to apply sunscreen using AddReminder. They delete the alarm using DeleteAlarm and start working on the project.",
     "user": {
@@ -124,5 +121,18 @@
                 }
             ]
         }
+    ],
+    "intended_apis_used": [
+        "AddAlarm",
+        "DeleteAlarm",
+        "AddReminder",
+        "CompleteReminder",
+        "CurrentWeather",
+        "ForecastWeather"
+    ],
+    "intended_suites_used": [
+        "Alarm",
+        "Reminder",
+        "Weather"
     ]
 }

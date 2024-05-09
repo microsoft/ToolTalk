@@ -3,15 +3,11 @@
     "conversation_id": "12b94bad-5896-4282-922b-c51604cd05ef",
     "suites_used": [
         "AccountTools",
-        "Calendar",
-        "Weather"
+        "Calendar"
     ],
     "apis_used": [
-        "QueryUser",
-        "RegisterUser",
         "CreateEvent",
-        "QueryCalendar",
-        "CurrentWeather"
+        "RegisterUser"
     ],
     "scenario": "The user wants to register a new account and create a meeting event with another user. They use RegisterUser to sign up with their username, password, email, name, and phone. They receive a session_token and their account information. They then use QueryUser to search for the username of the other user they want to invite to the meeting. They find the user and use CreateEvent to create a meeting event with the name, description, start_time, end_time, and attendees. They receive an event_id on success. They then use QueryCalendar to check their calendar for any conflicts or overlaps with the new event. They see that there are no conflicts and use CurrentWeather to check the weather of the location where the meeting is to be held. They see that it is sunny and warm.",
     "user": {
@@ -243,5 +239,17 @@
             "role": "assistant",
             "text": "No problem. Have a great day!"
         }
+    ],
+    "intended_apis_used": [
+        "QueryUser",
+        "RegisterUser",
+        "CreateEvent",
+        "QueryCalendar",
+        "CurrentWeather"
+    ],
+    "intended_suites_used": [
+        "AccountTools",
+        "Calendar",
+        "Weather"
     ]
 }

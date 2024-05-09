@@ -2,14 +2,11 @@
     "name": "Calendar-Messages-Reminder-QueryCalendar-2",
     "conversation_id": "9a054cc8-a79e-4f1c-8495-56f1c75357ae",
     "suites_used": [
-        "Calendar",
-        "Messages",
-        "Reminder"
+        "Calendar"
     ],
     "apis_used": [
         "ModifyEvent",
-        "QueryCalendar",
-        "SendMessage"
+        "QueryCalendar"
     ],
     "scenario": "The user wants to modify an event they created earlier to accommodate a new attendee. They query their calendar to find the event id of the event they want to modify (QueryCalendar). They then modify the event by adding the new attendee to the list of attendees and changing the location to a larger venue (ModifyEvent). They also send a message to the original attendees of the event to notify them of the changes and introduce the new attendee (SendMessage). They then query their calendar again to see if the modified event conflicts with any other events or reminders they have (QueryCalendar). They find that they have a reminder for a task that is due on the same day as the event. They decide to postpone the task and change the due date of the reminder (ModifyReminder).",
     "user": {
@@ -95,5 +92,15 @@
                 }
             ]
         }
+    ],
+    "intended_apis_used": [
+        "ModifyEvent",
+        "QueryCalendar",
+        "SendMessage"
+    ],
+    "intended_suites_used": [
+        "Calendar",
+        "Messages",
+        "Reminder"
     ]
 }

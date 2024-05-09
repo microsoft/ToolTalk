@@ -4,14 +4,15 @@
     "suites_used": [
         "Alarm",
         "Calendar",
-        "Email"
+        "AccountTools"
     ],
     "apis_used": [
+        "QueryCalendar",
+        "CreateEvent",
         "AddAlarm",
         "FindAlarms",
-        "QueryCalendar",
-        "SearchInbox",
-        "SendEmail"
+        "RegisterUser",
+        "DeleteAccount"
     ],
     "scenario": "The user wants to create a new account. However, they want to keep any events (no meetings) occurring for the next month. They also want to keep any alarms. The user wants uses (QueryCalendar) to see what events are occurring next month. They then recreate the events for their new account and deletes their old account (DeleteAccount).",
     "user": {
@@ -230,5 +231,17 @@
             "role": "user",
             "text": "Fantastic, you're an efficient worker. I'm good for now."
         }
+    ],
+    "intended_apis_used": [
+        "AddAlarm",
+        "FindAlarms",
+        "QueryCalendar",
+        "SearchInbox",
+        "SendEmail"
+    ],
+    "intended_suites_used": [
+        "Alarm",
+        "Calendar",
+        "Email"
     ]
 }

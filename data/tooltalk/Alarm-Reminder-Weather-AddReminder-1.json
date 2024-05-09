@@ -2,15 +2,12 @@
     "name": "Alarm-Reminder-Weather-AddReminder-1",
     "conversation_id": "1e1ad400-b86b-4e7c-9809-0351c22d4b6d",
     "suites_used": [
-        "Alarm",
         "Reminder",
         "Weather"
     ],
     "apis_used": [
-        "AddReminder",
-        "CompleteReminder",
-        "GetReminders",
         "CurrentWeather",
+        "AddReminder",
         "HistoricWeather"
     ],
     "scenario": "The user wants to set a reminder to pay their electricity bill before the due date. They also want to compare the current weather and the historic weather of their location to see if they are using more or less electricity than usual. They use the AddReminder API to create a reminder with the task \"Pay electricity bill\" and the due date \"2021-12-15 23:59:59\". They then use the CurrentWeather API to get the current weather of their location. They see that the temperature is 15 degrees Celsius and the humidity is 60%. They then use the HistoricWeather API to get the weather data of their location for the same date last year. They see that the temperature was 10 degrees Celsius and the humidity was 40%. They conclude that they are using more electricity this year because of the higher temperature and humidity. They then use the GetReminders API to get a list of all their reminders. They see that they have another reminder to pay their rent on the same day. They use the CompleteReminder API to mark that reminder as done, since they have already paid their rent online.",
@@ -118,5 +115,17 @@
                 }
             ]
         }
+    ],
+    "intended_apis_used": [
+        "AddReminder",
+        "CompleteReminder",
+        "GetReminders",
+        "CurrentWeather",
+        "HistoricWeather"
+    ],
+    "intended_suites_used": [
+        "Alarm",
+        "Reminder",
+        "Weather"
     ]
 }

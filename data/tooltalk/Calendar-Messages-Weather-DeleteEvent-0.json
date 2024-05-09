@@ -3,15 +3,12 @@
     "conversation_id": "259cb6f6-e8a8-4edc-a1ea-6e4dcd2d6335",
     "suites_used": [
         "Calendar",
-        "Messages",
-        "Weather"
+        "Messages"
     ],
     "apis_used": [
-        "DeleteEvent",
-        "QueryCalendar",
-        "SearchMessages",
         "SendMessage",
-        "CurrentWeather"
+        "DeleteEvent",
+        "QueryCalendar"
     ],
     "scenario": "The user wants to cancel a meeting with a client due to a personal emergency. They first check their calendar for the event details (QueryCalendar). They then delete the event from their calendar (DeleteEvent). They also send a message to the client explaining the situation and apologizing for the inconvenience (SendMessage). They then search for any previous messages from the client to see if they have any alternative contacts or preferences (SearchMessages). They also check the weather of the client's location to see if there are any adverse conditions that might affect their rescheduling (CurrentWeather).",
     "user": {
@@ -108,5 +105,17 @@
                 }
             ]
         }
+    ],
+    "intended_apis_used": [
+        "DeleteEvent",
+        "QueryCalendar",
+        "SearchMessages",
+        "SendMessage",
+        "CurrentWeather"
+    ],
+    "intended_suites_used": [
+        "Calendar",
+        "Messages",
+        "Weather"
     ]
 }

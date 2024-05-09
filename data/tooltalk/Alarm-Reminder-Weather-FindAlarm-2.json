@@ -2,17 +2,11 @@
     "name": "Alarm-Reminder-Weather-FindAlarm-2",
     "conversation_id": "1941f3b6-2ce7-431a-ba30-b1e5b5d0019d",
     "suites_used": [
-        "Alarm",
         "Reminder",
         "Weather"
     ],
     "apis_used": [
-        "AddAlarm",
-        "DeleteAlarm",
-        "FindAlarms",
         "AddReminder",
-        "CompleteReminder",
-        "GetReminders",
         "ForecastWeather"
     ],
     "scenario": "The user wants to do some gardening on a sunny day. They want to get the weather forecast for the next three days (ForecastWeather) and choose the best day to do it. They want to set a reminder to buy some seeds and fertilizer (AddReminder). They also want to set an alarm for the morning of the chosen day (AddAlarm). They want to check their existing reminders (GetReminders) and complete any that are related to gardening (CompleteReminder). They want to delete any alarms that are not needed for the chosen day (FindAlarms + DeleteAlarm).",
@@ -114,5 +108,19 @@
                 }
             ]
         }
+    ],
+    "intended_apis_used": [
+        "AddAlarm",
+        "DeleteAlarm",
+        "FindAlarms",
+        "AddReminder",
+        "CompleteReminder",
+        "GetReminders",
+        "ForecastWeather"
+    ],
+    "intended_suites_used": [
+        "Alarm",
+        "Reminder",
+        "Weather"
     ]
 }

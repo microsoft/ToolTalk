@@ -3,15 +3,12 @@
     "conversation_id": "5077c89c-8134-4562-bd5f-805fa9678c33",
     "suites_used": [
         "Calendar",
-        "Reminder",
-        "Weather"
+        "Email"
     ],
     "apis_used": [
+        "SendEmail",
         "ModifyEvent",
-        "QueryCalendar",
-        "AddReminder",
-        "CurrentWeather",
-        "ForecastWeather"
+        "QueryCalendar"
     ],
     "scenario": "The user wants to plan a trip to Paris with their friends. They want to check their calendar for any events that might conflict with their travel dates (QueryCalendar). They find that they have a meeting on the first day of their trip, so they decide to modify the event to a later date (ModifyEvent). They also want to create a reminder to book their flight tickets (AddReminder). They then want to see the weather forecast for Paris to decide what to pack (ForecastWeather). They also want to compare the current weather in Paris with their home city (CurrentWeather + CurrentWeather).",
     "user": {
@@ -183,5 +180,17 @@
                 }
             ]
         }
+    ],
+    "intended_apis_used": [
+        "ModifyEvent",
+        "QueryCalendar",
+        "AddReminder",
+        "CurrentWeather",
+        "ForecastWeather"
+    ],
+    "intended_suites_used": [
+        "Calendar",
+        "Reminder",
+        "Weather"
     ]
 }

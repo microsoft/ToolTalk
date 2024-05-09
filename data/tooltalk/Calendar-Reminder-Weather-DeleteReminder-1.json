@@ -3,15 +3,13 @@
     "conversation_id": "cf1b6080-50b2-41fd-be5f-e9adfbdc2a65",
     "suites_used": [
         "Calendar",
-        "Reminder",
-        "Weather"
+        "Reminder"
     ],
     "apis_used": [
+        "GetReminders",
         "CreateEvent",
-        "ModifyEvent",
-        "AddReminder",
         "DeleteReminder",
-        "ForecastWeather"
+        "AddReminder"
     ],
     "scenario": "The user is planning a trip to Paris next week. They want to create an event for their flight departure and arrival (CreateEvent). They also want to create a reminder to pack their passport and other essentials (AddReminder). They want to see the weather forecast for Paris to decide what clothes to bring (ForecastWeather). They see that it will be sunny and warm, so they want to modify their reminder to include sunscreen and sunglasses (ModifyEvent). They also want to delete the reminder for their dentist appointment that they had scheduled for the same week (DeleteReminder).",
     "user": {
@@ -143,5 +141,17 @@
                 }
             ]
         }
+    ],
+    "intended_apis_used": [
+        "CreateEvent",
+        "ModifyEvent",
+        "AddReminder",
+        "DeleteReminder",
+        "ForecastWeather"
+    ],
+    "intended_suites_used": [
+        "Calendar",
+        "Reminder",
+        "Weather"
     ]
 }

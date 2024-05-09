@@ -4,10 +4,14 @@
     "suites_used": [
         "Alarm",
         "Calendar",
+        "Email",
         "Messages"
     ],
     "apis_used": [
-        "AddAlarm"
+        "SendMessage",
+        "CreateEvent",
+        "AddAlarm",
+        "SearchInbox"
     ],
     "scenario": "The user wants to set an alarm for a flight they have to catch at 6:00 PM. They use AddAlarm to create an alarm for 4:00 PM. They also use CreateEvent to add the flight details to their calendar, with the name, description, start_time, end_time, and location. They then use SearchMessages to look for the confirmation email from the airline, with the query \"flight\", sender \"airline@example.com\", and start_date and end_date as today's date. They find the email and check the flight number, boarding time, and gate number. They also use SendMessage to send a message to their friend who is picking them up at the destination, with the message containing their flight information and arrival time.",
     "user": {
@@ -165,5 +169,13 @@
             "role": "user",
             "text": "Thanks!"
         }
+    ],
+    "intended_apis_used": [
+        "AddAlarm"
+    ],
+    "intended_suites_used": [
+        "Alarm",
+        "Calendar",
+        "Messages"
     ]
 }

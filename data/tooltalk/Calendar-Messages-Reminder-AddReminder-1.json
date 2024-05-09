@@ -2,16 +2,13 @@
     "name": "Calendar-Messages-Reminder-AddReminder-1",
     "conversation_id": "35b5029c-e42d-429a-b0cc-d0be8a73ef87",
     "suites_used": [
-        "Calendar",
-        "Messages",
         "Reminder"
     ],
     "apis_used": [
-        "QueryCalendar",
-        "SendMessage",
-        "AddReminder",
+        "GetReminders",
         "CompleteReminder",
-        "GetReminders"
+        "DeleteReminder",
+        "AddReminder"
     ],
     "scenario": "The user wants to check their calendar for any upcoming events and reminders. They first query their calendar for the events that occur in the next week (QueryCalendar). They then get a list of their reminders that are due in the next week (GetReminders). They see that they have a reminder to pay their rent by the end of the month, and they decide to do it right away (CompleteReminder). They also see that they have an event for a birthday party on the weekend, and they want to buy a gift for the host. They add a reminder to order a gift online by Friday (AddReminder). They then send a message to the host to RSVP and ask for their address (SendMessage).",
     "user": {
@@ -184,5 +181,17 @@
                 }
             ]
         }
+    ],
+    "intended_apis_used": [
+        "QueryCalendar",
+        "SendMessage",
+        "AddReminder",
+        "CompleteReminder",
+        "GetReminders"
+    ],
+    "intended_suites_used": [
+        "Calendar",
+        "Messages",
+        "Reminder"
     ]
 }
