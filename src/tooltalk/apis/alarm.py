@@ -31,7 +31,7 @@ class AddAlarm(API):
         }
     }
     output = {
-        'alarm_id': {'type': 'string', 'description': '8 digit alarm ID.'}
+        'alarm_id': {'type': 'string', 'description': 'Alarm ID. Format: xxxx-xxxx.'}
     }
 
     database_name = ALARM_DB_NAME
@@ -80,7 +80,7 @@ class DeleteAlarm(API):
     parameters = {
         'alarm_id': {
             'type': 'string',
-            'description': "8 digit alarm ID.",
+            'description': "Alarm ID. Format: xxxx-xxxx.",
             "required": True
         }
     }
@@ -98,7 +98,7 @@ class DeleteAlarm(API):
 
         Args:
             session_token: User's session_token. Handled by ToolExecutor.
-            alarm_id: 8 digit alarm ID.
+            alarm_id: Format: xxxx-xxxx.
         """
         user_info = self.check_session_token(session_token)
         username = user_info['username']
@@ -130,7 +130,7 @@ class FindAlarms(API):
             "item": {
                 "type": "object",
                 "properties": {
-                    "alarm_id": {"type": "string", "description": "8 digit alarm ID."},
+                    "alarm_id": {"type": "string", "description": "Alarm ID. Format: xxxx-xxxx."},
                     "time": {"type": "string", "description": "The time of alarm clock. Format: %H:%M:%S."}
                 }
             },
