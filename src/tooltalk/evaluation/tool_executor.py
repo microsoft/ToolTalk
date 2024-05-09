@@ -131,7 +131,7 @@ class ToolExecutor:
             return False
         return self.apis[api_name].is_action
 
-    def evaluate_predictions(self, conversation_with_predictions: dict) -> List[bool]:
+    def evaluate_predictions(self, conversation_with_predictions: dict) -> dict:
         """
         Compare predictions in a conversation with complete ground truth in conversation returning metrics.
         Calculates recall over ground truth, where predictions can only match to function in ground truth once.
@@ -279,6 +279,7 @@ class ToolExecutor:
                 elif prediction["role"] == "api":
                     # execute api call
                     if prediction["request"]["parameters"] is None:
+                        request = prediction["request"]
                         response = {
                             "response": None,
                             "exception": "Failed to parse API call"
