@@ -11,7 +11,7 @@ from collections import deque
 from abc import ABC, abstractmethod
 
 from tooltalk.apis import ALL_APIS
-from tooltalk.apis.account import ACCOUNT_DB_NAME, UserLogin, LogoutUser, RegisterUser
+from tooltalk.apis.account import ACCOUNT_DB_NAME, DeleteAccount, UserLogin, LogoutUser, RegisterUser
 from tooltalk.utils.file_utils import get_names_and_paths
 
 logger = logging.getLogger(__name__)
@@ -114,7 +114,7 @@ class ToolExecutor:
         # capture session_token and simulate login and logout
         if api_name in [UserLogin.__name__, RegisterUser.__name__] and response["exception"] is None:
             self.session_token = response["response"]["session_token"]
-        elif api_name == LogoutUser.__name__ and response["exception"] is None:
+        elif api_name in [LogoutUser.__name__, DeleteAccount.__name__] and response["exception"] is None:
             self.session_token = None
         return request, response
 
