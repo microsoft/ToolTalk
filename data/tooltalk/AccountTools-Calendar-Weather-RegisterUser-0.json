@@ -239,17 +239,5 @@
             "role": "assistant",
             "text": "No problem. Have a great day!"
         }
-    ],
-    "intended_apis_used": [
-        "QueryUser",
-        "RegisterUser",
-        "CreateEvent",
-        "QueryCalendar",
-        "CurrentWeather"
-    ],
-    "intended_suites_used": [
-        "AccountTools",
-        "Calendar",
-        "Weather"
     ]
 }

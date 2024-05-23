@@ -172,17 +172,5 @@
                 }
             ]
         }
-    ],
-    "intended_apis_used": [
-        "CreateEvent",
-        "ModifyEvent",
-        "QueryCalendar",
-        "SearchMessages",
-        "SendMessage"
-    ],
-    "intended_suites_used": [
-        "Calendar",
-        "Messages",
-        "Weather"
     ]
 }

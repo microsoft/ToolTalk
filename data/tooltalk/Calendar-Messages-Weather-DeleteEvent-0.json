@@ -105,17 +105,5 @@
                 }
             ]
         }
-    ],
-    "intended_apis_used": [
-        "DeleteEvent",
-        "QueryCalendar",
-        "SearchMessages",
-        "SendMessage",
-        "CurrentWeather"
-    ],
-    "intended_suites_used": [
-        "Calendar",
-        "Messages",
-        "Weather"
     ]
 }

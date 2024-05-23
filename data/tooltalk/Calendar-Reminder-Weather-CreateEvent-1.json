@@ -173,15 +173,5 @@
                 }
             ]
         }
-    ],
-    "intended_apis_used": [
-        "CreateEvent",
-        "AddReminder",
-        "CurrentWeather"
-    ],
-    "intended_suites_used": [
-        "Calendar",
-        "Reminder",
-        "Weather"
     ]
 }

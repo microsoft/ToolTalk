@@ -141,17 +141,5 @@
                 }
             ]
         }
-    ],
-    "intended_apis_used": [
-        "ModifyEvent",
-        "QueryCalendar",
-        "SendEmail",
-        "AddReminder",
-        "CompleteReminder"
-    ],
-    "intended_suites_used": [
-        "Calendar",
-        "Email",
-        "Reminder"
     ]
 }

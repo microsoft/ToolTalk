@@ -153,17 +153,5 @@
                 }
             ]
         }
-    ],
-    "intended_apis_used": [
-        "CreateEvent",
-        "SearchMessages",
-        "SendMessage",
-        "CurrentWeather",
-        "ForecastWeather"
-    ],
-    "intended_suites_used": [
-        "Calendar",
-        "Messages",
-        "Weather"
     ]
 }

@@ -186,18 +186,5 @@
             "role": "user",
             "text": "No, that's all. Thanks!"
         }
-    ],
-    "intended_apis_used": [
-        "GetAccountInformation",
-        "UserLogin",
-        "AddAlarm",
-        "DeleteAlarm",
-        "FindAlarms",
-        "SendMessage"
-    ],
-    "intended_suites_used": [
-        "AccountTools",
-        "Alarm",
-        "Messages"
     ]
 }

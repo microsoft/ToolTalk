@@ -179,16 +179,5 @@
                 }
             ]
         }
-    ],
-    "intended_apis_used": [
-        "SearchInbox",
-        "SendEmail",
-        "CompleteReminder",
-        "GetReminders"
-    ],
-    "intended_suites_used": [
-        "Email",
-        "Reminder",
-        "Weather"
     ]
 }

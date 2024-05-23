@@ -165,18 +165,5 @@
                 }
             ]
         }
-    ],
-    "intended_apis_used": [
-        "ChangePassword",
-        "GetAccountInformation",
-        "LogoutUser",
-        "UpdateAccountInformation",
-        "UserLogin",
-        "SendEmail"
-    ],
-    "intended_suites_used": [
-        "AccountTools",
-        "Alarm",
-        "Email"
     ]
 }

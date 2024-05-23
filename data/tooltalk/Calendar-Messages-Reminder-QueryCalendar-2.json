@@ -92,15 +92,5 @@
                 }
             ]
         }
-    ],
-    "intended_apis_used": [
-        "ModifyEvent",
-        "QueryCalendar",
-        "SendMessage"
-    ],
-    "intended_suites_used": [
-        "Calendar",
-        "Messages",
-        "Reminder"
     ]
 }

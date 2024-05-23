@@ -181,17 +181,5 @@
                 }
             ]
         }
-    ],
-    "intended_apis_used": [
-        "QueryCalendar",
-        "SendMessage",
-        "AddReminder",
-        "CompleteReminder",
-        "GetReminders"
-    ],
-    "intended_suites_used": [
-        "Calendar",
-        "Messages",
-        "Reminder"
     ]
 }

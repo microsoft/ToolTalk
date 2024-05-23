@@ -169,13 +169,5 @@
             "role": "user",
             "text": "Thanks!"
         }
-    ],
-    "intended_apis_used": [
-        "AddAlarm"
-    ],
-    "intended_suites_used": [
-        "Alarm",
-        "Calendar",
-        "Messages"
     ]
 }

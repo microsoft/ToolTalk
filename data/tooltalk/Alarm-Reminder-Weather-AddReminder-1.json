@@ -115,17 +115,5 @@
                 }
             ]
         }
-    ],
-    "intended_apis_used": [
-        "AddReminder",
-        "CompleteReminder",
-        "GetReminders",
-        "CurrentWeather",
-        "HistoricWeather"
-    ],
-    "intended_suites_used": [
-        "Alarm",
-        "Reminder",
-        "Weather"
     ]
 }

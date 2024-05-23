@@ -147,17 +147,5 @@
             "role": "user",
             "text": "No, that's all. Thanks for your help."
         }
-    ],
-    "intended_apis_used": [
-        "DeleteAccount",
-        "QueryUser",
-        "SendVerificationCode",
-        "UpdateAccountInformation",
-        "UserLogin"
-    ],
-    "intended_suites_used": [
-        "AccountTools",
-        "Alarm",
-        "Weather"
     ]
 }

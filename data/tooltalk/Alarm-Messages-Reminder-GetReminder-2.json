@@ -133,17 +133,5 @@
                 }
             ]
         }
-    ],
-    "intended_apis_used": [
-        "AddAlarm",
-        "SearchMessages",
-        "SendMessage",
-        "CompleteReminder",
-        "GetReminders"
-    ],
-    "intended_suites_used": [
-        "Alarm",
-        "Messages",
-        "Reminder"
     ]
 }

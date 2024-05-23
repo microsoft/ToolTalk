@@ -239,17 +239,5 @@
                 }
             ]
         }
-    ],
-    "intended_apis_used": [
-        "SendMessage",
-        "AddReminder",
-        "DeleteReminder",
-        "CurrentWeather",
-        "ForecastWeather"
-    ],
-    "intended_suites_used": [
-        "Messages",
-        "Reminder",
-        "Weather"
     ]
 }

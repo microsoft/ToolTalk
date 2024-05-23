@@ -193,17 +193,5 @@
             "role": "user",
             "text": "Thanks"
         }
-    ],
-    "intended_apis_used": [
-        "SearchMessages",
-        "SendMessage",
-        "GetReminders",
-        "CurrentWeather",
-        "ForecastWeather"
-    ],
-    "intended_suites_used": [
-        "Messages",
-        "Reminder",
-        "Weather"
     ]
 }

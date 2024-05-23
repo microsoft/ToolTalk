@@ -155,18 +155,5 @@
                 }
             ]
         }
-    ],
-    "intended_apis_used": [
-        "CreateEvent",
-        "DeleteEvent",
-        "QueryCalendar",
-        "AddReminder",
-        "DeleteReminder",
-        "ForecastWeather"
-    ],
-    "intended_suites_used": [
-        "Calendar",
-        "Reminder",
-        "Weather"
     ]
 }

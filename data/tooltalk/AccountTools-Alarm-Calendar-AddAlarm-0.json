@@ -117,17 +117,5 @@
             "role": "user",
             "text": "Thanks, that's all for now."
         }
-    ],
-    "intended_apis_used": [
-        "LogoutUser",
-        "RegisterUser",
-        "AddAlarm",
-        "CreateEvent",
-        "QueryCalendar"
-    ],
-    "intended_suites_used": [
-        "AccountTools",
-        "Alarm",
-        "Calendar"
     ]
 }

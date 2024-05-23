@@ -303,17 +303,5 @@
             "role": "user",
             "text": "No that seems good. Thanks!"
         }
-    ],
-    "intended_apis_used": [
-        "AddAlarm",
-        "FindAlarms",
-        "QueryCalendar",
-        "SearchInbox",
-        "SendEmail"
-    ],
-    "intended_suites_used": [
-        "Alarm",
-        "Calendar",
-        "Email"
     ]
 }

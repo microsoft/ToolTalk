@@ -126,19 +126,5 @@
                 }
             ]
         }
-    ],
-    "intended_apis_used": [
-        "SearchInbox",
-        "SendEmail",
-        "SearchMessages",
-        "SendMessage",
-        "AddReminder",
-        "DeleteReminder",
-        "GetReminders"
-    ],
-    "intended_suites_used": [
-        "Email",
-        "Messages",
-        "Reminder"
     ]
 }

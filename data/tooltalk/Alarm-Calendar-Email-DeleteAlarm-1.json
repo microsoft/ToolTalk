@@ -131,18 +131,5 @@
             "role": "user",
             "text": "Thanks!"
         }
-    ],
-    "intended_apis_used": [
-        "AddAlarm",
-        "CreateEvent",
-        "DeleteEvent",
-        "QueryCalendar",
-        "SearchInbox",
-        "SendEmail"
-    ],
-    "intended_suites_used": [
-        "Alarm",
-        "Calendar",
-        "Email"
     ]
 }

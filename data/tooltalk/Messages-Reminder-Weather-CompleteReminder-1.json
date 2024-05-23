@@ -141,14 +141,5 @@
                 }
             ]
         }
-    ],
-    "intended_apis_used": [
-        "CompleteReminder",
-        "HistoricWeather"
-    ],
-    "intended_suites_used": [
-        "Messages",
-        "Reminder",
-        "Weather"
     ]
 }

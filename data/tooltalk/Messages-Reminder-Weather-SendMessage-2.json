@@ -100,17 +100,5 @@
             "role": "user",
             "text": "Thanks"
         }
-    ],
-    "intended_apis_used": [
-        "SendMessage",
-        "AddReminder",
-        "CurrentWeather",
-        "ForecastWeather",
-        "HistoricWeather"
-    ],
-    "intended_suites_used": [
-        "Messages",
-        "Reminder",
-        "Weather"
     ]
 }
