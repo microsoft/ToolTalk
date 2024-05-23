@@ -34,10 +34,7 @@ def main():
         apis_used = list(set(apis_used))
         if set(conversation["apis_used"]) != set(apis_used):
             print(f"Fixing {fn}:", conversation["apis_used"], "=>", apis_used)
-            conversation["intended_apis_used"] = conversation["apis_used"]
             conversation["apis_used"] = apis_used
-            
-            conversation["intended_suites_used"] = conversation["suites_used"]
             conversation["suites_used"] = list(set(
                 api_name_to_suite_name(api_name) for api_name in apis_used
             ))
