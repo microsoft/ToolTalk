@@ -3,14 +3,12 @@
     "conversation_id": "d18f4ea6-bb25-4ebc-a0b9-1e0162894f72",
     "suites_used": [
         "Calendar",
-        "Messages",
-        "Weather"
+        "Weather",
+        "Messages"
     ],
     "apis_used": [
         "CreateEvent",
-        "SearchMessages",
         "SendMessage",
-        "CurrentWeather",
         "ForecastWeather"
     ],
     "scenario": "The user wants to plan a trip with their friends to a ski resort. They first check the current weather of the resort using CurrentWeather. They see that it is snowing and the temperature is below freezing. They then check the forecast for the next 3 days using ForecastWeather. They see that the snow will continue and the temperature will remain low. They decide that it is a good time to go skiing and create an event on their calendar using CreateEvent. They set the event type to 'event', the name to 'Ski Trip', the description to 'A fun weekend at the ski resort', the start time to '2021-01-15 08:00:00', the end time to '2021-01-17 18:00:00', and the location to 'Snowy Mountain Resort'. They then invite their friends to the event by adding their usernames to the attendees parameter. They also send a message to their friends using SendMessage to let them know about the event and ask them to confirm their attendance. They wait for their friends to reply and check their messages using SearchMessages with the query 'Ski Trip' and the sender as their username.",

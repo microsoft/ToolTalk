@@ -2,16 +2,14 @@
     "name": "Messages-Reminder-Weather-SendMessage-2",
     "conversation_id": "d29f91e2-fca5-427c-847c-a33a826e20be",
     "suites_used": [
-        "Messages",
         "Reminder",
-        "Weather"
+        "Weather",
+        "Messages"
     ],
     "apis_used": [
-        "SendMessage",
-        "AddReminder",
         "CurrentWeather",
-        "ForecastWeather",
-        "HistoricWeather"
+        "AddReminder",
+        "SendMessage"
     ],
     "scenario": "The user wants to send a message to their family about their vacation. They first use the HistoricWeather API to get the weather information of the location they visited for the past week. They see that it was mostly rainy and cold. They then use the CurrentWeather API to get the weather information of their current location, which is a different city. They see that it is sunny and warm. They then use the ForecastWeather API to get the weather information of their destination, which is their home city. They see that it is cloudy and mild. They then use the SendMessage API to send their family a message with their weather comparison and some photos of their trip. They also tell their family their flight details and their expected arrival time. They use the AddReminder API to create a reminder to check in with their family when they land.",
     "user": {

@@ -2,16 +2,15 @@
     "name": "Calendar-Email-Reminder-SendEmail-2",
     "conversation_id": "c32379dc-2bb9-4eab-8b07-5471932ba605",
     "suites_used": [
+        "AccountTools",
         "Calendar",
-        "Email",
-        "Reminder"
+        "Email"
     ],
     "apis_used": [
-        "ModifyEvent",
-        "QueryCalendar",
         "SendEmail",
-        "AddReminder",
-        "CompleteReminder"
+        "ModifyEvent",
+        "QueryUser",
+        "QueryCalendar"
     ],
     "scenario": "The user wants to modify an existing event with the name \"Birthday party\", the type \"event\", the description \"Celebrate my birthday with friends and family\", the start time \"2021-01-16 18:00:00\", the end time \"2021-01-16 22:00:00\", and the location \"My house\" (QueryCalendar). They decide to change the start time to \"2021-01-16 19:00:00\", the end time to \"2021-01-16 23:00:00\", and the location to \"The restaurant\" (ModifyEvent). They then send an email to the attendees with the subject \"Event update\", the body \"Hi, I have made some changes to the event details for my birthday party. Please see the new information below and let me know if you can still make it.\", and the to addresses \"user@domain.com\", \"friend1@domain.com\", \"friend2@domain.com\", and \"family@domain.com\" (SendEmail). They then add a reminder with the task \"Make reservation at the restaurant\" and the due date \"2021-01-15 12:00:00\" (AddReminder). They then complete the reminder with the reminder_id returned from the previous call (CompleteReminder).",
     "user": {

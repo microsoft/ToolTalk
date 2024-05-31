@@ -3,14 +3,15 @@
     "conversation_id": "c135a231-484f-4e82-937e-d4853cb13eef",
     "suites_used": [
         "Email",
-        "Reminder",
-        "Weather"
+        "AccountTools",
+        "Reminder"
     ],
     "apis_used": [
-        "SearchInbox",
-        "SendEmail",
         "CompleteReminder",
-        "GetReminders"
+        "SearchInbox",
+        "GetReminders",
+        "SendEmail",
+        "QueryUser"
     ],
     "scenario": "The user wants to check their reminders for the day (GetReminders). They see that they have a reminder to send an email to their boss with a report attached (SendEmail). They search their inbox for the report that was sent to them by a colleague (SearchInbox). They find the email and download the attachment. They compose the email to their boss and send it (SendEmail). They then mark the reminder as complete (CompleteReminder).",
     "user": {

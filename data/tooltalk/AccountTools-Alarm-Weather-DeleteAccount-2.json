@@ -2,16 +2,13 @@
     "name": "AccountTools-Alarm-Weather-DeleteAccount-2",
     "conversation_id": "01874a95-d7de-48bc-b7a9-ffb1e26aa130",
     "suites_used": [
-        "AccountTools",
-        "Alarm",
-        "Weather"
+        "AccountTools"
     ],
     "apis_used": [
+        "UserLogin",
         "DeleteAccount",
-        "QueryUser",
-        "SendVerificationCode",
-        "UpdateAccountInformation",
-        "UserLogin"
+        "ResetPassword",
+        "SendVerificationCode"
     ],
     "scenario": "The user wants to delete their account because they forgot their password and cannot access it. They first try to reset their password by providing their username and email to the SendVerificationCode API. They receive a verification code in their email, but they realize that they also forgot their email password. They give up on resetting their password and decide to delete their account instead. They use the QueryUser API to find their account information using their username. They see that they have an alternative phone number registered with their account. They call the phone number and ask the person who answers to help them delete their account. The person agrees and logs in with their own username and password (UserLogin). They then use the UpdateAccountInformation API to change the email and phone number of the user's account to their own. They then use the DeleteAccount API to delete the user's account by providing the session token and password. They receive a confirmation message that the account has been deleted successfully.",
     "user": {

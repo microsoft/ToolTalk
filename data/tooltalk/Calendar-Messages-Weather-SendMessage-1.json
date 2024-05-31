@@ -3,14 +3,11 @@
     "conversation_id": "068dbfba-0b2b-42b2-835e-f068a3e545ca",
     "suites_used": [
         "Calendar",
-        "Messages",
-        "Weather"
+        "Messages"
     ],
     "apis_used": [
         "CreateEvent",
         "ModifyEvent",
-        "QueryCalendar",
-        "SearchMessages",
         "SendMessage"
     ],
     "scenario": "The user is a manager of a team and needs to schedule a meeting with their employees. They first query their calendar using QueryCalendar to see their availability for the next week. They provide the start_time as '2021-01-11 00:00:00' and the end_time as '2021-01-17 23:59:59'. They see that they have no events on Wednesday from 10:00 to 11:00. They then create an event using CreateEvent with the event type as 'meeting', the name as 'Weekly Update', the description as 'Discuss the progress and challenges of the current project', the start_time as '2021-01-13 10:00:00', the end_time as '2021-01-13 11:00:00', and the location as 'Zoom'. They then add their employees' usernames to the attendees parameter. They also send a message to their employees using SendMessage to remind them of the meeting and ask them to prepare their reports. They receive a message from one of their employees using SearchMessages with the sender as the employee's username. The employee informs them that they have a conflict and requests to reschedule the meeting. The user agrees and modifies the event using ModifyEvent. They change the start_time to '2021-01-13 14:00:00' and the end_time to '2021-01-13 15:00:00'. They also send a message to their employees using SendMessage to notify them of the change and apologize for the inconvenience.",

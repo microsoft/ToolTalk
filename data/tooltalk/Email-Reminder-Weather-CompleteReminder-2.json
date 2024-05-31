@@ -3,14 +3,16 @@
     "conversation_id": "f91e4a9d-7a72-4512-889c-5586378e1138",
     "suites_used": [
         "Email",
+        "AccountTools",
         "Reminder",
         "Weather"
     ],
     "apis_used": [
-        "SearchInbox",
-        "SendEmail",
-        "AddReminder",
+        "CurrentWeather",
         "CompleteReminder",
+        "GetReminders",
+        "SendEmail",
+        "QueryUser",
         "HistoricWeather"
     ],
     "scenario": "The user has a reminder to write a blog post about the weather trends in their city (AddReminder). They use the HistoricWeather API to get the weather data for the past month (HistoricWeather). They analyze the data and write the blog post. They then search their inbox for any emails from their editor or readers (SearchInbox). They reply to any relevant emails and ask for feedback on their post (SendEmail). They complete the reminder (CompleteReminder).",

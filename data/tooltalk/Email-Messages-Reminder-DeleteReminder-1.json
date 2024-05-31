@@ -3,17 +3,13 @@
     "conversation_id": "25921b06-9668-4be7-b28c-d8432db6103b",
     "suites_used": [
         "Email",
-        "Messages",
         "Reminder"
     ],
     "apis_used": [
-        "SearchInbox",
+        "GetReminders",
         "SendEmail",
-        "SearchMessages",
-        "SendMessage",
-        "AddReminder",
         "DeleteReminder",
-        "GetReminders"
+        "AddReminder"
     ],
     "scenario": "The user wants to delete a reminder for a task that they have postponed to a later date. They first log in to the app and get a session_token. They then use the GetReminders API to see all their reminders. They find the reminder_id of the task they want to delete and use the DeleteReminder API to remove it. They then use the AddReminder API to create a new reminder for the same task, but with a different due_date. They then use the SearchInbox API to look for any emails from the task assigner, using the assigner's email address as the sender parameter and the task name as the query. They open the most recent email and use the SendEmail API to inform the assigner that they have postponed the task and updated the reminder. They then use the SearchMessages API to look for any messages from the assigner, using the assigner's username as the sender parameter and the task name as the query. They open the most recent message and use the SendMessage API to send an apology message that they have postponed the task and updated the reminder.",
     "user": {

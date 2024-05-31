@@ -3,15 +3,12 @@
     "conversation_id": "bd463e6e-8fc7-43ac-95ce-e620ec3e013d",
     "suites_used": [
         "Email",
-        "Messages",
         "Reminder"
     ],
     "apis_used": [
-        "SearchInbox",
+        "GetReminders",
         "SendEmail",
-        "CompleteReminder",
-        "DeleteReminder",
-        "GetReminders"
+        "DeleteReminder"
     ],
     "scenario": "The user wants to delete some old emails and reminders that are no longer relevant. They search their inbox (SearchInbox) for emails older than a year using the query \"*\" and the end_date \"2019-10-01 00:00:00\". They select all the emails and delete them. They then search their reminders (GetReminders) for reminders that are past due. They find several reminders that they have already completed or cancelled. They delete each reminder (DeleteReminder) using the reminder_id. They then send an email (SendEmail) to their personal account with the subject \"Backup\" and the body \"Hi user, this is a backup of your important emails and reminders. Please keep it safe. Regards, user\". They attach a file containing the emails and reminders that they want to keep. They then complete the reminder (CompleteReminder) with the task \"Backup emails and reminders\" using the reminder_id. They then log out of their account.",
     "user": {

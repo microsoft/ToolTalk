@@ -2,17 +2,14 @@
     "name": "AccountTools-Alarm-Messages-FindAlarm-0",
     "conversation_id": "2527d668-fc2f-461d-8bb9-53ec3274c8ba",
     "suites_used": [
-        "AccountTools",
         "Alarm",
-        "Messages"
+        "AccountTools"
     ],
     "apis_used": [
-        "GetAccountInformation",
         "UserLogin",
         "AddAlarm",
         "DeleteAlarm",
-        "FindAlarms",
-        "SendMessage"
+        "FindAlarms"
     ],
     "scenario": "The user wants to set an alarm for 8:00 am to catch a flight. They use UserLogin to log in to the app. They use FindAlarms to check if they already have an alarm set for that time. They see that they have an alarm set for 7:30 am, but they want to change it. They use DeleteAlarm to remove the old alarm. They use AddAlarm to set a new alarm for 8:00 am..",
     "user": {

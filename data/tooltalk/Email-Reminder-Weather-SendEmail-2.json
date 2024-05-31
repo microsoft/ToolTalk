@@ -3,15 +3,13 @@
     "conversation_id": "3dac15e3-932a-4251-adf7-40220fa50eb1",
     "suites_used": [
         "Email",
-        "Reminder",
-        "Weather"
+        "Reminder"
     ],
     "apis_used": [
-        "SendEmail",
-        "AddReminder",
-        "CompleteReminder",
         "GetReminders",
-        "HistoricWeather"
+        "CompleteReminder",
+        "SendEmail",
+        "SearchInbox"
     ],
     "scenario": "The user wants to send an email to their colleague with some feedback on their presentation (SendEmail). They first watch the presentation video and take some notes. They then write an email with their feedback and suggestions. They also want to add a reminder to follow up with their colleague in a week (AddReminder). They then send the email (SendEmail). They then want to see if they have any other pending tasks, so they get a list of their reminders (GetReminders). They see that they have a reminder to complete a survey that is due today. They click on the link in the reminder and complete the survey. They then mark the reminder as complete (CompleteReminder). They also want to see how the weather has changed since they started working from home, so they query the historic weather data for the past month (HistoricWeather).",
     "user": {

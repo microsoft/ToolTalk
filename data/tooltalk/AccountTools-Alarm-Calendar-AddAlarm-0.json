@@ -2,16 +2,14 @@
     "name": "AccountTools-Alarm-Calendar-AddAlarm-0",
     "conversation_id": "de6eb33d-0ea2-468e-bd84-ebf4ea3827c8",
     "suites_used": [
-        "AccountTools",
         "Alarm",
-        "Calendar"
+        "Calendar",
+        "AccountTools"
     ],
     "apis_used": [
-        "LogoutUser",
-        "RegisterUser",
-        "AddAlarm",
         "CreateEvent",
-        "QueryCalendar"
+        "AddAlarm",
+        "RegisterUser"
     ],
     "scenario": "The user wants to create a new account and set an alarm for an important meeting the next day. They use RegisterUser to sign up with their username, password, email, name, and phone. They receive a session_token and their account information. They use CreateEvent to add the meeting to their calendar, providing the name, event_type, description, start_time, end_time, location, and attendees. They receive an event_id on success. They use AddAlarm to set an alarm for 30 minutes before the meeting, providing their session_token and the time. They receive an alarm_id on success. They use QueryCalendar to check their schedule for the next day, providing their session_token, start_time, and end_time. They receive a list of events in the time range. They use LogoutUser to log out of their account, providing their session_token. They receive a status of success or failed.",
     "user": {

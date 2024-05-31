@@ -2,17 +2,11 @@
     "name": "Email-Messages-Reminder-SendMessage-2",
     "conversation_id": "251a792c-c843-4a69-86b2-8161542b6987",
     "suites_used": [
-        "Email",
-        "Messages",
-        "Reminder"
+        "Messages"
     ],
     "apis_used": [
-        "SearchInbox",
-        "SendEmail",
         "SearchMessages",
-        "SendMessage",
-        "AddReminder",
-        "CompleteReminder"
+        "SendMessage"
     ],
     "scenario": "The user wants to send a message to their crush to ask them out. They first search their messages for any messages from their crush that contain the word \"like\" (SearchMessages). They find a message where their crush says they like the same movie as the user. They decide to use that as a conversation starter and send a message asking their crush if they want to watch the movie together (SendMessage). They then add a reminder to check their crush's reply in an hour (AddReminder). They then search their inbox for any emails from their crush that contain the word \"date\" (SearchInbox). They find an email where their crush invites them to a group date with some mutual friends. They reply with a yes and ask for the details (SendEmail). They then complete the reminder for checking their crush's reply (CompleteReminder). They see that their crush has agreed to watch the movie with them and send a message with a happy emoji (SendMessage).",
     "user": {

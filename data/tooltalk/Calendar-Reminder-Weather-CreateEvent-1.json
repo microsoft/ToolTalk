@@ -7,9 +7,11 @@
         "Weather"
     ],
     "apis_used": [
-        "CreateEvent",
         "AddReminder",
-        "CurrentWeather"
+        "CompleteReminder",
+        "GetReminders",
+        "CreateEvent",
+        "ForecastWeather"
     ],
     "scenario": "The user wants to create a reminder event for their anniversary with their partner. They first use the CurrentWeather API with their partner's location to get the current weather of their partner's city (CurrentWeather). They see that it is raining and cold there, so they decide to send them a warm and cozy gift. They then create a reminder event with the name \"Anniversary\", the event type as \"reminder\", the description as \"Send gift to partner\", and the start time and end time as the same date and time, which is one week before their anniversary (CreateEvent). They also want to book a flight and a hotel for their anniversary trip, which they plan to take two weeks after their anniversary. They use a third-party API to search for flights and hotels based on their destination, budget, and preferences (SearchFlightsAndHotels). They find a suitable flight and hotel and book them using another third-party API (BookFlightAndHotel). They then create two more events on their calendar, one for the flight departure and arrival, and one for the hotel check-in and check-out, with the corresponding names, event types, descriptions, start times, end times, and locations (CreateEvent x 2). They also want to set a reminder for themselves to pack their bags and print their tickets. They add a reminder with the task \"Pack and print\" and the due date as one day before their flight (AddReminder).",
     "user": {

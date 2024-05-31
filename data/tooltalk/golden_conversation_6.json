@@ -2,16 +2,13 @@
     "name": "golden_conversation_6",
     "conversation_id": "6",
     "suites_used": [
-        "Alarm",
-        "Calendar",
-        "Email"
+        "AccountTools",
+        "Messages"
     ],
     "apis_used": [
-        "AddAlarm",
-        "FindAlarms",
-        "QueryCalendar",
-        "SearchInbox",
-        "SendEmail"
+        "SendMessage",
+        "RegisterUser",
+        "QueryUser"
     ],
     "scenario": "The user creates a new account then wants to see if their friends have accounts as well. They have their email address, so they use (QueryUser) to look up their username and send them a message (SendMesage).",
     "user": {

@@ -3,15 +3,12 @@
     "conversation_id": "912ddbc2-663b-4fbd-ac9c-e54d572bdfac",
     "suites_used": [
         "Alarm",
-        "Messages",
         "Reminder"
     ],
     "apis_used": [
-        "AddAlarm",
-        "SearchMessages",
-        "SendMessage",
+        "GetReminders",
         "CompleteReminder",
-        "GetReminders"
+        "AddAlarm"
     ],
     "scenario": "The user wants to study for an exam and has a reminder to review the notes and practice the exercises (GetReminders). They see that the reminder has a due date of tomorrow, which is the day of the exam. They decide to complete the reminder today and mark it as done (CompleteReminder). They then use a note-taking app to access their notes and a quiz app to practice the exercises. They spend two hours studying and then take a break. They send a message to their study group to ask how they are doing and share some tips (SendMessage). They also search for messages from their instructor to see if there are any updates or clarifications on the exam (SearchMessages). They then set an alarm for the next morning to wake up early and review the notes one more time (AddAlarm).",
     "user": {

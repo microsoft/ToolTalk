@@ -3,16 +3,14 @@
     "conversation_id": "c9c87c8a-4d76-4df2-ae6b-c9c336e72ec2",
     "suites_used": [
         "AccountTools",
-        "Alarm",
         "Email"
     ],
     "apis_used": [
-        "ChangePassword",
-        "GetAccountInformation",
-        "LogoutUser",
+        "SendEmail",
         "UpdateAccountInformation",
-        "UserLogin",
-        "SendEmail"
+        "LogoutUser",
+        "GetAccountInformation",
+        "UserLogin"
     ],
     "scenario": "The user wants to log in to their account and check their account information (UserLogin + GetAccountInformation). They notice that their email and phone number are outdated, so they decide to update them (UpdateAccountInformation). They also want to change their password to a more secure one (ChangePassword). They then want to send an email to their friend to let them know about their new contact details (SendEmail). They log out of their account after finishing their tasks (LogoutUser).",
     "user": {

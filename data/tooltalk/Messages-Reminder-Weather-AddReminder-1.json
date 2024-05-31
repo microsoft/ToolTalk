@@ -2,15 +2,12 @@
     "name": "Messages-Reminder-Weather-AddReminder-1",
     "conversation_id": "a2b446cd-055b-4173-9f4c-8b61dcab7b63",
     "suites_used": [
-        "Messages",
-        "Reminder",
-        "Weather"
+        "Reminder"
     ],
     "apis_used": [
         "AddReminder",
-        "DeleteReminder",
         "GetReminders",
-        "ForecastWeather"
+        "DeleteReminder"
     ],
     "scenario": "The user wants to organize their tasks for the week. They want to add a reminder to finish their project report by Friday (AddReminder). They also want to add a reminder to call their mom on her birthday on Wednesday (AddReminder). They want to get a list of their reminders to see what else they need to do (GetReminders). They realize they have already completed one of their reminders, so they want to delete it (DeleteReminder). They also want to check the weather for the weekend to see if they can go hiking (ForecastWeather).",
     "user": {

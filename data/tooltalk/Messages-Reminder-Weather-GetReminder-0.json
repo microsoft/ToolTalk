@@ -2,15 +2,16 @@
     "name": "Messages-Reminder-Weather-GetReminder-0",
     "conversation_id": "606698d5-ea90-42a3-beed-50f23f629800",
     "suites_used": [
-        "Messages",
+        "Alarm",
         "Reminder",
-        "Weather"
+        "Weather",
+        "Messages"
     ],
     "apis_used": [
-        "SearchMessages",
-        "SendMessage",
-        "GetReminders",
         "CurrentWeather",
+        "GetReminders",
+        "SendMessage",
+        "AddAlarm",
         "ForecastWeather"
     ],
     "scenario": "The user wants to check their reminders for the day (GetReminders). They see that they have a reminder to call their friend Bob, who lives in New York, at 3 pm. They want to know what the weather is like in New York, so they can make some small talk (CurrentWeather). They also want to know if the weather will change in the next few days, so they can suggest some activities for Bob to do (ForecastWeather). They decide to send a message to Bob to confirm the call and mention the weather (SendMessage). They also want to search for any previous messages from Bob that mentioned the weather, to see if he likes it or not (SearchMessages).",

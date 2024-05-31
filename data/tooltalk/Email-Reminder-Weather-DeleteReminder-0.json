@@ -3,16 +3,13 @@
     "conversation_id": "dff87b01-d181-4323-9955-655bc991ac4e",
     "suites_used": [
         "Email",
-        "Reminder",
-        "Weather"
+        "Reminder"
     ],
     "apis_used": [
-        "SearchInbox",
-        "SendEmail",
-        "AddReminder",
-        "DeleteReminder",
         "GetReminders",
-        "CurrentWeather"
+        "DeleteReminder",
+        "AddReminder",
+        "SearchInbox"
     ],
     "scenario": "The user wants to delete a reminder for a meeting that has been cancelled. They first want to check their inbox for any emails related to the meeting (SearchInbox). They find one email from the organizer confirming the cancellation and another email from a colleague asking for some feedback on a report (SearchInbox). They reply to the organizer with a polite message (SendEmail) and open the report attachment from the colleague. They decide to add a new reminder to review the report later (AddReminder). They then go to their list of reminders (GetReminders) and find the reminder for the cancelled meeting. They delete the reminder (DeleteReminder) and check the current weather (CurrentWeather) to see if they can go for a walk.",
     "user": {

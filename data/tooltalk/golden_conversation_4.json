@@ -2,16 +2,11 @@
     "name": "golden_conversation_4",
     "conversation_id": "4",
     "suites_used": [
-        "Alarm",
-        "Calendar",
-        "Email"
+        "Calendar"
     ],
     "apis_used": [
-        "AddAlarm",
-        "FindAlarms",
-        "QueryCalendar",
-        "SearchInbox",
-        "SendEmail"
+        "CreateEvent",
+        "QueryCalendar"
     ],
     "scenario": "The user wants uses (QueryCalendar) to see what events occurred last week. They then copy their meetings for next week using (CreateEvent).",
     "user": {
