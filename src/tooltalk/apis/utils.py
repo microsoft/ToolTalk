@@ -4,7 +4,7 @@ Licensed under the MIT license.
 """
 import re
 from functools import lru_cache
-from typing import List
+from typing import Optional
 
 import numpy as np
 from sent2vec.vectorizer import Vectorizer
@@ -40,10 +40,13 @@ class _TextVectorizer:
 _vectorize_text: callable = None
 
 
-def semantic_str_compare(prediction_text: str, ground_truth_text: str) -> bool:
+def semantic_str_compare(prediction_text: Optional[str], ground_truth_text: str) -> float:
     """
     Compares two strings semantically.
     """
+    if prediction_text is None:
+        return 0.0
+
     global _vectorize_text
     if _vectorize_text is None:
         # initialize vectorizer only when needed
